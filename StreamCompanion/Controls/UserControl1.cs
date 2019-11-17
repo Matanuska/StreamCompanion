@@ -41,7 +41,7 @@ namespace StreamCompanion.Controls
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            label7.Text = DateTime.UtcNow.ToString();
+            label7.Text = DateTime.UtcNow.ToString("HH:mm:ss");
             radioButton1.Checked = true;
             panel2.Location = panel1.Location;
         }

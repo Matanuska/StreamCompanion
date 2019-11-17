@@ -129,16 +129,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(0, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Culture :";
+            this.label2.Text = "Time format :";
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(55, 5);
+            this.comboBox2.Location = new System.Drawing.Point(74, 5);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(326, 21);
+            this.comboBox2.Size = new System.Drawing.Size(307, 21);
             this.comboBox2.TabIndex = 5;
             // 
             // panel2
@@ -255,7 +255,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(106, 134);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(315, 23);
+            this.label7.Size = new System.Drawing.Size(170, 23);
             this.label7.TabIndex = 13;
             // 
             // checkBox1
