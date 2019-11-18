@@ -52,6 +52,7 @@
     <Compile Include="Controls\UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICommuniquant.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

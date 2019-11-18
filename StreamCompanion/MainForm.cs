@@ -41,5 +41,27 @@ namespace StreamCompanion
         {
             Application.Exit();
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = true;
+            tabControl1.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            tabControl1.Visible = true;
+        }
     }
 }
