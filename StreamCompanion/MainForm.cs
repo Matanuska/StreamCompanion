@@ -17,40 +17,12 @@ namespace StreamCompanion
             InitializeComponent();
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel1_Click_1(object sender, EventArgs e)
-        {
-            
-        }
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {

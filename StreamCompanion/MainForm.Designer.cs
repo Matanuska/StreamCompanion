@@ -69,8 +69,7 @@
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.ShowItemToolTips = false;
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            this.toolStrip1.ShowItemToolTips = false;            
             // 
             // toolStripDropDownButton1
             // 
