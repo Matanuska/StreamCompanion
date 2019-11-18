@@ -1,6 +1,6 @@
 ﻿namespace StreamCompanion.Controls
 {
-    partial class UserControl1
+    partial class TimeUserControl
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -71,7 +71,7 @@
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "TimeZone :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // comboBox1
             // 

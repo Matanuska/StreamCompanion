@@ -1,19 +1,39 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using StreamCompanion.Interfaces;
 
 namespace StreamCompanion.Controls
 {
-    public partial class UserControl1 : UserControl, ICommuniquant
+    [ComplexBindingProperties("DataSource")]
+    public partial class TimeUserControl : UserControl, ICommuniquant
     {
-        public UserControl1()
+        public TimeUserControl()
         {
             InitializeComponent();
+
+            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private object MyDataSource;
 
+        [Browsable(true)]
+        [TypeConverter("System.Windows.Forms.Design.DataSourceConverter")]
+        [System.ComponentModel.Bindable(true)]
+        public object DataSource
+        {
+            get
+            {
+                return MyDataSource;
+            }
+            set
+            {
+                if (MyDataSource != value)
+                {
+                    MyDataSource = value;
+                    textBox1.DataBindings.Add(new Binding("Text", MyDataSource, "CustomerName"));
+                }
+            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

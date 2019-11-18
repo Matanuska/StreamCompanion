@@ -15,6 +15,11 @@ namespace StreamCompanion
         public MainForm()
         {
             InitializeComponent();
+
+
+           
+            
+        
         }
 
 
@@ -34,6 +39,27 @@ namespace StreamCompanion
         {
             settingsPanel.Visible = false;
             tabControl1.Visible = true;
+        }
+        Classes.SimpleTime st;
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            st = new Classes.SimpleTime();
+
+            st.CustomerName = "155";
+            timeUserControl1.DataSource = st;
+
+            st.PropertyChanged += St_PropertyChanged;
+        }
+
+
+        private void St_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            st.CustomerName = "lll";
         }
     }
 }
