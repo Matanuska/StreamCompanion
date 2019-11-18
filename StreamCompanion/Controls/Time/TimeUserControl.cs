@@ -31,7 +31,7 @@ namespace StreamCompanion.Controls
                 if (MyDataSource != value)
                 {
                     MyDataSource = value;
-                    textBox1.DataBindings.Add(new Binding("Text", MyDataSource, "CustomerName"));
+                    textBox1.DataBindings.Add(new Binding("Text", MyDataSource, "CustomerName",false,DataSourceUpdateMode.OnPropertyChanged));
                 }
             }
         }
@@ -68,6 +68,11 @@ namespace StreamCompanion.Controls
         private void groupBox1_Enter(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

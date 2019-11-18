@@ -71,7 +71,6 @@
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "TimeZone :";
-            
             // 
             // comboBox1
             // 
@@ -314,6 +313,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(560, 20);
             this.textBox1.TabIndex = 10;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -328,12 +328,12 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // UserControl1
+            // TimeUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "UserControl1";
+            this.Name = "TimeUserControl";
             this.Size = new System.Drawing.Size(742, 234);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.panel1.ResumeLayout(false);

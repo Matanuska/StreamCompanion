@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace StreamCompanion
 {
     public partial class MainForm : Form
@@ -41,25 +42,28 @@ namespace StreamCompanion
             tabControl1.Visible = true;
         }
         Classes.SimpleTime st;
+        List<Classes.SimpleTime> l = new List<Classes.SimpleTime>();
         private void MainForm_Load(object sender, EventArgs e)
         {
             st = new Classes.SimpleTime();
 
-            st.CustomerName = "155";
+            
             timeUserControl1.DataSource = st;
 
             st.PropertyChanged += St_PropertyChanged;
+            st.CustomerName = "155";
+            l.Add(st);
         }
 
 
         private void St_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            throw new NotImplementedException();
+           label1.Text = sender.GetType().GetProperty(e.PropertyName).GetValue(sender).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            st.CustomerName = "lll";
+            st.CustomerName = "test";
         }
     }
 }
