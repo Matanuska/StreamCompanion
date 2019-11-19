@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.timeUserControl1 = new StreamCompanion.Controls.TimeUserControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -39,15 +41,12 @@
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.timeUserControl1 = new StreamCompanion.Controls.TimeUserControl();
-            this.timeUserControl2 = new StreamCompanion.Controls.TimeUserControl();
             this.clockTimer1 = new StreamCompanion.Classes.ClockTimer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -64,6 +63,20 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Controls.Add(this.timeUserControl1);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
+            // timeUserControl1
+            // 
+            this.timeUserControl1.DataSource = null;
+            resources.ApplyResources(this.timeUserControl1, "timeUserControl1");
+            this.timeUserControl1.Name = "timeUserControl1";
+            this.timeUserControl1.TimeZone = null;
+            this.timeUserControl1.Load += new System.EventHandler(this.timeUserControl1_Load);
             // 
             // tabPage2
             // 
@@ -123,28 +136,6 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.timeUserControl1);
-            this.flowLayoutPanel1.Controls.Add(this.timeUserControl2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // timeUserControl1
-            // 
-            this.timeUserControl1.DataSource = null;
-            resources.ApplyResources(this.timeUserControl1, "timeUserControl1");
-            this.timeUserControl1.Name = "timeUserControl1";
-            this.timeUserControl1.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("timeUserControl1.TimeZone")));
-            this.timeUserControl1.Load += new System.EventHandler(this.timeUserControl1_Load);
-            // 
-            // timeUserControl2
-            // 
-            this.timeUserControl2.DataSource = null;
-            resources.ApplyResources(this.timeUserControl2, "timeUserControl2");
-            this.timeUserControl2.Name = "timeUserControl2";
-            this.timeUserControl2.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("timeUserControl2.TimeZone")));
-            // 
             // clockTimer1
             // 
             this.clockTimer1.Enabled = true;
@@ -164,10 +155,10 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,6 +179,5 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Classes.ClockTimer clockTimer1;
         private Controls.TimeUserControl timeUserControl1;
-        private Controls.TimeUserControl timeUserControl2;
     }
 }

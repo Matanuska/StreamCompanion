@@ -33,14 +33,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblOutputFile = new System.Windows.Forms.Label();
+            this.lblMqttTopic = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblSerialPort = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.OutputResult = new System.Windows.Forms.Label();
             this.lblOutputResult = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -54,7 +54,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.lstTimezones = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTimezone = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -68,14 +68,14 @@
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.lblOutputFile);
+            this.groupBox1.Controls.Add(this.lblMqttTopic);
             this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lblSerialPort);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.OutputResult);
             this.groupBox1.Controls.Add(this.lblOutputResult);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textOutputFile);
@@ -84,7 +84,7 @@
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.lstTimezones);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblTimezone);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -94,7 +94,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(691, 88);
+            this.button4.Location = new System.Drawing.Point(674, 89);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(32, 23);
             this.button4.TabIndex = 21;
@@ -103,7 +103,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(691, 57);
+            this.button3.Location = new System.Drawing.Point(674, 58);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(32, 23);
             this.button3.TabIndex = 20;
@@ -112,50 +112,50 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(523, 88);
+            this.textBox3.Location = new System.Drawing.Point(506, 89);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(162, 20);
             this.textBox3.TabIndex = 19;
             // 
-            // label4
+            // lblOutputFile
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(270, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Output file :";
+            this.lblOutputFile.AutoSize = true;
+            this.lblOutputFile.Location = new System.Drawing.Point(223, 134);
+            this.lblOutputFile.Name = "lblOutputFile";
+            this.lblOutputFile.Size = new System.Drawing.Size(61, 13);
+            this.lblOutputFile.TabIndex = 9;
+            this.lblOutputFile.Text = "Output file :";
             // 
-            // label9
+            // lblMqttTopic
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(435, 91);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "MQTT Topic :";
+            this.lblMqttTopic.AutoSize = true;
+            this.lblMqttTopic.Location = new System.Drawing.Point(418, 92);
+            this.lblMqttTopic.Name = "lblMqttTopic";
+            this.lblMqttTopic.Size = new System.Drawing.Size(74, 13);
+            this.lblMqttTopic.TabIndex = 18;
+            this.lblMqttTopic.Text = "MQTT Topic :";
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(523, 57);
+            this.comboBox3.Location = new System.Drawing.Point(506, 58);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(162, 21);
             this.comboBox3.TabIndex = 17;
             // 
-            // label8
+            // lblSerialPort
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(435, 59);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Serial shortkey :";
+            this.lblSerialPort.AutoSize = true;
+            this.lblSerialPort.Location = new System.Drawing.Point(418, 60);
+            this.lblSerialPort.Name = "lblSerialPort";
+            this.lblSerialPort.Size = new System.Drawing.Size(60, 13);
+            this.lblSerialPort.TabIndex = 16;
+            this.lblSerialPort.Text = "Serial port :";
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(523, 28);
+            this.checkBox2.Location = new System.Drawing.Point(506, 29);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(99, 17);
             this.checkBox2.TabIndex = 15;
@@ -165,30 +165,30 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(438, 27);
+            this.checkBox1.Location = new System.Drawing.Point(421, 28);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(65, 17);
             this.checkBox1.TabIndex = 14;
             this.checkBox1.Text = "Enabled";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // OutputResult
+            // 
+            this.OutputResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.OutputResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputResult.Location = new System.Drawing.Point(94, 129);
+            this.OutputResult.Name = "OutputResult";
+            this.OutputResult.Size = new System.Drawing.Size(109, 23);
+            this.OutputResult.TabIndex = 13;
+            // 
             // lblOutputResult
             // 
-            this.lblOutputResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblOutputResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutputResult.Location = new System.Drawing.Point(94, 129);
+            this.lblOutputResult.AutoSize = true;
+            this.lblOutputResult.Location = new System.Drawing.Point(6, 134);
             this.lblOutputResult.Name = "lblOutputResult";
-            this.lblOutputResult.Size = new System.Drawing.Size(170, 23);
-            this.lblOutputResult.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Output result :";
+            this.lblOutputResult.Size = new System.Drawing.Size(73, 13);
+            this.lblOutputResult.TabIndex = 12;
+            this.lblOutputResult.Text = "Output result :";
             // 
             // panel2
             // 
@@ -230,9 +230,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(686, 129);
+            this.button1.Location = new System.Drawing.Point(674, 129);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 23);
+            this.button1.Size = new System.Drawing.Size(32, 23);
             this.button1.TabIndex = 11;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
@@ -240,9 +240,9 @@
             // 
             // textOutputFile
             // 
-            this.textOutputFile.Location = new System.Drawing.Point(337, 130);
+            this.textOutputFile.Location = new System.Drawing.Point(290, 130);
             this.textOutputFile.Name = "textOutputFile";
-            this.textOutputFile.Size = new System.Drawing.Size(343, 20);
+            this.textOutputFile.Size = new System.Drawing.Size(378, 20);
             this.textOutputFile.TabIndex = 10;
             // 
             // panel1
@@ -251,7 +251,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(6, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 40);
+            this.panel1.Size = new System.Drawing.Size(239, 40);
             this.panel1.TabIndex = 7;
             // 
             // lstTimeFormat
@@ -352,7 +352,7 @@
             "s t"});
             this.lstTimeFormat.Location = new System.Drawing.Point(74, 5);
             this.lstTimeFormat.Name = "lstTimeFormat";
-            this.lstTimeFormat.Size = new System.Drawing.Size(307, 21);
+            this.lstTimeFormat.Size = new System.Drawing.Size(149, 21);
             this.lstTimeFormat.TabIndex = 5;
             this.lstTimeFormat.SelectedIndexChanged += new System.EventHandler(this.lstTimeFormat_SelectedIndexChanged);
             // 
@@ -405,16 +405,16 @@
             this.lstTimezones.Name = "lstTimezones";
             this.lstTimezones.Size = new System.Drawing.Size(326, 21);
             this.lstTimezones.TabIndex = 2;
-            this.lstTimezones.SelectedIndexChanged += new System.EventHandler(this.lstTimezones_SelectedIndexChanged_1);
+            this.lstTimezones.SelectedIndexChanged += new System.EventHandler(this.lstTimezones_SelectedIndexChanged);
             // 
-            // label1
+            // lblTimezone
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TimeZone :";
+            this.lblTimezone.AutoSize = true;
+            this.lblTimezone.Location = new System.Drawing.Point(6, 27);
+            this.lblTimezone.Name = "lblTimezone";
+            this.lblTimezone.Size = new System.Drawing.Size(59, 13);
+            this.lblTimezone.TabIndex = 0;
+            this.lblTimezone.Text = "Timezone :";
             // 
             // openFileDialog1
             // 
@@ -446,14 +446,14 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblOutputFile;
+        private System.Windows.Forms.Label lblMqttTopic;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblSerialPort;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label OutputResult;
         private System.Windows.Forms.Label lblOutputResult;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
@@ -467,6 +467,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox lstTimezones;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTimezone;
     }
 }

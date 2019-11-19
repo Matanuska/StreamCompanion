@@ -51,6 +51,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\SimpleTime.cs" />
+    <Compile Include="ComboboxItem.cs" />
     <Compile Include="Controls\Time\TimeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -25,7 +25,7 @@ namespace StreamCompanion.Controls
 
         private void ClockTimer1_TimeChanged(object sender, ThresholdReachedEventArgs e)
         {
-            lblOutputResult.Text = e.Time.ToString();
+            OutputResult.Text = e.Time.ToString();
         }
 
         private object MyDataSource;
@@ -64,13 +64,17 @@ namespace StreamCompanion.Controls
         private void UserControl1_Load(object sender, EventArgs e)
         {
 
-            lstTimezones.DataSource = TimeZoneInfo.GetSystemTimeZones();
-            lstTimezones.DisplayMember = "DisplayName";
-            lstTimezones.ValueMember = "Id";
+          foreach(var tz in TimeZoneInfo.GetSystemTimeZones())
+            {
+                var cboitem = new ComboboxItem();
+                cboitem.Value = tz.Id.ToString();
+                cboitem.Text = tz.DisplayName;
+                lstTimezones.Items.Add(cboitem);
+            }            
 
-            lstTimezones.SelectedValue = TimeZoneInfo.Local.Id;
+            lstTimezones.SelectedIndex = lstTimezones.FindStringExact(TimeZoneInfo.Local.DisplayName.ToString());
 
-            lblOutputResult.Text = DateTime.UtcNow.ToString("HH:mm:ss");
+            OutputResult.Text = DateTime.UtcNow.ToString("HH:mm:ss");
             radioButton1.Checked = true;
             panel2.Location = panel1.Location;
         }
@@ -102,12 +106,14 @@ namespace StreamCompanion.Controls
         }
 
         private TimeZoneInfo initTZ;
-        private void lstTimezones_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void lstTimezones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (initTZ != (TimeZoneInfo)lstTimezones.SelectedItem)
+
+            var tz = TimeZoneInfo.FindSystemTimeZoneById(((ComboboxItem)lstTimezones.SelectedItem).Value);
+            if (initTZ != tz)
             {
                TimeZoneChangedEventArgs args = new TimeZoneChangedEventArgs();
-               args.NewTimeZone = (TimeZoneInfo)lstTimezones.SelectedItem;
+                args.NewTimeZone = tz; 
 
                EventHandler<TimeZoneChangedEventArgs> handler = TimeZoneChanged;
                if (handler != null)
@@ -115,10 +121,11 @@ namespace StreamCompanion.Controls
                    handler(this, args);
                }
 
-                initTZ = (TimeZoneInfo)lstTimezones.SelectedItem;
+                initTZ = tz; 
 
                 ct.TimeZone = initTZ;
             }
+            
         }
     }
     
@@ -127,5 +134,7 @@ namespace StreamCompanion.Controls
         public TimeZoneInfo NewTimeZone { get; set; }
 
     }
-    
+
+
+
 }

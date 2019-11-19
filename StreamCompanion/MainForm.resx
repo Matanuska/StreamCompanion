@@ -135,25 +135,6 @@
   <data name="timeUserControl1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="timeUserControl1.TimeZone" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAEAQAAABNTeXN0ZW0uVGltZVpvbmVJbmZvBwAAAAJJZAtEaXNwbGF5TmFt
-        ZQxTdGFuZGFyZE5hbWUMRGF5bGlnaHROYW1lDUJhc2VVdGNPZmZzZXQPQWRqdXN0bWVudFJ1bGVzGlN1
-        cHBvcnRzRGF5bGlnaHRTYXZpbmdUaW1lAQEBAQADAAwkU3lzdGVtLlRpbWVab25lSW5mbytBZGp1c3Rt
-        ZW50UnVsZVtdAQYCAAAAFVJvbWFuY2UgU3RhbmRhcmQgVGltZQYDAAAAMChVVEMrMDE6MDApIEJydXhl
-        bGxlcywgQ29wZW5oYWd1ZSwgTWFkcmlkLCBQYXJpcwYEAAAADVBhcmlzLCBNYWRyaWQGBQAAAB9QYXJp
-        cywgTWFkcmlkIChoZXVyZSBk4oCZw6l0w6kpAGjEYQgAAAAJBgAAAAEHBgAAAAABAAAAAQAAAAMiU3lz
-        dGVtLlRpbWVab25lSW5mbytBZGp1c3RtZW50UnVsZQkHAAAABAcAAAAiU3lzdGVtLlRpbWVab25lSW5m
-        bytBZGp1c3RtZW50UnVsZQYAAAAJRGF0ZVN0YXJ0B0RhdGVFbmQNRGF5bGlnaHREZWx0YRdEYXlsaWdo
-        dFRyYW5zaXRpb25TdGFydBVEYXlsaWdodFRyYW5zaXRpb25FbmQSQmFzZVV0Y09mZnNldERlbHRhAAAA
-        AwMADQ0MIlN5c3RlbS5UaW1lWm9uZUluZm8rVHJhbnNpdGlvblRpbWUiU3lzdGVtLlRpbWVab25lSW5m
-        bytUcmFuc2l0aW9uVGltZQwAAAAAAAAAAACAzcmsJ8orAGjEYQgAAAAE+P///yJTeXN0ZW0uVGltZVpv
-        bmVJbmZvK1RyYW5zaXRpb25UaW1lBgAAAAlUaW1lT2ZEYXkFTW9udGgEV2VlawNEYXkJRGF5T2ZXZWVr
-        D0lzRml4ZWREYXRlUnVsZQAAAAADAA0CAgIQU3lzdGVtLkRheU9mV2VlawEA0IjDEAAAAAMFAQT3////
-        EFN5c3RlbS5EYXlPZldlZWsBAAAAB3ZhbHVlX18ACAAAAAAAAfb////4////ADhNJRkAAAAKBQEB9f//
-        //f///8AAAAAAAAAAAAAAAAACw==
-</value>
-  </data>
   <data name="&gt;&gt;timeUserControl1.Name" xml:space="preserve">
     <value>timeUserControl1</value>
   </data>
@@ -165,46 +146,6 @@
   </data>
   <data name="&gt;&gt;timeUserControl1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="timeUserControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 186</value>
-  </data>
-  <data name="timeUserControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 177</value>
-  </data>
-  <data name="timeUserControl2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="timeUserControl2.TimeZone" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAEAQAAABNTeXN0ZW0uVGltZVpvbmVJbmZvBwAAAAJJZAtEaXNwbGF5TmFt
-        ZQxTdGFuZGFyZE5hbWUMRGF5bGlnaHROYW1lDUJhc2VVdGNPZmZzZXQPQWRqdXN0bWVudFJ1bGVzGlN1
-        cHBvcnRzRGF5bGlnaHRTYXZpbmdUaW1lAQEBAQADAAwkU3lzdGVtLlRpbWVab25lSW5mbytBZGp1c3Rt
-        ZW50UnVsZVtdAQYCAAAAFVJvbWFuY2UgU3RhbmRhcmQgVGltZQYDAAAAMChVVEMrMDE6MDApIEJydXhl
-        bGxlcywgQ29wZW5oYWd1ZSwgTWFkcmlkLCBQYXJpcwYEAAAADVBhcmlzLCBNYWRyaWQGBQAAAB9QYXJp
-        cywgTWFkcmlkIChoZXVyZSBk4oCZw6l0w6kpAGjEYQgAAAAJBgAAAAEHBgAAAAABAAAAAQAAAAMiU3lz
-        dGVtLlRpbWVab25lSW5mbytBZGp1c3RtZW50UnVsZQkHAAAABAcAAAAiU3lzdGVtLlRpbWVab25lSW5m
-        bytBZGp1c3RtZW50UnVsZQYAAAAJRGF0ZVN0YXJ0B0RhdGVFbmQNRGF5bGlnaHREZWx0YRdEYXlsaWdo
-        dFRyYW5zaXRpb25TdGFydBVEYXlsaWdodFRyYW5zaXRpb25FbmQSQmFzZVV0Y09mZnNldERlbHRhAAAA
-        AwMADQ0MIlN5c3RlbS5UaW1lWm9uZUluZm8rVHJhbnNpdGlvblRpbWUiU3lzdGVtLlRpbWVab25lSW5m
-        bytUcmFuc2l0aW9uVGltZQwAAAAAAAAAAACAzcmsJ8orAGjEYQgAAAAE+P///yJTeXN0ZW0uVGltZVpv
-        bmVJbmZvK1RyYW5zaXRpb25UaW1lBgAAAAlUaW1lT2ZEYXkFTW9udGgEV2VlawNEYXkJRGF5T2ZXZWVr
-        D0lzRml4ZWREYXRlUnVsZQAAAAADAA0CAgIQU3lzdGVtLkRheU9mV2VlawEA0IjDEAAAAAMFAQT3////
-        EFN5c3RlbS5EYXlPZldlZWsBAAAAB3ZhbHVlX18ACAAAAAAAAfb////4////ADhNJRkAAAAKBQEB9f//
-        //f///8AAAAAAAAAAAAAAAAACw==
-</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.Name" xml:space="preserve">
-    <value>timeUserControl2</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.Type" xml:space="preserve">
-    <value>StreamCompanion.Controls.TimeUserControl, StreamCompanion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
@@ -309,7 +250,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
+    <value>93, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
