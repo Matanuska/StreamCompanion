@@ -38,13 +38,16 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.timeUserControl1 = new StreamCompanion.Controls.TimeUserControl();
             this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.timeUserControl1 = new StreamCompanion.Controls.TimeUserControl();
+            this.timeUserControl2 = new StreamCompanion.Controls.TimeUserControl();
+            this.clockTimer1 = new StreamCompanion.Classes.ClockTimer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -57,7 +60,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.timeUserControl1);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -115,31 +118,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // label1
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Controls.Add(this.timeUserControl1);
+            this.flowLayoutPanel1.Controls.Add(this.timeUserControl2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // timeUserControl1
             // 
             this.timeUserControl1.DataSource = null;
             resources.ApplyResources(this.timeUserControl1, "timeUserControl1");
             this.timeUserControl1.Name = "timeUserControl1";
+            this.timeUserControl1.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("timeUserControl1.TimeZone")));
+            this.timeUserControl1.Load += new System.EventHandler(this.timeUserControl1_Load);
             // 
-            // label1
+            // timeUserControl2
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this.timeUserControl2.DataSource = null;
+            resources.ApplyResources(this.timeUserControl2, "timeUserControl2");
+            this.timeUserControl2.Name = "timeUserControl2";
+            this.timeUserControl2.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("timeUserControl2.TimeZone")));
+            // 
+            // clockTimer1
+            // 
+            this.clockTimer1.Enabled = true;
+            this.clockTimer1.Interval = 1000;
+            this.clockTimer1.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("clockTimer1.TimeZone")));
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.settingsPanel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -150,6 +167,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,8 +184,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Panel settingsPanel;
         private System.Windows.Forms.Button button1;
-        private Controls.TimeUserControl timeUserControl1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Classes.ClockTimer clockTimer1;
+        private Controls.TimeUserControl timeUserControl1;
+        private Controls.TimeUserControl timeUserControl2;
     }
 }

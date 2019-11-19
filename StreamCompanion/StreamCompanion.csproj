@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ClockTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\SimpleTime.cs" />
     <Compile Include="Controls\Time\TimeUserControl.cs">
       <SubType>UserControl</SubType>

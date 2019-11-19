@@ -15,11 +15,7 @@ namespace StreamCompanion
     {
         public MainForm()
         {
-            InitializeComponent();
-
-
-           
-            
+            InitializeComponent();                       
         
         }
 
@@ -46,12 +42,10 @@ namespace StreamCompanion
         private void MainForm_Load(object sender, EventArgs e)
         {
             st = new Classes.SimpleTime();
-
             
             timeUserControl1.DataSource = st;
-
-            st.PropertyChanged += St_PropertyChanged;
-            st.CustomerName = "155";
+            
+            st.PropertyChanged += St_PropertyChanged;            
             l.Add(st);
         }
 
@@ -64,6 +58,11 @@ namespace StreamCompanion
         private void button2_Click(object sender, EventArgs e)
         {
             st.CustomerName = "test";
+        }
+
+        private void timeUserControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
