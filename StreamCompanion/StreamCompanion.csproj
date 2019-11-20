@@ -52,6 +52,12 @@
     </Compile>
     <Compile Include="Classes\SimpleTime.cs" />
     <Compile Include="ComboboxItem.cs" />
+    <Compile Include="Controls\DateTimeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DateTimeUserControl.Designer.cs">
+      <DependentUpon>DateTimeUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Time\TimeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\DateTimeUserControl.resx">
+      <DependentUpon>DateTimeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Time\TimeUserControl.resx">
       <DependentUpon>TimeUserControl.cs</DependentUpon>
     </EmbeddedResource>

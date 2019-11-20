@@ -400,11 +400,13 @@
             // 
             // lstTimezones
             // 
+            this.lstTimezones.DisplayMember = "DisplayName";
             this.lstTimezones.FormattingEnabled = true;
             this.lstTimezones.Location = new System.Drawing.Point(64, 24);
             this.lstTimezones.Name = "lstTimezones";
             this.lstTimezones.Size = new System.Drawing.Size(326, 21);
             this.lstTimezones.TabIndex = 2;
+            this.lstTimezones.ValueMember = "Id";
             this.lstTimezones.SelectedIndexChanged += new System.EventHandler(this.lstTimezones_SelectedIndexChanged);
             // 
             // lblTimezone

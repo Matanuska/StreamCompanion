@@ -3,6 +3,12 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using StreamCompanion.Classes;
 using StreamCompanion.Interfaces;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 
 namespace StreamCompanion.Controls
@@ -64,15 +70,9 @@ namespace StreamCompanion.Controls
         private void UserControl1_Load(object sender, EventArgs e)
         {
 
-          foreach(var tz in TimeZoneInfo.GetSystemTimeZones())
-            {
-                var cboitem = new ComboboxItem();
-                cboitem.Value = tz.Id.ToString();
-                cboitem.Text = tz.DisplayName;
-                lstTimezones.Items.Add(cboitem);
-            }            
+            lstTimezones.DataSource = TimeZoneInfo.GetSystemTimeZones().ToList();
 
-            lstTimezones.SelectedIndex = lstTimezones.FindStringExact(TimeZoneInfo.Local.DisplayName.ToString());
+            lstTimezones.SelectedValue = TimeZoneInfo.Local.Id;
 
             OutputResult.Text = DateTime.UtcNow.ToString("HH:mm:ss");
             radioButton1.Checked = true;
@@ -108,12 +108,11 @@ namespace StreamCompanion.Controls
         private TimeZoneInfo initTZ;
         private void lstTimezones_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            var tz = TimeZoneInfo.FindSystemTimeZoneById(((ComboboxItem)lstTimezones.SelectedItem).Value);
-            if (initTZ != tz)
+                        
+            if (initTZ != lstTimezones.SelectedValue)
             {
                TimeZoneChangedEventArgs args = new TimeZoneChangedEventArgs();
-                args.NewTimeZone = tz; 
+                args.NewTimeZone = (TimeZoneInfo)lstTimezones.SelectedItem; 
 
                EventHandler<TimeZoneChangedEventArgs> handler = TimeZoneChanged;
                if (handler != null)
@@ -121,9 +120,8 @@ namespace StreamCompanion.Controls
                    handler(this, args);
                }
 
-                initTZ = tz; 
-
-                ct.TimeZone = initTZ;
+                ct.TimeZone = initTZ = TimeZoneInfo.FindSystemTimeZoneById(lstTimezones.SelectedValue.ToString()); 
+                
             }
             
         }

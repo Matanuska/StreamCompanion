@@ -42,6 +42,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.clockTimer1 = new StreamCompanion.Classes.ClockTimer();
+            this.timeUserControl2 = new StreamCompanion.Controls.TimeUserControl();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Controls.Add(this.timeUserControl1);
+            this.flowLayoutPanel1.Controls.Add(this.timeUserControl2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // timeUserControl1
@@ -142,6 +144,13 @@
             this.clockTimer1.Interval = 1000;
             this.clockTimer1.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("clockTimer1.TimeZone")));
             // 
+            // timeUserControl2
+            // 
+            this.timeUserControl2.DataSource = null;
+            resources.ApplyResources(this.timeUserControl2, "timeUserControl2");
+            this.timeUserControl2.Name = "timeUserControl2";
+            this.timeUserControl2.TimeZone = null;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -179,5 +188,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Classes.ClockTimer clockTimer1;
         private Controls.TimeUserControl timeUserControl1;
+        private Controls.TimeUserControl timeUserControl2;
     }
 }
