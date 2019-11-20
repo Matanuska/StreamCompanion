@@ -126,47 +126,26 @@
     <value>GrowAndShrink</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="timeUserControl1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="dateTimeUserControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="timeUserControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 177</value>
+  <data name="dateTimeUserControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>760, 358</value>
   </data>
-  <data name="timeUserControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl1.Name" xml:space="preserve">
-    <value>timeUserControl1</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl1.Type" xml:space="preserve">
-    <value>StreamCompanion.Controls.TimeUserControl, StreamCompanion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl1.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl1.ZOrder" xml:space="preserve">
+  <data name="dateTimeUserControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="timeUserControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 186</value>
+  <data name="&gt;&gt;dateTimeUserControl1.Name" xml:space="preserve">
+    <value>dateTimeUserControl1</value>
   </data>
-  <data name="timeUserControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 177</value>
+  <data name="&gt;&gt;dateTimeUserControl1.Type" xml:space="preserve">
+    <value>StreamCompanion.Controls.DateTimeUserControl, StreamCompanion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="timeUserControl2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.Name" xml:space="preserve">
-    <value>timeUserControl2</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.Type" xml:space="preserve">
-    <value>StreamCompanion.Controls.TimeUserControl, StreamCompanion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;timeUserControl2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dateTimeUserControl1.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;timeUserControl2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;dateTimeUserControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
@@ -175,7 +154,7 @@
     <value>7, 7</value>
   </data>
   <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>755, 304</value>
+    <value>793, 424</value>
   </data>
   <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -190,67 +169,67 @@
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+    <value>tabPage1tabDateAndTime</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage1tabDateAndTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tabPage1tabDateAndTime.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>768, 314</value>
+  <data name="tabPage1tabDateAndTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>809, 437</value>
   </data>
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+  <data name="tabPage1tabDateAndTime.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Time</value>
+  <data name="tabPage1tabDateAndTime.Text" xml:space="preserve">
+    <value>Date &amp; Time</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;tabPage1tabDateAndTime.Name" xml:space="preserve">
+    <value>tabPage1tabDateAndTime</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1tabDateAndTime.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1tabDateAndTime.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1tabDateAndTime.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabChrono.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabChrono.Size" type="System.Drawing.Size, System.Drawing">
     <value>768, 314</value>
   </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+  <data name="tabChrono.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Date</value>
+  <data name="tabChrono.Text" xml:space="preserve">
+    <value>Chrono</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
+  <data name="&gt;&gt;tabChrono.Name" xml:space="preserve">
+    <value>tabChrono</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabChrono.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabChrono.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tabChrono.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 98</value>
+    <value>12, 101</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 340</value>
+    <value>817, 463</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -271,7 +250,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
+    <value>93, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -332,7 +311,7 @@
     <value>0, 0</value>
   </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 25</value>
+    <value>836, 25</value>
   </data>
   <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -462,7 +441,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+    <value>836, 567</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

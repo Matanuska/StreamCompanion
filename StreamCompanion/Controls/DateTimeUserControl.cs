@@ -15,16 +15,40 @@ namespace StreamCompanion.Controls
         public DateTimeUserControl()
         {
             InitializeComponent();
+            Init();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        public void Init()
         {
-
+            panelCustomFormat.Location = panelPredefinedOutputFormat.Location;
+            radioBtnPrefedinedOutputFormat.Checked = true;
         }
 
         private void txtCustomOutputFormat_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DateTimeUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRemoteControlSerialData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioBtnPrefedinedOutputFormat_CheckedChanged(object sender, EventArgs e)
+        {
+            panelPredefinedOutputFormat.Visible = true;
+            panelCustomFormat.Visible = false;
+        }
+
+        private void radioBtnCustomOutputFormat_CheckedChanged(object sender, EventArgs e)
+        {
+            panelPredefinedOutputFormat.Visible = false;
+            panelCustomFormat.Visible = true;
         }
     }
 }

@@ -43,10 +43,10 @@ namespace StreamCompanion
         {
             st = new Classes.SimpleTime();
             
-            timeUserControl1.DataSource = st;
+            //timeUserControl1.DataSource = st;
             
-            st.PropertyChanged += St_PropertyChanged;            
-            l.Add(st);
+          //  st.PropertyChanged += St_PropertyChanged;            
+          //  l.Add(st);
         }
 
 
@@ -61,6 +61,16 @@ namespace StreamCompanion
         }
 
         private void timeUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timeUserControl2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimeUserControl1_Load(object sender, EventArgs e)
         {
 
         }
