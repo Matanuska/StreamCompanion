@@ -7,6 +7,8 @@ namespace StreamCompanion.Classes
     class ClockTimer : Timer
     {
         DateTime timeUtc = DateTime.UtcNow;
+        private Timer timer1;
+        private System.ComponentModel.IContainer components;
         private string timeformat = "HH:mm:ss";
 
         public event EventHandler<ThresholdReachedEventArgs> TimeChanged;
@@ -46,9 +48,21 @@ namespace StreamCompanion.Classes
             set { timeformat = value; }
         }
 
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
+        }
     }
     public class ThresholdReachedEventArgs : EventArgs
     {

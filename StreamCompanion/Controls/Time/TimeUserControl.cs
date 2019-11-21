@@ -125,8 +125,13 @@ namespace StreamCompanion.Controls
             }
             
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
     public class TimeZoneChangedEventArgs : EventArgs
     {
         public TimeZoneInfo NewTimeZone { get; set; }

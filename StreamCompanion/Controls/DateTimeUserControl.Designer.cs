@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTimeZone = new System.Windows.Forms.Label();
             this.cboTimezone = new System.Windows.Forms.ComboBox();
             this.chkEnabled = new System.Windows.Forms.CheckBox();
@@ -73,6 +74,7 @@
             this.lblRemoteControlSerialPort = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.grpFormat.SuspendLayout();
             this.panelCustomFormat.SuspendLayout();
             this.panelPredefinedOutputFormat.SuspendLayout();
@@ -97,7 +99,7 @@
             this.cboTimezone.FormattingEnabled = true;
             this.cboTimezone.Location = new System.Drawing.Point(79, 21);
             this.cboTimezone.Name = "cboTimezone";
-            this.cboTimezone.Size = new System.Drawing.Size(603, 21);
+            this.cboTimezone.Size = new System.Drawing.Size(344, 21);
             this.cboTimezone.TabIndex = 1;
             this.cboTimezone.ValueMember = "Id";
             // 
@@ -161,16 +163,18 @@
             // 
             // cboCulture
             // 
+            this.cboCulture.DisplayMember = "DisplayName";
             this.cboCulture.FormattingEnabled = true;
-            this.cboCulture.Location = new System.Drawing.Point(51, 4);
+            this.cboCulture.Location = new System.Drawing.Point(51, 5);
             this.cboCulture.Name = "cboCulture";
             this.cboCulture.Size = new System.Drawing.Size(244, 21);
             this.cboCulture.TabIndex = 1;
+            this.cboCulture.ValueMember = "Name";
             // 
             // lblCulture
             // 
             this.lblCulture.AutoSize = true;
-            this.lblCulture.Location = new System.Drawing.Point(4, 4);
+            this.lblCulture.Location = new System.Drawing.Point(4, 9);
             this.lblCulture.Name = "lblCulture";
             this.lblCulture.Size = new System.Drawing.Size(40, 13);
             this.lblCulture.TabIndex = 0;
@@ -593,5 +597,6 @@
         private System.Windows.Forms.Label lblRemoteControlSerialPort;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Timer timer1;
     }
 }

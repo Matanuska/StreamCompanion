@@ -73,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Classes\ClockTimer.resx">
+      <DependentUpon>ClockTimer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\DateTimeUserControl.resx">
       <DependentUpon>DateTimeUserControl.cs</DependentUpon>
     </EmbeddedResource>

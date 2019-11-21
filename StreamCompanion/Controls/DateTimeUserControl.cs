@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace StreamCompanion.Controls
 {
@@ -22,6 +23,20 @@ namespace StreamCompanion.Controls
         {
             panelCustomFormat.Location = panelPredefinedOutputFormat.Location;
             radioBtnPrefedinedOutputFormat.Checked = true;
+            cboTimezone.DataSource = TimeZoneInfo.GetSystemTimeZones().ToList();
+            cboTimezone.SelectedValue = TimeZoneInfo.Local.Id;
+
+            var cultureList = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();            
+            cultureList.Sort((p1, p2) => string.Compare(p1.DisplayName, p2.DisplayName, true));            
+            cboCulture.DataSource = cultureList;
+            cboCulture.SelectedValue = CultureInfo.CurrentUICulture.Name;
+            
+
+
+            timer1.Interval = 250;
+            timer1.Enabled = true;
+
+
         }
 
         private void txtCustomOutputFormat_TextChanged(object sender, EventArgs e)
