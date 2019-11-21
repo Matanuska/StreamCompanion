@@ -21,7 +21,11 @@ namespace StreamCompanion.Controls
 
         public void Init()
         {
-            panelCustomFormat.Location = panelPredefinedOutputFormat.Location;
+            panelCustomFormat.Location = panelPredefinedOutputCulture.Location;
+            panelPredefinedOutputDate.Location = panelPredefinedOutputCulture.Location;
+            panelPredefinedOutputTime.Location = panelPredefinedOutputCulture.Location;
+
+            radioBtnDate.Checked = true;
             radioBtnPrefedinedOutputFormat.Checked = true;
             cboTimezone.DataSource = TimeZoneInfo.GetSystemTimeZones().ToList();
             cboTimezone.SelectedValue = TimeZoneInfo.Local.Id;
@@ -54,16 +58,57 @@ namespace StreamCompanion.Controls
 
         }
 
-        private void radioBtnPrefedinedOutputFormat_CheckedChanged(object sender, EventArgs e)
-        {
-            panelPredefinedOutputFormat.Visible = true;
-            panelCustomFormat.Visible = false;
-        }
 
-        private void radioBtnCustomOutputFormat_CheckedChanged(object sender, EventArgs e)
+        public void DefineFormatPanel(object sender, EventArgs e)
         {
-            panelPredefinedOutputFormat.Visible = false;
-            panelCustomFormat.Visible = true;
+            if (radioBtnDate.Checked == true)
+            {
+                panelPredefinedOutputCulture.Visible = false;
+                panelPredefinedOutputTime.Visible = false;
+                if (radioBtnPrefedinedOutputFormat.Checked == true)
+                {
+                    panelCustomFormat.Visible = false;
+                    panelPredefinedOutputDate.Visible = true;
+                }
+                else
+                {
+                    panelPredefinedOutputDate.Visible = false;
+                    panelCustomFormat.Visible = true;
+                    
+                }
+            }
+            if (radioBtnTime.Checked == true)
+            {
+                panelPredefinedOutputDate.Visible = false;
+                panelPredefinedOutputCulture.Visible = false;
+                if (radioBtnPrefedinedOutputFormat.Checked == true)
+                {
+                    panelCustomFormat.Visible = false;
+                    panelPredefinedOutputTime.Visible = true;
+                }
+                else
+                {
+                    panelCustomFormat.Visible = true;
+                    panelPredefinedOutputTime.Visible = false;
+                }
+            }
+            if (radioBtnDateAndTime.Checked == true)
+            {
+                panelPredefinedOutputDate.Visible = false;
+                panelPredefinedOutputTime.Visible = false;
+                if (radioBtnPrefedinedOutputFormat.Checked == true)
+                {
+                    panelCustomFormat.Visible = false;
+                    panelPredefinedOutputCulture.Visible = true;
+                }
+                else
+                {
+                    panelCustomFormat.Visible = true;
+                    panelPredefinedOutputCulture.Visible = false;
+                }
+
+            }
+
         }
     }
 }

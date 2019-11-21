@@ -52,7 +52,7 @@ namespace StreamCompanion
 
         private void St_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-           label1.Text = sender.GetType().GetProperty(e.PropertyName).GetValue(sender).ToString();
+           //label1.Text = sender.GetType().GetProperty(e.PropertyName).GetValue(sender).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LogicNP.CryptoLicensing;
+//using LogicNP.CryptoLicensing;
 
 namespace StreamCompanion
 {
@@ -15,10 +15,10 @@ namespace StreamCompanion
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+         //   Application.EnableVisualStyles();
+         //   Application.SetCompatibleTextRenderingDefault(false);
 
-            string validationKey = "AMAAMACDq7YAhOTWIkO+7tmgmGfnwVoi7zJeoEFDqefYYGYtjoOqI4u4q6EAsFlza7leiicDAAEAAQ==";
+           // string validationKey = "AMAAMACDq7YAhOTWIkO+7tmgmGfnwVoi7zJeoEFDqefYYGYtjoOqI4u4q6EAsFlza7leiicDAAEAAQ==";
 
 
             /*
@@ -31,7 +31,7 @@ namespace StreamCompanion
                 Pro no limits
                 FgCAgDJmwVOYoNUBAQIQJahUJdgWCfCD1J/6V2pZSmqIHDC0jIUQaTOP6ipG5f7P/1mHkyMvXDq1V61XzjmC
              */
-
+             /*
             CryptoLicense license = new CryptoLicense("FgCAgDJmwVOYoNUBAQIQJahUJdgWCfCD1J/6V2pZSmqIHDC0jIUQaTOP6ipG5f7P/1mHkyMvXDq1V61XzjmC", validationKey);
             if (license.Status != LicenseStatus.Valid)
             {
@@ -42,7 +42,7 @@ namespace StreamCompanion
                 // Continue normal execution...
                 
             }
-
+            */
             Application.Run(new MainForm());
         }
     }
