@@ -151,7 +151,7 @@
             this.cboPredefinedDateFormat.Location = new System.Drawing.Point(83, 1);
             this.cboPredefinedDateFormat.Name = "cboPredefinedDateFormat";
             this.cboPredefinedDateFormat.Size = new System.Drawing.Size(215, 21);
-            this.cboPredefinedDateFormat.TabIndex = 1;            
+            this.cboPredefinedDateFormat.TabIndex = 1;
             // 
             // lblPredefinedDateFormat
             // 
@@ -676,6 +676,10 @@
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // DateTimeUserControl
             // 

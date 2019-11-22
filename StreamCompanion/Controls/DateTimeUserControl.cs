@@ -150,9 +150,10 @@ namespace StreamCompanion.Controls
 
             if(string.IsNullOrEmpty(predefineddateformatselected) )
             {
-                cboPredefinedDateFormat.SelectedItem = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+                cboPredefinedDateFormat.SelectedItem = predefineddateformatselected =  CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;                 
             }
 
+            
             this.cboPredefinedDateFormat.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedDateFormat_SelectedIndexChanged);
 
         }
@@ -220,6 +221,12 @@ namespace StreamCompanion.Controls
         private void cboPredefinedDateFormat_SelectedIndexChanged(object sender, EventArgs e)
         {
             predefineddateformatselected = cboPredefinedDateFormat.SelectedItem.ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.UtcNow;
+            lblOutputSample.Text = string.Concat("[",dt.ToString(predefineddateformatselected),"]");
         }
     }
 }
