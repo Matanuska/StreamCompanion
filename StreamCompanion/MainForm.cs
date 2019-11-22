@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 
 namespace StreamCompanion
@@ -48,11 +49,42 @@ namespace StreamCompanion
         private void MainForm_Load(object sender, EventArgs e)
         {
             st = new Classes.SimpleTime();
-            
+
             //timeUserControl1.DataSource = st;
-            
-          //  st.PropertyChanged += St_PropertyChanged;            
-          //  l.Add(st);
+
+            //  st.PropertyChanged += St_PropertyChanged;            
+            //  l.Add(st);
+
+
+            List<string> lstdate = new List<string>();
+            foreach(CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures)){
+                var f = ci.DateTimeFormat;
+                if (!lstdate.Contains(f.LongDatePattern)) 
+                {
+                    lstdate.Add(f.LongDatePattern);
+                }
+                if (!lstdate.Contains(f.MonthDayPattern))
+                {
+                    lstdate.Add(f.MonthDayPattern);
+                }
+                if (!lstdate.Contains(f.RFC1123Pattern))
+                {
+                    lstdate.Add(f.RFC1123Pattern);
+                }
+                if (!lstdate.Contains(f.ShortDatePattern))
+                {
+                    lstdate.Add(f.ShortDatePattern);
+                }
+                if (!lstdate.Contains(f.YearMonthPattern))
+                {
+                    lstdate.Add(f.YearMonthPattern);
+                }
+            }
+
+            lstdate.Sort();
+
+            listBox1.DataSource = lstdate;
+
         }
 
 

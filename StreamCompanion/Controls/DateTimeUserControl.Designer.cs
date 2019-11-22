@@ -151,7 +151,7 @@
             this.cboPredefinedDateFormat.Location = new System.Drawing.Point(83, 1);
             this.cboPredefinedDateFormat.Name = "cboPredefinedDateFormat";
             this.cboPredefinedDateFormat.Size = new System.Drawing.Size(215, 21);
-            this.cboPredefinedDateFormat.TabIndex = 1;
+            this.cboPredefinedDateFormat.TabIndex = 1;            
             // 
             // lblPredefinedDateFormat
             // 

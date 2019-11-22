@@ -34,8 +34,8 @@ namespace StreamCompanion.Controls
             cultureList.Sort((p1, p2) => string.Compare(p1.DisplayName, p2.DisplayName, true));            
             cboCulture.DataSource = cultureList;
             cboCulture.SelectedValue = CultureInfo.CurrentUICulture.Name;
-            
 
+            loadCboPredefinedDate();
 
             timer1.Interval = 250;
             timer1.Enabled = true;
@@ -115,6 +115,48 @@ namespace StreamCompanion.Controls
             }
         }
 
+        string predefineddateformatselected = null;
+        void loadCboPredefinedDate()
+        {
+            List<string> lstdate = new List<string>();
+            foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            {
+                var f = ci.DateTimeFormat;
+                if (!lstdate.Contains(f.LongDatePattern))
+                {
+                    lstdate.Add(f.LongDatePattern);
+                }
+                if (!lstdate.Contains(f.MonthDayPattern))
+                {
+                    lstdate.Add(f.MonthDayPattern);
+                }
+                if (!lstdate.Contains(f.RFC1123Pattern))
+                {
+                    lstdate.Add(f.RFC1123Pattern);
+                }
+                if (!lstdate.Contains(f.ShortDatePattern))
+                {
+                    lstdate.Add(f.ShortDatePattern);
+                }
+                if (!lstdate.Contains(f.YearMonthPattern))
+                {
+                    lstdate.Add(f.YearMonthPattern);
+                }
+            }
+
+            lstdate.Sort();
+
+            cboPredefinedDateFormat.DataSource = lstdate;
+
+            if(string.IsNullOrEmpty(predefineddateformatselected) )
+            {
+                cboPredefinedDateFormat.SelectedItem = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+            }
+
+            this.cboPredefinedDateFormat.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedDateFormat_SelectedIndexChanged);
+
+        }
+
         public void DefineFormatPanel(object sender, EventArgs e)
         {
             if (radioBtnDate.Checked == true)
@@ -173,6 +215,11 @@ namespace StreamCompanion.Controls
         private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboPredefinedDateFormat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            predefineddateformatselected = cboPredefinedDateFormat.SelectedItem.ToString();
         }
     }
 }

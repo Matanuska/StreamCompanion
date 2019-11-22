@@ -43,10 +43,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tabCountdownToDate.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +90,7 @@
             // 
             // tabCountdownToDate
             // 
+            this.tabCountdownToDate.Controls.Add(this.listBox1);
             resources.ApplyResources(this.tabCountdownToDate, "tabCountdownToDate");
             this.tabCountdownToDate.Name = "tabCountdownToDate";
             this.tabCountdownToDate.UseVisualStyleBackColor = true;
@@ -151,6 +154,12 @@
             resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
             this.dateTimeUserControl1.Name = "dateTimeUserControl1";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.listBox1, "listBox1");
+            this.listBox1.Name = "listBox1";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -165,6 +174,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1tabDateAndTime.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.tabCountdownToDate.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
@@ -188,5 +198,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabPage tabCountdownToDate;
         private Controls.DateTimeUserControl dateTimeUserControl1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
