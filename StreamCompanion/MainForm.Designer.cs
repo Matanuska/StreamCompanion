@@ -28,29 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.TabPage tabCountdownZero;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1tabDateAndTime = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabChrono = new System.Windows.Forms.TabPage();
+            this.tabCountdownToDate = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.clockTimer1 = new StreamCompanion.Classes.ClockTimer();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tabCountdownToDate = new System.Windows.Forms.TabPage();
+            this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tabCountdownZero
+            // 
+            resources.ApplyResources(tabCountdownZero, "tabCountdownZero");
+            tabCountdownZero.Name = "tabCountdownZero";
+            tabCountdownZero.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -69,11 +74,23 @@
             this.tabPage1tabDateAndTime.Name = "tabPage1tabDateAndTime";
             this.tabPage1tabDateAndTime.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Controls.Add(this.dateTimeUserControl1);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
             // tabChrono
             // 
             resources.ApplyResources(this.tabChrono, "tabChrono");
             this.tabChrono.Name = "tabChrono";
             this.tabChrono.UseVisualStyleBackColor = true;
+            // 
+            // tabCountdownToDate
+            // 
+            resources.ApplyResources(this.tabCountdownToDate, "tabCountdownToDate");
+            this.tabCountdownToDate.Name = "tabCountdownToDate";
+            this.tabCountdownToDate.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
@@ -122,39 +139,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // clockTimer1
-            // 
-            this.clockTimer1.Enabled = true;
-            this.clockTimer1.Interval = 1000;
-            this.clockTimer1.TimeZone = ((System.TimeZoneInfo)(resources.GetObject("clockTimer1.TimeZone")));
-            // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.dateTimeUserControl1);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // dateTimeUserControl1
-            // 
-            resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
-            this.dateTimeUserControl1.Name = "dateTimeUserControl1";
-            // 
             // statusStrip1
             // 
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             // 
-            // tabCountdownZero
+            // dateTimeUserControl1
             // 
-            resources.ApplyResources(tabCountdownZero, "tabCountdownZero");
-            tabCountdownZero.Name = "tabCountdownZero";
-            tabCountdownZero.UseVisualStyleBackColor = true;
-            // 
-            // tabCountdownToDate
-            // 
-            resources.ApplyResources(this.tabCountdownToDate, "tabCountdownToDate");
-            this.tabCountdownToDate.Name = "tabCountdownToDate";
-            this.tabCountdownToDate.UseVisualStyleBackColor = true;
+            this.dateTimeUserControl1.isFirst = false;
+            this.dateTimeUserControl1.isLast = false;
+            resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
+            this.dateTimeUserControl1.Name = "dateTimeUserControl1";
             // 
             // MainForm
             // 
@@ -169,10 +164,10 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1tabDateAndTime.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,10 +184,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Panel settingsPanel;
         private System.Windows.Forms.Button button1;
-        private Classes.ClockTimer clockTimer1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Controls.DateTimeUserControl dateTimeUserControl1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabPage tabCountdownToDate;
+        private Controls.DateTimeUserControl dateTimeUserControl1;
     }
 }

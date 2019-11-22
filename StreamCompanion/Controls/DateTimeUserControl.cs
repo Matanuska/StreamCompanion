@@ -58,6 +58,62 @@ namespace StreamCompanion.Controls
 
         }
 
+        private Boolean isfirst = true ;
+        public Boolean isFirst { 
+            get { 
+                return isfirst;
+            } 
+            set { 
+                isfirst = value;
+                show();
+            }
+        }
+
+        private Boolean islast = true;
+        public  Boolean isLast { 
+            get { 
+                return islast; 
+            } 
+            set { 
+                islast = value;
+                show();
+            } 
+        }
+
+        private void show()
+        {
+            if(isfirst && islast)
+            {
+                lblSeparator.Visible = false;
+                btnRemove.Visible = false;
+                btnAdd.Visible = true;
+            }
+            else
+            {
+                if(!isfirst && !islast)
+                {
+                    lblSeparator.Visible = true;
+                    btnRemove.Visible = true;
+                    btnAdd.Visible = false;
+                }
+                else
+                {
+                    if(isfirst && !islast)
+                    {
+                        lblSeparator.Visible = false;
+                        btnRemove.Visible = false;
+                        btnAdd.Visible = false;
+                    }
+                    else
+                    {
+                        lblSeparator.Visible = true;
+                        btnRemove.Visible = true;
+                        btnAdd.Visible = true;
+                    }
+
+                }
+            }
+        }
 
         public void DefineFormatPanel(object sender, EventArgs e)
         {
@@ -85,6 +141,9 @@ namespace StreamCompanion.Controls
                 {
                     panelCustomFormat.Visible = false;
                     panelPredefinedOutputTime.Visible = true;
+                    if(cboPredefinedTimeFormat.SelectedIndex == -1) { 
+                        cboPredefinedTimeFormat.SelectedIndex = 0;
+                    }
                 }
                 else
                 {
@@ -108,6 +167,11 @@ namespace StreamCompanion.Controls
                 }
 
             }
+
+        }
+
+        private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

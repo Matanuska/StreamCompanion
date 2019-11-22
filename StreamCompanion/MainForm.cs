@@ -15,8 +15,14 @@ namespace StreamCompanion
     {
         public MainForm()
         {
-            InitializeComponent();                       
-        
+            InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            dateTimeUserControl1.isFirst = true;
+            dateTimeUserControl1.isLast = true;
         }
 
 
