@@ -38,6 +38,7 @@ namespace StreamCompanion.Classes
             }
             else
             {
+                //cstTime.ToString(TimeFormat, CultureInfo.InvariantCulture);
                 args.DateTime = "";
                 if(customformat != string.Empty)
                 {
@@ -56,22 +57,84 @@ namespace StreamCompanion.Classes
                      * yyyy 0001 -> 0900
                      * yyyyy 00001 -> 02009
                      * 
-                     * h 1 -> 12
-                     * hh 01 -> 12
-                     * H 1 -> 13
-                     * HH 01 -> 13
-                     * m 0 -> 59
-                     * mm 00 -> 59
-                     * s 0 -> 59
-                     * ss 00 -> 59
+                     * h 1 -> 12                shour12
+                     * hh 01 -> 12              lhour12    
+                     * H 1 -> 13                shour24
+                     * HH 01 -> 13              lhour24
+                     * m 0 -> 59                smin
+                     * mm 00 -> 59              lmin
+                     * s 0 -> 59                ssec
+                     * ss 00 -> 59              lsec
                      * 
-                     * t A/P
+                     * t A/P        
                      * tt AM/PM
                      * 
                      */
-                    string lhour = cstTime.Hour.ToString().PadLeft(2, '0');
-                    args.DateTime = customformat.Replace("%HH", lhour);
 
+                    int currenthour = cstTime.Hour;
+                    int currentminute = cstTime.Minute;
+                    int currentseconde = cstTime.Second;
+                    
+                    int currentyear = cstTime.Year;
+
+                    string amdesignator = this.CultureInfo.DateTimeFormat.AMDesignator;
+                    string pmdesignator = this.CultureInfo.DateTimeFormat.PMDesignator;
+
+                    string ldesignator = "";
+                    string sdesignator = "";
+
+                    if(cstTime.Hour < 13)
+                    {
+                        ldesignator = amdesignator;
+                        if (amdesignator != string.Empty)                        
+                            sdesignator = ldesignator.Substring(0, 1);
+                        
+                    }
+                    else
+                    {
+                        ldesignator = pmdesignator;
+                        if (amdesignator != string.Empty)
+                            sdesignator = ldesignator.Substring(0, 1);
+                    }
+
+                    var shour12 = currenthour;
+                    if (shour12 > 12)
+                    {
+                        shour12 = shour12 - 12;
+                    }
+                    string lhour12 = shour12.ToString().PadLeft(2, '0');
+
+                    var shour24 = currenthour;                    
+                    string lhour24 = shour24.ToString().PadLeft(2, '0');
+
+                    string smin = currentminute.ToString();
+                    string Lmin = currentminute.ToString().PadLeft(2,'0');
+
+                    string ssec = currentseconde.ToString();
+                    string lsec = currentseconde .ToString().PadLeft(2, '0');
+
+
+                    string day1 = cstTime.Day.ToString("d");
+                    string day2 = day1.PadLeft(2, '0');
+                    string day3 = this.cultureinfo.DateTimeFormat.AbbreviatedDayNames[(int)cstTime.DayOfWeek].ToString();
+                    string day4 = this.cultureinfo.DateTimeFormat.DayNames[(int)cstTime.DayOfWeek].ToString();
+                                        
+                    string month1 = cstTime.Month.ToString();
+                    string month2 = cstTime.Month.ToString().PadLeft(2, '0');
+                    string month3 = this.CultureInfo.DateTimeFormat.AbbreviatedMonthNames[cstTime.Month - 1].ToString();
+                    string month4 = this.CultureInfo.DateTimeFormat.MonthNames[cstTime.Month - 1].ToString();
+                    
+                    string year4 = cstTime.ToString("yyyy");                    
+                    string year2 = cstTime.ToString("yy");
+                    
+
+                    args.DateTime = customformat.Replace("%HH", lhour24).Replace("%H", shour24.ToString()).Replace("%hh", lhour12)
+                        .Replace("%h", shour12.ToString()).Replace("%mm", Lmin.ToString()).Replace("%m", smin.ToString())
+                        .Replace("%ss", lsec.ToString()).Replace("%s", ssec.ToString())
+                        .Replace("%dddd", day4).Replace("%ddd", day3).Replace("%dd", day2).Replace("%d", day1)
+                        .Replace("%MMMM", month4).Replace("%MMM", month3).Replace("%MM", month2).Replace("%M", month1)
+                        .Replace("%yyyy", year4).Replace("%yy", year2).Replace("%tt", ldesignator).Replace("%t", sdesignator);
+                        
                 }
             }
 

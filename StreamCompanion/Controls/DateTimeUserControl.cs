@@ -11,7 +11,7 @@ using System.Globalization;
 
 namespace StreamCompanion.Controls
 {
-    public partial class DateTimeUserControl : UserControl
+    public partial class DateTimeUserControl : UserControl, Interfaces.ICommuniquant
     {
         public DateTimeUserControl()
         {
@@ -24,17 +24,13 @@ namespace StreamCompanion.Controls
 
         public void Init()
         {
-            panelCustomFormat.Location = panelPredefinedOutput.Location;            
-            
-
+            panelCustomFormat.Location = panelPredefinedOutput.Location;                        
 
             var cultureList = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();
             cultureList.Sort((p1, p2) => string.Compare(p1.DisplayName, p2.DisplayName, true));
             cboCulture.DataSource = cultureList;            
             cboCulture.SelectedValue = this.CultureInfo.Name;
             cboCulture.SelectedIndexChanged += cboCultureChanged;            
-
-
 
             radioBtnDate.CheckedChanged += loadCboPredefinedFormat;
             radioBtnTime.CheckedChanged += loadCboPredefinedFormat;
@@ -46,27 +42,25 @@ namespace StreamCompanion.Controls
             cboTimezone.SelectedValue = this.TimeZoneInfo.Id;
 
             cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
-
             
             radioBtnCustomOutputFormat.CheckedChanged += switchPredefinedOrCustomPanel;
             radioBtnPrefedinedOutputFormat.CheckedChanged += switchPredefinedOrCustomPanel;
-
 
             loadCboPredefinedFormat(this,null);
 
             this.cboPredefinedFormats.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedFormats_SelectedIndexChanged);
 
-
             myTimer.CultureInfo = this.CultureInfo;
+            myTimer.TimeFormat = cboPredefinedFormats.Text;
             myTimer.TimeChanged += MyTimer_TimeChanged;
-            chkEnabled.Checked = true;
-            
-
+            chkEnabled.Checked = true;            
         }
 
         private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
         {
+
             lblOutputSample.Text = string.Concat("[", e.DateTime.ToString(), "]");
+            saveDataToFile(e.DateTime.ToString());
         }
 
         private CultureInfo selectedCulture = CultureInfo.CurrentUICulture;
@@ -214,9 +208,21 @@ namespace StreamCompanion.Controls
             lstdate.Sort();
 
             cboPredefinedFormats.DataSource = lstdate;
+                       
+            if (radioBtnCustomOutputFormat.Checked == true)
+            {                
+                this.cboPredefinedFormats.SelectedIndexChanged -= new System.EventHandler(this.cboPredefinedFormats_SelectedIndexChanged);
+                cboPredefinedFormats.SelectedItem = pattern;
+                this.cboPredefinedFormats.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedFormats_SelectedIndexChanged);
+                myTimer.CustomFormat = txtCustomOutputFormat.Text.Trim();
+            }
+            else
+            {
+                cboPredefinedFormats.SelectedItem = pattern;
+            }
 
-            cboPredefinedFormats.SelectedItem = pattern;
-            
+
+
         }
 
 
@@ -262,18 +268,38 @@ namespace StreamCompanion.Controls
         }
 
         private void radioBtnPrefedinedOutputFormat_CheckedChanged(object sender, EventArgs e)
-        {
-
+        {            
+            radioBtnDate.Enabled = true;
+            radioBtnTime.Enabled = true;
+            radioBtnDateAndTime.Enabled = true;
         }
 
         private void radioBtnCustomOutputFormat_CheckedChanged(object sender, EventArgs e)
         {
-
+         
+            radioBtnDate.Enabled = false;
+            radioBtnTime.Enabled = false;
+            radioBtnDateAndTime.Enabled = false;
         }
 
         private void txtCustomOutputFormat_TextChanged(object sender, EventArgs e)
         {
             myTimer.CustomFormat = ((TextBox)sender).Text.Trim();
+        }
+
+        private void chkEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            myTimer.Enabled = ((CheckBox)sender).Checked;
+            lblOutputSample.Text = string.Empty;
+            if(myTimer.Enabled == false)
+            {
+                saveDataToFile(string.Empty);
+            }
+        }
+
+        private void saveDataToFile(string datatosave)
+        {
+            Console.WriteLine(datatosave);
         }
     }
 }
