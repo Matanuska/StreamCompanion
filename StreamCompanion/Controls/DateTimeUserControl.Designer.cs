@@ -59,9 +59,7 @@
             this.lblMQTTTopic = new System.Windows.Forms.Label();
             this.txtOutputMQTTSubscription = new System.Windows.Forms.TextBox();
             this.lblOutputMqttSubscription = new System.Windows.Forms.Label();
-            this.lblRightBracket = new System.Windows.Forms.Label();
             this.lblOutputSample = new System.Windows.Forms.Label();
-            this.lblLeftBraket = new System.Windows.Forms.Label();
             this.txtOutputDataSerialPort = new System.Windows.Forms.TextBox();
             this.lblOutputDataSerialPort = new System.Windows.Forms.Label();
             this.chkListOutputSerialPort = new System.Windows.Forms.CheckedListBox();
@@ -439,9 +437,7 @@
             this.grpOutput.Controls.Add(this.lblMQTTTopic);
             this.grpOutput.Controls.Add(this.txtOutputMQTTSubscription);
             this.grpOutput.Controls.Add(this.lblOutputMqttSubscription);
-            this.grpOutput.Controls.Add(this.lblRightBracket);
             this.grpOutput.Controls.Add(this.lblOutputSample);
-            this.grpOutput.Controls.Add(this.lblLeftBraket);
             this.grpOutput.Controls.Add(this.txtOutputDataSerialPort);
             this.grpOutput.Controls.Add(this.lblOutputDataSerialPort);
             this.grpOutput.Controls.Add(this.chkListOutputSerialPort);
@@ -488,31 +484,14 @@
             this.lblOutputMqttSubscription.TabIndex = 10;
             this.lblOutputMqttSubscription.Text = "MQTT Subscription";
             // 
-            // lblRightBracket
-            // 
-            this.lblRightBracket.AutoSize = true;
-            this.lblRightBracket.Location = new System.Drawing.Point(578, 62);
-            this.lblRightBracket.Name = "lblRightBracket";
-            this.lblRightBracket.Size = new System.Drawing.Size(10, 13);
-            this.lblRightBracket.TabIndex = 9;
-            this.lblRightBracket.Text = "]";
-            // 
             // lblOutputSample
             // 
-            this.lblOutputSample.Location = new System.Drawing.Point(479, 62);
+            this.lblOutputSample.AutoSize = true;
+            this.lblOutputSample.Location = new System.Drawing.Point(474, 62);
             this.lblOutputSample.Name = "lblOutputSample";
-            this.lblOutputSample.Size = new System.Drawing.Size(93, 13);
+            this.lblOutputSample.Size = new System.Drawing.Size(35, 13);
             this.lblOutputSample.TabIndex = 8;
             this.lblOutputSample.Text = "label1";
-            // 
-            // lblLeftBraket
-            // 
-            this.lblLeftBraket.AutoSize = true;
-            this.lblLeftBraket.Location = new System.Drawing.Point(463, 62);
-            this.lblLeftBraket.Name = "lblLeftBraket";
-            this.lblLeftBraket.Size = new System.Drawing.Size(10, 13);
-            this.lblLeftBraket.TabIndex = 7;
-            this.lblLeftBraket.Text = "[";
             // 
             // txtOutputDataSerialPort
             // 
@@ -750,9 +729,7 @@
         private System.Windows.Forms.Label lblMQTTTopic;
         private System.Windows.Forms.TextBox txtOutputMQTTSubscription;
         private System.Windows.Forms.Label lblOutputMqttSubscription;
-        private System.Windows.Forms.Label lblRightBracket;
         private System.Windows.Forms.Label lblOutputSample;
-        private System.Windows.Forms.Label lblLeftBraket;
         private System.Windows.Forms.TextBox txtOutputDataSerialPort;
         private System.Windows.Forms.Label lblOutputDataSerialPort;
         private System.Windows.Forms.GroupBox grpRemoteControle;

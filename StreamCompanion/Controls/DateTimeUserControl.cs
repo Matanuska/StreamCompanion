@@ -213,9 +213,11 @@ namespace StreamCompanion.Controls
 
         }
 
+        string predefineddatetimeformatselected = "";
         private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            CultureInfo ci = CultureInfo.GetCultureInfo(((CultureInfo)((ComboBox)sender).SelectedItem).Name);
+            predefineddatetimeformatselected = string.Concat(ci.DateTimeFormat.ShortDatePattern, " ", ci.DateTimeFormat.LongTimePattern);
         }
 
         private void cboPredefinedDateFormat_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,8 +227,27 @@ namespace StreamCompanion.Controls
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
+                                      .FirstOrDefault(r => r.Checked);
+
+            var displatformat = "";
+
+            switch (checkedButton.Name)
+            {                
+                case "radioBtnDate":
+                    displatformat = predefineddateformatselected;
+                    break;
+                case "radioBtnTime":
+                    displatformat = cboPredefinedTimeFormat.Text;
+                    break;
+                case "radioBtnDateAndTime":
+                    displatformat = predefineddatetimeformatselected;
+                    break;
+
+            }
             DateTime dt = DateTime.UtcNow;
-            lblOutputSample.Text = string.Concat("[",dt.ToString(predefineddateformatselected),"]");
+            lblOutputSample.Text = string.Concat("[",dt.ToString(displatformat),"]");
         }
     }
 }
