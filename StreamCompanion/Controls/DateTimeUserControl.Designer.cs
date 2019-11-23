@@ -79,6 +79,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutputDate.SuspendLayout();
             this.panelPredefinedOutputCulture.SuspendLayout();
@@ -108,6 +109,7 @@
             this.cboTimezone.Size = new System.Drawing.Size(344, 21);
             this.cboTimezone.TabIndex = 1;
             this.cboTimezone.ValueMember = "Id";
+            this.cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
             // 
             // chkEnabled
             // 
@@ -535,6 +537,7 @@
             this.btnOpenFileDialog.TabIndex = 2;
             this.btnOpenFileDialog.Text = "...";
             this.btnOpenFileDialog.UseVisualStyleBackColor = true;
+            this.btnOpenFileDialog.Click += new System.EventHandler(this.btnOpenFileDialog_Click);
             // 
             // txtOutputFile
             // 
@@ -660,6 +663,11 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Text file|*.txt";
+            // 
             // DateTimeUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,5 +758,6 @@
         private System.Windows.Forms.Panel panelPredefinedOutputDate;
         private System.Windows.Forms.ComboBox cboPredefinedDateFormat;
         private System.Windows.Forms.Label lblPredefinedDateFormat;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

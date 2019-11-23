@@ -246,8 +246,20 @@ namespace StreamCompanion.Controls
                     break;
 
             }
-            DateTime dt = DateTime.UtcNow;
-            lblOutputSample.Text = string.Concat("[",dt.ToString(displatformat),"]");
+            DateTime timeUtc = DateTime.UtcNow;
+            DateTime cstTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, selectedTimeZone);
+            lblOutputSample.Text = cstTime.ToString(displatformat); //  string.Concat("[", cstTime.ToString(displatformat), "]");            
+        }
+
+        TimeZoneInfo selectedTimeZone;
+        private void cboTimezone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedTimeZone =TimeZoneInfo.FindSystemTimeZoneById(((TimeZoneInfo)((ComboBox)sender).SelectedItem).Id);            
+        }
+
+        private void btnOpenFileDialog_Click(object sender, EventArgs e)
+        {            
+            openFileDialog1.ShowDialog();
         }
     }
 }
