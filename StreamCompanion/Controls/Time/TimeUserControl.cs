@@ -31,7 +31,7 @@ namespace StreamCompanion.Controls
 
         private void ClockTimer1_TimeChanged(object sender, ThresholdReachedEventArgs e)
         {
-            OutputResult.Text = e.Time.ToString();
+            OutputResult.Text = e.DateTime.ToString();
         }
 
         private object MyDataSource;

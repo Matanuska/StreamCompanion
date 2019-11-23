@@ -30,7 +30,7 @@ namespace StreamCompanion.Classes
 
 
             ThresholdReachedEventArgs args = new ThresholdReachedEventArgs();
-            args.Time = cstTime.ToString(TimeFormat, CultureInfo.InvariantCulture);
+            args.DateTime = cstTime.ToString(TimeFormat, CultureInfo.InvariantCulture);
 
 
             EventHandler<ThresholdReachedEventArgs> handler = TimeChanged;
@@ -66,7 +66,7 @@ namespace StreamCompanion.Classes
     }
     public class ThresholdReachedEventArgs : EventArgs
     {
-        public string Time { get; set; }
+        public string DateTime { get; set; }
 
     }
 }

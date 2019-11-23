@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblTimeZone = new System.Windows.Forms.Label();
             this.cboTimezone = new System.Windows.Forms.ComboBox();
             this.chkEnabled = new System.Windows.Forms.CheckBox();
@@ -78,7 +77,6 @@
             this.lblRemoteControlSerialPort = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutputDate.SuspendLayout();
@@ -109,7 +107,6 @@
             this.cboTimezone.Size = new System.Drawing.Size(344, 21);
             this.cboTimezone.TabIndex = 1;
             this.cboTimezone.ValueMember = "Id";
-            this.cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
             // 
             // chkEnabled
             // 
@@ -120,6 +117,7 @@
             this.chkEnabled.TabIndex = 2;
             this.chkEnabled.Text = "Enabled";
             this.chkEnabled.UseVisualStyleBackColor = true;
+            this.chkEnabled.CheckedChanged += new System.EventHandler(this.chkEnabled_CheckedChanged);
             // 
             // grpFormat
             // 
@@ -140,7 +138,7 @@
             // 
             this.panelPredefinedOutputDate.Controls.Add(this.cboPredefinedDateFormat);
             this.panelPredefinedOutputDate.Controls.Add(this.lblPredefinedDateFormat);
-            this.panelPredefinedOutputDate.Location = new System.Drawing.Point(242, 18);
+            this.panelPredefinedOutputDate.Location = new System.Drawing.Point(6, 95);
             this.panelPredefinedOutputDate.Name = "panelPredefinedOutputDate";
             this.panelPredefinedOutputDate.Size = new System.Drawing.Size(309, 25);
             this.panelPredefinedOutputDate.TabIndex = 10;
@@ -152,6 +150,7 @@
             this.cboPredefinedDateFormat.Name = "cboPredefinedDateFormat";
             this.cboPredefinedDateFormat.Size = new System.Drawing.Size(215, 21);
             this.cboPredefinedDateFormat.TabIndex = 1;
+            this.cboPredefinedDateFormat.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedDateFormat_SelectedIndexChanged_1);
             // 
             // lblPredefinedDateFormat
             // 
@@ -166,7 +165,7 @@
             // 
             this.panelPredefinedOutputCulture.Controls.Add(this.cboCulture);
             this.panelPredefinedOutputCulture.Controls.Add(this.lblCulture);
-            this.panelPredefinedOutputCulture.Location = new System.Drawing.Point(6, 90);
+            this.panelPredefinedOutputCulture.Location = new System.Drawing.Point(6, 64);
             this.panelPredefinedOutputCulture.Name = "panelPredefinedOutputCulture";
             this.panelPredefinedOutputCulture.Size = new System.Drawing.Size(309, 25);
             this.panelPredefinedOutputCulture.TabIndex = 2;
@@ -180,7 +179,6 @@
             this.cboCulture.Size = new System.Drawing.Size(244, 21);
             this.cboCulture.TabIndex = 1;
             this.cboCulture.ValueMember = "Name";
-            this.cboCulture.SelectedIndexChanged += new System.EventHandler(this.cboCulture_SelectedIndexChanged);
             // 
             // lblCulture
             // 
@@ -300,6 +298,7 @@
             this.cboPredefinedTimeFormat.Name = "cboPredefinedTimeFormat";
             this.cboPredefinedTimeFormat.Size = new System.Drawing.Size(215, 21);
             this.cboPredefinedTimeFormat.TabIndex = 1;
+            this.cboPredefinedTimeFormat.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedTimeFormat_SelectedIndexChanged);
             // 
             // lblPredefinedTimeFormat
             // 
@@ -315,15 +314,15 @@
             this.panelOutputFormat.Controls.Add(this.radioBtnCustomOutputFormat);
             this.panelOutputFormat.Controls.Add(this.radioBtnPrefedinedOutputFormat);
             this.panelOutputFormat.Controls.Add(this.lblOutputFormat);
-            this.panelOutputFormat.Location = new System.Drawing.Point(6, 54);
+            this.panelOutputFormat.Location = new System.Drawing.Point(6, 43);
             this.panelOutputFormat.Name = "panelOutputFormat";
-            this.panelOutputFormat.Size = new System.Drawing.Size(200, 30);
+            this.panelOutputFormat.Size = new System.Drawing.Size(200, 16);
             this.panelOutputFormat.TabIndex = 1;
             // 
             // radioBtnCustomOutputFormat
             // 
             this.radioBtnCustomOutputFormat.AutoSize = true;
-            this.radioBtnCustomOutputFormat.Location = new System.Drawing.Point(132, 4);
+            this.radioBtnCustomOutputFormat.Location = new System.Drawing.Point(131, -1);
             this.radioBtnCustomOutputFormat.Name = "radioBtnCustomOutputFormat";
             this.radioBtnCustomOutputFormat.Size = new System.Drawing.Size(60, 17);
             this.radioBtnCustomOutputFormat.TabIndex = 2;
@@ -335,7 +334,7 @@
             // radioBtnPrefedinedOutputFormat
             // 
             this.radioBtnPrefedinedOutputFormat.AutoSize = true;
-            this.radioBtnPrefedinedOutputFormat.Location = new System.Drawing.Point(50, 4);
+            this.radioBtnPrefedinedOutputFormat.Location = new System.Drawing.Point(49, -1);
             this.radioBtnPrefedinedOutputFormat.Name = "radioBtnPrefedinedOutputFormat";
             this.radioBtnPrefedinedOutputFormat.Size = new System.Drawing.Size(76, 17);
             this.radioBtnPrefedinedOutputFormat.TabIndex = 1;
@@ -347,7 +346,7 @@
             // lblOutputFormat
             // 
             this.lblOutputFormat.AutoSize = true;
-            this.lblOutputFormat.Location = new System.Drawing.Point(4, 4);
+            this.lblOutputFormat.Location = new System.Drawing.Point(4, -1);
             this.lblOutputFormat.Name = "lblOutputFormat";
             this.lblOutputFormat.Size = new System.Drawing.Size(39, 13);
             this.lblOutputFormat.TabIndex = 0;
@@ -386,13 +385,13 @@
             this.panelRadioButonFormat.Controls.Add(this.radioBtnDate);
             this.panelRadioButonFormat.Location = new System.Drawing.Point(6, 19);
             this.panelRadioButonFormat.Name = "panelRadioButonFormat";
-            this.panelRadioButonFormat.Size = new System.Drawing.Size(230, 29);
+            this.panelRadioButonFormat.Size = new System.Drawing.Size(230, 21);
             this.panelRadioButonFormat.TabIndex = 0;
             // 
             // radioBtnDateAndTime
             // 
             this.radioBtnDateAndTime.AutoSize = true;
-            this.radioBtnDateAndTime.Location = new System.Drawing.Point(152, 4);
+            this.radioBtnDateAndTime.Location = new System.Drawing.Point(152, 0);
             this.radioBtnDateAndTime.Name = "radioBtnDateAndTime";
             this.radioBtnDateAndTime.Size = new System.Drawing.Size(74, 17);
             this.radioBtnDateAndTime.TabIndex = 2;
@@ -404,7 +403,7 @@
             // radioBtnTime
             // 
             this.radioBtnTime.AutoSize = true;
-            this.radioBtnTime.Location = new System.Drawing.Point(75, 4);
+            this.radioBtnTime.Location = new System.Drawing.Point(78, 0);
             this.radioBtnTime.Name = "radioBtnTime";
             this.radioBtnTime.Size = new System.Drawing.Size(48, 17);
             this.radioBtnTime.TabIndex = 1;
@@ -416,7 +415,7 @@
             // radioBtnDate
             // 
             this.radioBtnDate.AutoSize = true;
-            this.radioBtnDate.Location = new System.Drawing.Point(4, 4);
+            this.radioBtnDate.Location = new System.Drawing.Point(4, 0);
             this.radioBtnDate.Name = "radioBtnDate";
             this.radioBtnDate.Size = new System.Drawing.Size(48, 17);
             this.radioBtnDate.TabIndex = 0;
@@ -488,12 +487,10 @@
             // 
             // lblOutputSample
             // 
-            this.lblOutputSample.AutoSize = true;
             this.lblOutputSample.Location = new System.Drawing.Point(474, 62);
             this.lblOutputSample.Name = "lblOutputSample";
-            this.lblOutputSample.Size = new System.Drawing.Size(35, 13);
+            this.lblOutputSample.Size = new System.Drawing.Size(264, 13);
             this.lblOutputSample.TabIndex = 8;
-            this.lblOutputSample.Text = "label1";
             // 
             // txtOutputDataSerialPort
             // 
@@ -659,10 +656,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Visible = false;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -751,7 +744,6 @@
         private System.Windows.Forms.Label lblRemoteControlSerialPort;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelPredefinedOutputTime;
         private System.Windows.Forms.ComboBox cboPredefinedTimeFormat;
         private System.Windows.Forms.Label lblPredefinedTimeFormat;

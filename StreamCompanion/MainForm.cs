@@ -24,6 +24,7 @@ namespace StreamCompanion
         {
             dateTimeUserControl1.isFirst = true;
             dateTimeUserControl1.isLast = true;
+            
         }
 
 
