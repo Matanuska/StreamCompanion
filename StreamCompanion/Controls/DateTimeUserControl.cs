@@ -24,78 +24,58 @@ namespace StreamCompanion.Controls
 
         public void Init()
         {
-            panelCustomFormat.Location = panelPredefinedOutputDate.Location;            
-            panelPredefinedOutputTime.Location = panelPredefinedOutputDate.Location;
+            panelCustomFormat.Location = panelPredefinedOutput.Location;            
+            
+
+
+            var cultureList = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();
+            cultureList.Sort((p1, p2) => string.Compare(p1.DisplayName, p2.DisplayName, true));
+            cboCulture.DataSource = cultureList;            
+            cboCulture.SelectedValue = this.CultureInfo.Name;
+            cboCulture.SelectedIndexChanged += cboCultureChanged;            
+
+
+
+            radioBtnDate.CheckedChanged += loadCboPredefinedFormat;
+            radioBtnTime.CheckedChanged += loadCboPredefinedFormat;
 
             radioBtnDate.Checked = true;
             radioBtnPrefedinedOutputFormat.Checked = true;
+
             cboTimezone.DataSource = TimeZoneInfo.GetSystemTimeZones().ToList();
             cboTimezone.SelectedValue = this.TimeZoneInfo.Id;
-            this.cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
 
+            cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
 
-            var cultureList = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();            
-            cultureList.Sort((p1, p2) => string.Compare(p1.DisplayName, p2.DisplayName, true));            
-            cboCulture.DataSource = cultureList;
-            cboCulture.SelectedValue = this.Culture.Name;// CultureInfo.CurrentUICulture.Name;
-            this.cboCulture.SelectedIndexChanged += new System.EventHandler(this.cboCulture_SelectedIndexChanged);
-
-
-            loadCboPredefinedDate();
-
-            //timer1.Interval = 250;
-            //timer1.Enabled = true;
             
+            radioBtnCustomOutputFormat.CheckedChanged += switchPredefinedOrCustomPanel;
+            radioBtnPrefedinedOutputFormat.CheckedChanged += switchPredefinedOrCustomPanel;
+
+
+            loadCboPredefinedFormat(this,null);
+
+            this.cboPredefinedFormats.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedFormats_SelectedIndexChanged);
+
+
+            myTimer.CultureInfo = this.CultureInfo;
             myTimer.TimeChanged += MyTimer_TimeChanged;
             chkEnabled.Checked = true;
+            
 
-
-            radioBtnDate.CheckedChanged += setClockTimerParameters;
-            radioBtnTime.CheckedChanged += setClockTimerParameters;
-            radioBtnDateAndTime.CheckedChanged += setClockTimerParameters;
-
-        }
-
-
-        private void setClockTimerParameters(object sender, EventArgs e)
-        {
-            var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
-              .FirstOrDefault(r => r.Checked);
-
-            var displayformat = "";
-
-            switch (checkedButton.Name)
-            {
-                case "radioBtnDate":
-                    displayformat = predefineddateformatselected;
-                    break;
-                case "radioBtnTime":
-                    displayformat = cboPredefinedTimeFormat.Text;
-                    break;
-                case "radioBtnDateAndTime":
-                    displayformat = this.getCultureDateTimeFormat();
-                    break;
-
-            }
-
-            myTimer.TimeFormat = displayformat;
-            myTimer.TimeZone = this.TimeZoneInfo;
         }
 
         private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
         {
-            //label1.Text = e.DateTime.ToString();
             lblOutputSample.Text = string.Concat("[", e.DateTime.ToString(), "]");
         }
 
         private CultureInfo selectedCulture = CultureInfo.CurrentUICulture;
 
-        public CultureInfo Culture
+        public CultureInfo CultureInfo
         {
             get { return selectedCulture ; }
             set { selectedCulture  = value; }
         }
-
 
 
         private TimeZoneInfo selectedTimeZone = TimeZoneInfo.Local;
@@ -107,85 +87,45 @@ namespace StreamCompanion.Controls
         }
 
 
-        private void txtCustomOutputFormat_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void DateTimeUserControl_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void lblRemoteControlSerialData_Click(object sender, EventArgs e)
+        private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private Boolean isfirst = true ;
-        public Boolean isFirst { 
-            get { 
-                return isfirst;
-            } 
-            set { 
-                isfirst = value;
-                show();
-            }
+        private void cboCultureChanged(object sender, EventArgs e){
+
+            this.CultureInfo = CultureInfo.GetCultureInfo(((CultureInfo)((ComboBox)sender).SelectedItem).Name);
+
+            // chargement des formats
+
+            var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
+              .FirstOrDefault(r => r.Checked);
+
+            loadCboPredefinedFormat(sender, e);
+
+            myTimer.CultureInfo = this.CultureInfo;
+
         }
 
-        private Boolean islast = true;
-        public  Boolean isLast { 
-            get { 
-                return islast; 
-            } 
-            set { 
-                islast = value;
-                show();
-            } 
-        }
-
-        private void show()
+        private void loadCboPredefinedFormat(object sender, EventArgs e)
         {
-            if(isfirst && islast)
-            {
-                lblSeparator.Visible = false;
-                btnRemove.Visible = false;
-                btnAdd.Visible = true;
-            }
-            else
-            {
-                if(!isfirst && !islast)
-                {
-                    lblSeparator.Visible = true;
-                    btnRemove.Visible = true;
-                    btnAdd.Visible = false;
-                }
-                else
-                {
-                    if(isfirst && !islast)
-                    {
-                        lblSeparator.Visible = false;
-                        btnRemove.Visible = false;
-                        btnAdd.Visible = false;
-                    }
-                    else
-                    {
-                        lblSeparator.Visible = true;
-                        btnRemove.Visible = true;
-                        btnAdd.Visible = true;
-                    }
 
-                }
-            }
-        }
+            var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
+                                .FirstOrDefault(r => r.Checked);
 
-        string predefineddateformatselected = null;
-        void loadCboPredefinedDate()
-        {
+
             List<string> lstdate = new List<string>();
-            foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            var f = this.CultureInfo.DateTimeFormat;
+            string pattern = "";
+
+            if (checkedButton.Name == "radioBtnDate")
             {
-                var f = ci.DateTimeFormat;
                 if (!lstdate.Contains(f.LongDatePattern))
                 {
                     lstdate.Add(f.LongDatePattern);
@@ -194,162 +134,146 @@ namespace StreamCompanion.Controls
                 {
                     lstdate.Add(f.MonthDayPattern);
                 }
-                if (!lstdate.Contains(f.RFC1123Pattern))
-                {
-                    lstdate.Add(f.RFC1123Pattern);
-                }
                 if (!lstdate.Contains(f.ShortDatePattern))
                 {
                     lstdate.Add(f.ShortDatePattern);
+                    pattern = f.ShortDatePattern;
                 }
                 if (!lstdate.Contains(f.YearMonthPattern))
                 {
                     lstdate.Add(f.YearMonthPattern);
                 }
             }
-
-            lstdate.Sort();
-
-            cboPredefinedDateFormat.DataSource = lstdate;
-
-            if(string.IsNullOrEmpty(predefineddateformatselected) )
+            else
             {
-                cboPredefinedDateFormat.SelectedItem = predefineddateformatselected =  CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;                 
-            }
-
-            
-            this.cboPredefinedDateFormat.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedDateFormat_SelectedIndexChanged);
-
-        }
-
-        public void DefineFormatPanel(object sender, EventArgs e)
-        {
-            if (radioBtnDate.Checked == true)
-            {
-                panelPredefinedOutputCulture.Visible = true;                
-                panelPredefinedOutputTime.Visible = false;
-                if (radioBtnPrefedinedOutputFormat.Checked == true)
+                if (checkedButton.Name == "radioBtnTime")
                 {
-                    panelCustomFormat.Visible = false;
-                    panelPredefinedOutputDate.Visible = true;
-                }
-                else
-                {
-                    panelPredefinedOutputDate.Visible = false;
-                    panelCustomFormat.Visible = true;
-                    
-                }
-            }
-            if (radioBtnTime.Checked == true)
-            {
-                panelPredefinedOutputDate.Visible = false;
-                panelPredefinedOutputCulture.Visible = false;
-                if (radioBtnPrefedinedOutputFormat.Checked == true)
-                {
-                    panelCustomFormat.Visible = false;
-                    panelPredefinedOutputTime.Visible = true;
-                    if(cboPredefinedTimeFormat.SelectedIndex == -1) { 
-                        cboPredefinedTimeFormat.SelectedIndex = 0;
+                    if (!lstdate.Contains(f.LongTimePattern))
+                    {
+                        lstdate.Add(f.LongTimePattern);
+                        pattern = f.LongTimePattern;
+                    }
+                    if (!lstdate.Contains(f.ShortTimePattern))
+                    {
+                        lstdate.Add(f.ShortTimePattern);
                     }
                 }
                 else
                 {
-                    panelCustomFormat.Visible = true;
-                    panelPredefinedOutputTime.Visible = false;
+                    if (!lstdate.Contains(f.LongDatePattern))
+                    {                        
+                        if (!lstdate.Contains(f.LongTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.LongDatePattern," ",f.LongTimePattern));
+
+                        }
+                        if (!lstdate.Contains(f.ShortTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.LongDatePattern, " ", f.ShortTimePattern));                            
+                        }
+                    }
+                    if (!lstdate.Contains(f.MonthDayPattern))
+                    {
+                        if (!lstdate.Contains(f.LongTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.MonthDayPattern, " ", f.LongTimePattern));
+                        }
+                        if (!lstdate.Contains(f.ShortTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.MonthDayPattern, " ", f.ShortTimePattern));
+                        }
+                    }
+                    if (!lstdate.Contains(f.ShortDatePattern))
+                    {
+                        if (!lstdate.Contains(f.LongTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.ShortDatePattern, " ", f.LongTimePattern));
+                            pattern = string.Concat(f.ShortDatePattern, " ", f.LongTimePattern);
+                        }
+                        if (!lstdate.Contains(f.ShortTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.ShortDatePattern, " ", f.ShortTimePattern));
+                        }
+                    }
+                    if (!lstdate.Contains(f.YearMonthPattern))
+                    {
+                        if (!lstdate.Contains(f.LongTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.YearMonthPattern, " ", f.LongTimePattern));
+                        }
+                        if (!lstdate.Contains(f.ShortTimePattern))
+                        {
+                            lstdate.Add(string.Concat(f.YearMonthPattern, " ", f.ShortTimePattern));
+                        }
+                    }
+
                 }
             }
-            if (radioBtnDateAndTime.Checked == true)
-            {
-                panelPredefinedOutputDate.Visible = false;
-                panelPredefinedOutputTime.Visible = false;
-                if (radioBtnPrefedinedOutputFormat.Checked == true)
-                {
-                    panelCustomFormat.Visible = false;
-                    panelPredefinedOutputCulture.Visible = true;
-                }
-                else
-                {
-                    panelCustomFormat.Visible = true;
-                    panelPredefinedOutputCulture.Visible = false;
-                }
 
-            }
 
-        }
-        
-        private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CultureInfo ci = CultureInfo.GetCultureInfo(((CultureInfo)((ComboBox)sender).SelectedItem).Name);
-            this.Culture = ci;
+            lstdate.Sort();
+
+            cboPredefinedFormats.DataSource = lstdate;
+
+            cboPredefinedFormats.SelectedItem = pattern;
             
-            myTimer.TimeFormat = this.getCultureDateTimeFormat();
-
         }
 
-        private string getCultureDateTimeFormat()
+
+        public void switchPredefinedOrCustomPanel(object sender, EventArgs e)
         {
-           return string.Concat(this.Culture.DateTimeFormat.ShortDatePattern, " ", this.Culture.DateTimeFormat.LongTimePattern);
+            var checkedButton = panelOutputFormat.Controls.OfType<RadioButton>()
+              .FirstOrDefault(r => r.Checked);
+
+            if(checkedButton.Name == "radioBtnPrefedinedOutputFormat")
+            {
+                panelPredefinedOutput.Visible = true;
+                panelCustomFormat.Visible = false;
+                myTimer.TimeFormat = cboPredefinedFormats.Text;
+            }
+            else
+            {
+                panelPredefinedOutput.Visible = false;
+                panelCustomFormat.Visible = true;                
+                myTimer.CustomFormat = txtCustomOutputFormat.Text.Trim();
+            }
             
         }
 
-        private void cboPredefinedDateFormat_SelectedIndexChanged(object sender, EventArgs e)
+        private void radioBtnDate_CheckedChanged(object sender, EventArgs e)
         {
-            predefineddateformatselected = cboPredefinedDateFormat.SelectedItem.ToString();
+
         }
 
-
-        private void toto()
+        private void radioBtnTime_CheckedChanged(object sender, EventArgs e)
         {
-            var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
-                          .FirstOrDefault(r => r.Checked);
 
-            var displayformat = "";
-
-            switch (checkedButton.Name)
-            {
-                case "radioBtnDate":
-                    displayformat = predefineddateformatselected;
-                    break;
-                case "radioBtnTime":
-                    displayformat = cboPredefinedTimeFormat.Text;
-                    break;
-                case "radioBtnDateAndTime":
-                    displayformat = this.getCultureDateTimeFormat();
-                    break;
-
-            }
-            DateTime timeUtc = DateTime.UtcNow;
-            DateTime cstTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, selectedTimeZone);
-
-            lblOutputSample.Text = string.Concat("[", cstTime.ToString(displayformat), "]");
         }
-        
 
         private void cboTimezone_SelectedIndexChanged(object sender, EventArgs e)
         {
-                this.TimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(((TimeZoneInfo)((ComboBox)sender).SelectedItem).Id);
+            this.TimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(((TimeZoneInfo)((ComboBox)sender).SelectedItem).Id);
             myTimer.TimeZone = this.TimeZoneInfo;
-
         }
 
-        private void btnOpenFileDialog_Click(object sender, EventArgs e)
-        {            
-            openFileDialog1.ShowDialog();
-        }
-
-        private void cboPredefinedTimeFormat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            myTimer.TimeFormat = cboPredefinedTimeFormat.Text;
-        }
-
-        private void chkEnabled_CheckedChanged(object sender, EventArgs e)
-        {
-            myTimer.Enabled = ((CheckBox)sender).Checked;
-        }
-
-        private void cboPredefinedDateFormat_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cboPredefinedFormats_SelectedIndexChanged(object sender, EventArgs e)
         {
             myTimer.TimeFormat = ((ComboBox)sender).Text;
+        }
+
+        private void radioBtnPrefedinedOutputFormat_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioBtnCustomOutputFormat_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCustomOutputFormat_TextChanged(object sender, EventArgs e)
+        {
+            myTimer.CustomFormat = ((TextBox)sender).Text.Trim();
         }
     }
 }

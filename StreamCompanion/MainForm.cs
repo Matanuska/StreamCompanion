@@ -22,9 +22,6 @@ namespace StreamCompanion
 
         private void Init()
         {
-            dateTimeUserControl1.isFirst = true;
-            dateTimeUserControl1.isLast = true;
-            
         }
 
 

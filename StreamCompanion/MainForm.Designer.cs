@@ -82,8 +82,6 @@
             // 
             // dateTimeUserControl1
             // 
-            this.dateTimeUserControl1.isFirst = false;
-            this.dateTimeUserControl1.isLast = false;
             resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
             this.dateTimeUserControl1.Name = "dateTimeUserControl1";
             // 
