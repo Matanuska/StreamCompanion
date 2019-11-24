@@ -127,4 +127,7 @@
   <data name="quitterToolStripMenuItem.Text" xml:space="preserve">
     <value>Quitter</value>
   </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Bienvenue</value>
+  </data>
 </root>

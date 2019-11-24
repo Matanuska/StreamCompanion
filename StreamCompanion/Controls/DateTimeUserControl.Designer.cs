@@ -306,6 +306,7 @@
             this.lblSeparator.Name = "lblSeparator";
             this.lblSeparator.Size = new System.Drawing.Size(750, 2);
             this.lblSeparator.TabIndex = 4;
+            this.lblSeparator.Visible = false;
             // 
             // grpOutput
             // 
