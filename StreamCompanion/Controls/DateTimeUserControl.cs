@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StreamCompanion.Classes;
+using StreamCompanion.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -11,7 +13,7 @@ using System.Globalization;
 
 namespace StreamCompanion.Controls
 {
-    public partial class DateTimeUserControl : UserControl, Interfaces.ICommuniquant
+    public partial class DateTimeUserControl : UserControl, ICommuniquant
     {
         public DateTimeUserControl()
         {
@@ -20,7 +22,7 @@ namespace StreamCompanion.Controls
         }
 
 
-        Classes.ClockTimer myTimer = new Classes.ClockTimer();
+        Classes.ClockTimer myTimer = new ClockTimer();
 
         public void Init()
         {
@@ -34,6 +36,10 @@ namespace StreamCompanion.Controls
 
             radioBtnDate.CheckedChanged += loadCboPredefinedFormat;
             radioBtnTime.CheckedChanged += loadCboPredefinedFormat;
+
+           // radioBtnDate.CheckedChanged += new System.EventHandler(this.defineOutput);
+           // radioBtnTime.CheckedChanged += new System.EventHandler(this.defineOutput);
+           // radioBtnDateAndTime.CheckedChanged += new System.EventHandler(this.defineOutput);
 
             radioBtnDate.Checked = true;
             radioBtnPrefedinedOutputFormat.Checked = true;
@@ -53,8 +59,11 @@ namespace StreamCompanion.Controls
             myTimer.CultureInfo = this.CultureInfo;
             myTimer.TimeFormat = cboPredefinedFormats.Text;
             myTimer.TimeChanged += MyTimer_TimeChanged;
-            chkEnabled.Checked = true;            
+            chkEnabled.Checked = true;
+            
         }
+
+        public int InstanceNumber { get; set; }
 
         private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
         {
@@ -246,11 +255,6 @@ namespace StreamCompanion.Controls
             
         }
 
-        private void radioBtnDate_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioBtnTime_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -297,9 +301,62 @@ namespace StreamCompanion.Controls
             }
         }
 
+        public void defineOutput(object sender, EventArgs e)
+        {
+          //  if(txtOutputFile.Text == string.Empty)
+          //  {
+                
+                string filename = "";
+                if(((RadioButton)sender).Name == "radioBtnDate")
+                {
+                    filename = string.Concat("date", this.InstanceNumber.ToString(), ".txt");
+                }
+                if (((RadioButton)sender).Name == "radioBtnTime")
+                {
+                    filename = string.Concat("time", this.InstanceNumber.ToString(), ".txt");
+                }
+                if (((RadioButton)sender).Name == "radioBtnDateAndTime")
+                {
+                    filename = string.Concat("datetime", this.InstanceNumber.ToString(), ".txt");
+                }
+                txtOutputFile.Text = string.Concat(Application.StartupPath,"\\", filename);
+            }
+
+        private void btnOpenFileDialog_Click(object sender, EventArgs e)
+        {
+            
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                txtOutputFile.Text = saveFileDialog1.FileName;
+            }
+
+        }
+
+        private string previousdata = string.Empty;
         private void saveDataToFile(string datatosave)
         {
-            Console.WriteLine(datatosave);
+
+            if (previousdata != datatosave)
+            {
+                if (chkOutputFile.Checked == true && txtOutputFile.Text != string.Empty)
+                {
+                    System.IO.File.WriteAllText(txtOutputFile.Text, datatosave);
+                }
+                previousdata = datatosave;
+            }
+        }
+
+        public void AddPort(string port)
+        {
+            ckcCheckListBoxRemoteSerialPort.Items.Add(port);
+            chkListOutputSerialPort.Items.Add(port);
+        }
+
+        public void RemovePort(string port)
+        {
+            ckcCheckListBoxRemoteSerialPort.Items.Remove(port);
+            chkListOutputSerialPort.Items.Remove(port);
         }
     }
 }

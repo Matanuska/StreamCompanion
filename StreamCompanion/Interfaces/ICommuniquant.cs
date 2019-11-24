@@ -8,5 +8,7 @@ namespace StreamCompanion.Interfaces
 {
     interface ICommuniquant
     {
+        void AddPort(string port);
+        void RemovePort(string port);
     }
 }

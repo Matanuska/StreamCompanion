@@ -33,7 +33,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1tabDateAndTime = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             this.tabChrono = new System.Windows.Forms.TabPage();
             this.tabCountdownToDate = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -43,12 +42,18 @@
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.TimersPanel = new System.Windows.Forms.Panel();
+            this.grpComPorts = new System.Windows.Forms.GroupBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
+            this.TimersPanel.SuspendLayout();
+            this.grpComPorts.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCountdownZero
@@ -79,11 +84,6 @@
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Controls.Add(this.dateTimeUserControl1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // dateTimeUserControl1
-            // 
-            resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
-            this.dateTimeUserControl1.Name = "dateTimeUserControl1";
             // 
             // tabChrono
             // 
@@ -149,14 +149,44 @@
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             // 
+            // TimersPanel
+            // 
+            this.TimersPanel.Controls.Add(this.grpComPorts);
+            this.TimersPanel.Controls.Add(this.tabControl1);
+            resources.ApplyResources(this.TimersPanel, "TimersPanel");
+            this.TimersPanel.Name = "TimersPanel";
+            // 
+            // grpComPorts
+            // 
+            this.grpComPorts.Controls.Add(this.checkedListBox1);
+            resources.ApplyResources(this.grpComPorts, "grpComPorts");
+            this.grpComPorts.Name = "grpComPorts";
+            this.grpComPorts.TabStop = false;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+            // 
+            // dateTimeUserControl1
+            // 
+            this.dateTimeUserControl1.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
+            this.dateTimeUserControl1.InstanceNumber = 0;
+            resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
+            this.dateTimeUserControl1.Name = "dateTimeUserControl1";
+            this.dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TimersPanel);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -166,6 +196,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
+            this.TimersPanel.ResumeLayout(false);
+            this.grpComPorts.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +218,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabPage tabCountdownToDate;
         private Controls.DateTimeUserControl dateTimeUserControl1;
+        private System.Windows.Forms.Panel TimersPanel;
+        private System.Windows.Forms.GroupBox grpComPorts;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

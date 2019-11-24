@@ -130,6 +130,16 @@ namespace StreamCompanion.Controls
         {
 
         }
+
+        public void AddPort(string port)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemovePort(string port)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class TimeZoneChangedEventArgs : EventArgs

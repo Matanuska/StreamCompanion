@@ -51,6 +51,7 @@
             this.radioBtnDate = new System.Windows.Forms.RadioButton();
             this.lblSeparator = new System.Windows.Forms.Label();
             this.grpOutput = new System.Windows.Forms.GroupBox();
+            this.chkOutputFile = new System.Windows.Forms.CheckBox();
             this.txtMQTTTopic = new System.Windows.Forms.TextBox();
             this.lblMQTTTopic = new System.Windows.Forms.Label();
             this.txtOutputMQTTSubscription = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.lblOutputSerialPort = new System.Windows.Forms.Label();
             this.btnOpenFileDialog = new System.Windows.Forms.Button();
             this.txtOutputFile = new System.Windows.Forms.TextBox();
-            this.lblOutputFile = new System.Windows.Forms.Label();
             this.grpRemoteControle = new System.Windows.Forms.GroupBox();
             this.txtRemoteControlMQTTTopic = new System.Windows.Forms.TextBox();
             this.lblRemoteControlMQTTTopic = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutput.SuspendLayout();
             this.panelPredefinedOutputCulture.SuspendLayout();
@@ -297,7 +298,6 @@
             this.radioBtnDate.TabStop = true;
             this.radioBtnDate.Text = "Date";
             this.radioBtnDate.UseVisualStyleBackColor = true;
-            this.radioBtnDate.CheckedChanged += new System.EventHandler(this.radioBtnDate_CheckedChanged);
             // 
             // lblSeparator
             // 
@@ -309,6 +309,7 @@
             // 
             // grpOutput
             // 
+            this.grpOutput.Controls.Add(this.chkOutputFile);
             this.grpOutput.Controls.Add(this.txtMQTTTopic);
             this.grpOutput.Controls.Add(this.lblMQTTTopic);
             this.grpOutput.Controls.Add(this.txtOutputMQTTSubscription);
@@ -320,13 +321,22 @@
             this.grpOutput.Controls.Add(this.lblOutputSerialPort);
             this.grpOutput.Controls.Add(this.btnOpenFileDialog);
             this.grpOutput.Controls.Add(this.txtOutputFile);
-            this.grpOutput.Controls.Add(this.lblOutputFile);
             this.grpOutput.Location = new System.Drawing.Point(8, 182);
             this.grpOutput.Name = "grpOutput";
             this.grpOutput.Size = new System.Drawing.Size(745, 135);
             this.grpOutput.TabIndex = 5;
             this.grpOutput.TabStop = false;
             this.grpOutput.Text = "Output";
+            // 
+            // chkOutputFile
+            // 
+            this.chkOutputFile.AutoSize = true;
+            this.chkOutputFile.Location = new System.Drawing.Point(16, 22);
+            this.chkOutputFile.Name = "chkOutputFile";
+            this.chkOutputFile.Size = new System.Drawing.Size(42, 17);
+            this.chkOutputFile.TabIndex = 14;
+            this.chkOutputFile.Text = "File";
+            this.chkOutputFile.UseVisualStyleBackColor = true;
             // 
             // txtMQTTTopic
             // 
@@ -385,11 +395,13 @@
             // 
             // chkListOutputSerialPort
             // 
+            this.chkListOutputSerialPort.CheckOnClick = true;
             this.chkListOutputSerialPort.FormattingEnabled = true;
             this.chkListOutputSerialPort.Location = new System.Drawing.Point(81, 51);
             this.chkListOutputSerialPort.Name = "chkListOutputSerialPort";
             this.chkListOutputSerialPort.ScrollAlwaysVisible = true;
             this.chkListOutputSerialPort.Size = new System.Drawing.Size(234, 34);
+            this.chkListOutputSerialPort.Sorted = true;
             this.chkListOutputSerialPort.TabIndex = 4;
             // 
             // lblOutputSerialPort
@@ -403,28 +415,20 @@
             // 
             // btnOpenFileDialog
             // 
-            this.btnOpenFileDialog.Location = new System.Drawing.Point(711, 18);
+            this.btnOpenFileDialog.Location = new System.Drawing.Point(711, 19);
             this.btnOpenFileDialog.Name = "btnOpenFileDialog";
             this.btnOpenFileDialog.Size = new System.Drawing.Size(27, 23);
             this.btnOpenFileDialog.TabIndex = 2;
             this.btnOpenFileDialog.Text = "...";
             this.btnOpenFileDialog.UseVisualStyleBackColor = true;
+            this.btnOpenFileDialog.Click += new System.EventHandler(this.btnOpenFileDialog_Click);
             // 
             // txtOutputFile
             // 
-            this.txtOutputFile.Location = new System.Drawing.Point(43, 19);
+            this.txtOutputFile.Location = new System.Drawing.Point(64, 20);
             this.txtOutputFile.Name = "txtOutputFile";
-            this.txtOutputFile.Size = new System.Drawing.Size(662, 20);
+            this.txtOutputFile.Size = new System.Drawing.Size(641, 20);
             this.txtOutputFile.TabIndex = 1;
-            // 
-            // lblOutputFile
-            // 
-            this.lblOutputFile.AutoSize = true;
-            this.lblOutputFile.Location = new System.Drawing.Point(13, 23);
-            this.lblOutputFile.Name = "lblOutputFile";
-            this.lblOutputFile.Size = new System.Drawing.Size(23, 13);
-            this.lblOutputFile.TabIndex = 0;
-            this.lblOutputFile.Text = "File";
             // 
             // grpRemoteControle
             // 
@@ -493,11 +497,13 @@
             // 
             // ckcCheckListBoxRemoteSerialPort
             // 
+            this.ckcCheckListBoxRemoteSerialPort.CheckOnClick = true;
             this.ckcCheckListBoxRemoteSerialPort.FormattingEnabled = true;
             this.ckcCheckListBoxRemoteSerialPort.Location = new System.Drawing.Point(81, 18);
             this.ckcCheckListBoxRemoteSerialPort.Name = "ckcCheckListBoxRemoteSerialPort";
             this.ckcCheckListBoxRemoteSerialPort.ScrollAlwaysVisible = true;
             this.ckcCheckListBoxRemoteSerialPort.Size = new System.Drawing.Size(181, 34);
+            this.ckcCheckListBoxRemoteSerialPort.Sorted = true;
             this.ckcCheckListBoxRemoteSerialPort.TabIndex = 1;
             // 
             // lblRemoteControlSerialPort
@@ -543,6 +549,11 @@
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "SCfile.txt";
+            this.saveFileDialog1.Filter = "Text file|*.txt";
             // 
             // DateTimeUserControl
             // 
@@ -607,7 +618,6 @@
         private System.Windows.Forms.Label lblOutputSerialPort;
         private System.Windows.Forms.Button btnOpenFileDialog;
         private System.Windows.Forms.TextBox txtOutputFile;
-        private System.Windows.Forms.Label lblOutputFile;
         private System.Windows.Forms.TextBox txtMQTTTopic;
         private System.Windows.Forms.Label lblMQTTTopic;
         private System.Windows.Forms.TextBox txtOutputMQTTSubscription;
@@ -631,5 +641,7 @@
         private System.Windows.Forms.Label lblPredefinedDateFormat;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.CheckBox chkOutputFile;
     }
 }

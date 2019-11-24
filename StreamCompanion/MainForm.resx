@@ -162,6 +162,25 @@
   <data name="dateTimeUserControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="dateTimeUserControl1.TimeZoneInfo" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAEAQAAABNTeXN0ZW0uVGltZVpvbmVJbmZvBwAAAAJJZAtEaXNwbGF5TmFt
+        ZQxTdGFuZGFyZE5hbWUMRGF5bGlnaHROYW1lDUJhc2VVdGNPZmZzZXQPQWRqdXN0bWVudFJ1bGVzGlN1
+        cHBvcnRzRGF5bGlnaHRTYXZpbmdUaW1lAQEBAQADAAwkU3lzdGVtLlRpbWVab25lSW5mbytBZGp1c3Rt
+        ZW50UnVsZVtdAQYCAAAAFVJvbWFuY2UgU3RhbmRhcmQgVGltZQYDAAAAMChVVEMrMDE6MDApIEJydXhl
+        bGxlcywgQ29wZW5oYWd1ZSwgTWFkcmlkLCBQYXJpcwYEAAAADVBhcmlzLCBNYWRyaWQGBQAAAB9QYXJp
+        cywgTWFkcmlkIChoZXVyZSBk4oCZw6l0w6kpAGjEYQgAAAAJBgAAAAEHBgAAAAABAAAAAQAAAAMiU3lz
+        dGVtLlRpbWVab25lSW5mbytBZGp1c3RtZW50UnVsZQkHAAAABAcAAAAiU3lzdGVtLlRpbWVab25lSW5m
+        bytBZGp1c3RtZW50UnVsZQYAAAAJRGF0ZVN0YXJ0B0RhdGVFbmQNRGF5bGlnaHREZWx0YRdEYXlsaWdo
+        dFRyYW5zaXRpb25TdGFydBVEYXlsaWdodFRyYW5zaXRpb25FbmQSQmFzZVV0Y09mZnNldERlbHRhAAAA
+        AwMADQ0MIlN5c3RlbS5UaW1lWm9uZUluZm8rVHJhbnNpdGlvblRpbWUiU3lzdGVtLlRpbWVab25lSW5m
+        bytUcmFuc2l0aW9uVGltZQwAAAAAAAAAAACAzcmsJ8orAGjEYQgAAAAE+P///yJTeXN0ZW0uVGltZVpv
+        bmVJbmZvK1RyYW5zaXRpb25UaW1lBgAAAAlUaW1lT2ZEYXkFTW9udGgEV2VlawNEYXkJRGF5T2ZXZWVr
+        D0lzRml4ZWREYXRlUnVsZQAAAAADAA0CAgIQU3lzdGVtLkRheU9mV2VlawEA0IjDEAAAAAMFAQT3////
+        EFN5c3RlbS5EYXlPZldlZWsBAAAAB3ZhbHVlX18ACAAAAAAAAfb////4////ADhNJRkAAAAKBQEB9f//
+        //f///8AAAAAAAAAAAAAAAAACw==
+</value>
+  </data>
   <data name="&gt;&gt;dateTimeUserControl1.Name" xml:space="preserve">
     <value>dateTimeUserControl1</value>
   </data>
@@ -277,7 +296,7 @@
     <value>3</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 101</value>
+    <value>7, 231</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>817, 447</value>
@@ -292,10 +311,10 @@
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>TimersPanel</value>
   </data>
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -380,7 +399,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -431,13 +450,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settingsPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>239, 17</value>
   </metadata>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 565</value>
+    <value>0, 712</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>836, 22</value>
@@ -458,6 +477,75 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkedListBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 20</value>
+  </data>
+  <data name="checkedListBox1.ScrollAlwaysVisible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkedListBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 64</value>
+  </data>
+  <data name="checkedListBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Name" xml:space="preserve">
+    <value>checkedListBox1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Parent" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpComPorts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 18</value>
+  </data>
+  <data name="grpComPorts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 97</value>
+  </data>
+  <data name="grpComPorts.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grpComPorts.Text" xml:space="preserve">
+    <value>Com ports</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.Name" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.Parent" xml:space="preserve">
+    <value>TimersPanel</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TimersPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 49</value>
+  </data>
+  <data name="TimersPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>836, 660</value>
+  </data>
+  <data name="TimersPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;TimersPanel.Name" xml:space="preserve">
+    <value>TimersPanel</value>
+  </data>
+  <data name="&gt;&gt;TimersPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TimersPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TimersPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -467,7 +555,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>836, 587</value>
+    <value>836, 734</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
