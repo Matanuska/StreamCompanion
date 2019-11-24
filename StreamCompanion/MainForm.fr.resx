@@ -124,6 +124,9 @@
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>Fichier</value>
   </data>
+  <data name="licenceexpirationdate" xml:space="preserve">
+    <value>Date d'expiration de la licence</value>
+  </data>
   <data name="quitterToolStripMenuItem.Text" xml:space="preserve">
     <value>Quitter</value>
   </data>

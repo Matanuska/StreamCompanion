@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using LogicNP.CryptoLicensing;
+using LogicNP.CryptoLicensing;
 using System.Threading;
 using System.Reflection;
 using System.Resources;
@@ -36,7 +36,7 @@ namespace StreamCompanion
                Application.EnableVisualStyles();
                Application.SetCompatibleTextRenderingDefault(false);
 
-            // string validationKey = "AMAAMACDq7YAhOTWIkO+7tmgmGfnwVoi7zJeoEFDqefYYGYtjoOqI4u4q6EAsFlza7leiicDAAEAAQ==";
+             string validationKey = "AMAAMACDq7YAhOTWIkO+7tmgmGfnwVoi7zJeoEFDqefYYGYtjoOqI4u4q6EAsFlza7leiicDAAEAAQ==";
 
 
             /*
@@ -49,20 +49,20 @@ namespace StreamCompanion
                 Pro no limits
                 FgCAgDJmwVOYoNUBAQIQJahUJdgWCfCD1J/6V2pZSmqIHDC0jIUQaTOP6ipG5f7P/1mHkyMvXDq1V61XzjmC
              */
-            /*
-           CryptoLicense license = new CryptoLicense("FgCAgDJmwVOYoNUBAQIQJahUJdgWCfCD1J/6V2pZSmqIHDC0jIUQaTOP6ipG5f7P/1mHkyMvXDq1V61XzjmC", validationKey);
+            
+           CryptoLicense license = new CryptoLicense("FgSAgPTVvzKYoNUBCgABARApMzaTcUoNV4kDZrbPcjE70G4oGUX1U4ljWINIUtu+SbsZ0kSI64rdjuLp1vWX5eI=", validationKey);
            if (license.Status != LicenseStatus.Valid)
            {
                MessageBox.Show("License validation failed");
            }
            else
            {
-               // Continue normal execution...
+                // Continue normal execution...
+                Application.Run(new MainForm(license));                
+            }
+           
 
-           }
-           */
-
-            Application.Run(new MainForm());
+            
         }
     }
 }

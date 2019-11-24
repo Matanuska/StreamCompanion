@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTimeZone = new System.Windows.Forms.Label();
             this.cboTimezone = new System.Windows.Forms.ComboBox();
             this.chkEnabled = new System.Windows.Forms.CheckBox();
@@ -77,6 +78,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutput.SuspendLayout();
             this.panelPredefinedOutputCulture.SuspendLayout();
@@ -327,7 +329,7 @@
             this.grpOutput.Size = new System.Drawing.Size(745, 135);
             this.grpOutput.TabIndex = 5;
             this.grpOutput.TabStop = false;
-            this.grpOutput.Text = "Output";
+            this.grpOutput.Text = "Outputs";
             // 
             // chkOutputFile
             // 
@@ -446,7 +448,7 @@
             this.grpRemoteControle.Size = new System.Drawing.Size(412, 128);
             this.grpRemoteControle.TabIndex = 6;
             this.grpRemoteControle.TabStop = false;
-            this.grpRemoteControle.Text = "Remote Control";
+            this.grpRemoteControle.Text = "Remote control on";
             // 
             // txtRemoteControlMQTTTopic
             // 
@@ -506,6 +508,7 @@
             this.ckcCheckListBoxRemoteSerialPort.Size = new System.Drawing.Size(181, 34);
             this.ckcCheckListBoxRemoteSerialPort.Sorted = true;
             this.ckcCheckListBoxRemoteSerialPort.TabIndex = 1;
+            this.ckcCheckListBoxRemoteSerialPort.SelectedIndexChanged += new System.EventHandler(this.ckcCheckListBoxRemoteSerialPort_SelectedIndexChanged);
             // 
             // lblRemoteControlSerialPort
             // 
@@ -644,5 +647,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.CheckBox chkOutputFile;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
