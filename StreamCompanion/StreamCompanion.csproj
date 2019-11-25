@@ -121,6 +121,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LogicNP\LogicNP.CryptoLicensing.dll" />
+    <Content Include="LogicNP\LogicNP.CryptoLicensing.xml" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
