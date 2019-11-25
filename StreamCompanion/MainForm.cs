@@ -144,20 +144,26 @@ namespace StreamCompanion
 
                 _port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
-                _port.Open();
-
+                
+                /*
                 SerialPort _port2 = new SerialPort();
                 _port2.PortName = "COM46";
-              //  _port2.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-
-                _port2.Open();
-
-                ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _port));
-
-                foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
+                _port2.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+                */
+                try
                 {
-                    (control as DateTimeUserControl).AddPort(portnames[e.Index]);
-                }                                
+                    _port.Open();
+
+                    ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _port));                    
+
+                    foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
+                    {
+                        (control as DateTimeUserControl).AddPort(portnames[e.Index]);
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);                    
+                }
             }
             else
             {
