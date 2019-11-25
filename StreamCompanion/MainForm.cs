@@ -138,13 +138,19 @@ namespace StreamCompanion
             if (e.NewValue == CheckState.Checked)
             {
 
-                KeyValuePair<string, SerialPortManager> x = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
+                 KeyValuePair<string, SerialPortManager> x = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
 
-                SerialPortManager _port = x.Value;
+                 SerialPortManager _port = x.Value;
 
                 _port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
                 _port.Open();
+
+                SerialPort _port2 = new SerialPort();
+                _port2.PortName = "COM46";
+              //  _port2.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+
+                _port2.Open();
 
                 ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _port));
 
@@ -174,7 +180,7 @@ namespace StreamCompanion
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(e.ToString());
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

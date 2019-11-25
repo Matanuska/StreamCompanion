@@ -13,6 +13,10 @@ namespace StreamCompanion.Classes
     [TypeDescriptionProvider(typeof(MyTypeDescriptionProvider<IBrowsableSerialPort>))]
     public class SerialPortManager : SerialPort , IBrowsableSerialPort
     {
+        public SerialPortManager()
+        {
+            
+        }
 
     }
 
