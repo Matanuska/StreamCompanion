@@ -133,34 +133,25 @@ namespace StreamCompanion
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             var portslist = (CheckedListBox)sender;
-
-            SerialPortManager _serialPort = new SerialPortManager();
+           
 
             if (e.NewValue == CheckState.Checked)
             {
-                
-                _serialPort.PortName = SetPortName(portnames[e.Index]);
-                _serialPort.BaudRate = SetPortBaudRate(9600);
-                _serialPort.Parity = SetPortParity(Parity.None);
-                _serialPort.DataBits = SetPortDataBits(8);
-                _serialPort.StopBits = SetPortStopBits(StopBits.One);
-                _serialPort.Handshake = SetPortHandshake(Handshake.None);
-                
-                _serialPort.ReadTimeout = 500;
-                _serialPort.WriteTimeout = 500;
 
-                _serialPort.DataReceived += _serialPort_DataReceived;
+                KeyValuePair<string, SerialPortManager> x = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
 
-                _serialPort.Open();
+                SerialPortManager _port = x.Value;
 
-                ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _serialPort));
+                _port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+
+                _port.Open();
+
+                ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _port));
 
                 foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
                 {
-                    (control as DateTimeUserControl).AddPort(portnames[e.Index]);                    
-                }
-
-                propertyGrid1.Enabled = false;
+                    (control as DateTimeUserControl).AddPort(portnames[e.Index]);
+                }                                
             }
             else
             {
@@ -176,50 +167,14 @@ namespace StreamCompanion
                     (control as DateTimeUserControl).RemovePort(portnames[e.Index]);
                 }
 
-                propertyGrid1.Enabled = true;
+                
             }
 
         }
 
-        private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            
-        }
-
-        public string SetPortName(string defaultPortName)
-        {
-            return defaultPortName;
-        }
-
-        public int SetPortBaudRate(int defaultPortBaudRate)
-        {
-
-            return defaultPortBaudRate;
-        }
-
-        public static Parity SetPortParity(Parity defaultPortParity)
-        {
-
-        //https://docs.microsoft.com/fr-fr/dotnet/api/system.io.ports.serialport?view=netframework-4.8
-            
-            return defaultPortParity;
-        }
-
-        public  int SetPortDataBits(int defaultPortDataBits)
-        {
-
-            return defaultPortDataBits;
-        }
-
-        public static StopBits SetPortStopBits(StopBits defaultPortStopBits)
-        {
-
-            return defaultPortStopBits;
-        }
-
-        public static Handshake SetPortHandshake(Handshake defaultPortHandshake)
-        {
-            return defaultPortHandshake;
+            throw new NotImplementedException();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
