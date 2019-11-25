@@ -145,14 +145,16 @@ namespace StreamCompanion
                 _port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
                 
-                /*
-                SerialPort _port2 = new SerialPort();
+                
+                EnhancedSerialPort _port2 = new EnhancedSerialPort();
                 _port2.PortName = "COM46";
-                _port2.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-                */
+                _port2.DataReceived += _port2_DataReceived;                
+                
                 try
                 {
                     _port.Open();
+
+                    _port2.Open();
 
                     ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _port));                    
 
@@ -184,9 +186,21 @@ namespace StreamCompanion
 
         }
 
+
+        private void _port2_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            EnhancedSerialPort spm = (EnhancedSerialPort)sender;
+            string indata = spm.DataRead;
+            Console.WriteLine("Data Received 2:");
+            Console.Write(indata);
+        }
+
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            Console.WriteLine(e.ToString());
+            SerialPort spm = (SerialPort)sender;
+            string indata = spm.ReadExisting();
+            Console.WriteLine("Data Received 1:");
+            Console.Write(indata);
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
