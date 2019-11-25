@@ -485,6 +485,30 @@
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="propertyGrid1.HelpVisible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="propertyGrid1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 18</value>
+  </data>
+  <data name="propertyGrid1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 50</value>
+  </data>
+  <data name="propertyGrid1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.Name" xml:space="preserve">
+    <value>propertyGrid1</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.Parent" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="checkedListBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 20</value>
   </data>
@@ -507,13 +531,13 @@
     <value>grpComPorts</value>
   </data>
   <data name="&gt;&gt;checkedListBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="grpComPorts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>494, 3</value>
+    <value>303, 3</value>
   </data>
   <data name="grpComPorts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 79</value>
+    <value>521, 79</value>
   </data>
   <data name="grpComPorts.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

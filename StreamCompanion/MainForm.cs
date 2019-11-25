@@ -26,6 +26,7 @@ namespace StreamCompanion
         string[] portnames;
         CryptoLicense license;
 
+        List<KeyValuePair<string, SerialPortManager>> DetectedSerialPorts = new List<KeyValuePair<string, SerialPortManager>>();
         List<KeyValuePair<string, SerialPortManager>> ListenSerialPorts = new List<KeyValuePair<string, SerialPortManager>>();
 
         public MainForm(CryptoLicense lic)
@@ -115,7 +116,14 @@ namespace StreamCompanion
                     {
                         checkedListBox1.Items.Add(portnames[i].ToString());
                     }
+
+                    SerialPortManager _serialPort = new SerialPortManager();                    
+
+                    DetectedSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[i], _serialPort));
+
                 }
+
+                
 
             }
 
@@ -132,7 +140,7 @@ namespace StreamCompanion
             {
                 
                 _serialPort.PortName = SetPortName(portnames[e.Index]);
-                _serialPort.PortBaudRate = SetPortBaudRate(9600);
+                _serialPort.BaudRate = SetPortBaudRate(9600);
                 _serialPort.Parity = SetPortParity(Parity.None);
                 _serialPort.DataBits = SetPortDataBits(8);
                 _serialPort.StopBits = SetPortStopBits(StopBits.One);
@@ -141,7 +149,7 @@ namespace StreamCompanion
                 _serialPort.ReadTimeout = 500;
                 _serialPort.WriteTimeout = 500;
 
-                SerialPortManager.OnMessageReceived += SerialPortManager_OnMessageReceived;
+                _serialPort.DataReceived += _serialPort_DataReceived;
 
                 _serialPort.Open();
 
@@ -151,6 +159,8 @@ namespace StreamCompanion
                 {
                     (control as DateTimeUserControl).AddPort(portnames[e.Index]);                    
                 }
+
+                propertyGrid1.Enabled = false;
             }
             else
             {
@@ -165,13 +175,10 @@ namespace StreamCompanion
                 {
                     (control as DateTimeUserControl).RemovePort(portnames[e.Index]);
                 }
+
+                propertyGrid1.Enabled = true;
             }
 
-        }
-
-        private void SerialPortManager_OnMessageReceived(string message, bool isCompleted, bool isSuccess)
-        {
-            throw new NotImplementedException();
         }
 
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -215,5 +222,31 @@ namespace StreamCompanion
             return defaultPortHandshake;
         }
 
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var portslist = (CheckedListBox)sender;
+            KeyValuePair<string, SerialPortManager> _port = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[portslist.SelectedIndex]);
+            if(_port.Value != null)
+                propertyGrid1.SelectedObject = (SerialPort)_port.Value;
+
+            if(((CheckedListBox)sender).GetItemCheckState(portslist.SelectedIndex) == CheckState.Checked)
+            {
+                propertyGrid1.Enabled = false;
+            }
+            else
+            {
+                propertyGrid1.Enabled = true;
+            }
+        }
+
+        private void propertyGrid1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TimersPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

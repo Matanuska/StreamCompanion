@@ -4,10 +4,31 @@ using System.Linq;
 using System.Text;
 using System.IO.Ports;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using StreamCompanion.Interfaces;
 
 namespace StreamCompanion.Classes
 {
-    public class SerialPortManager
+
+    [TypeDescriptionProvider(typeof(MyTypeDescriptionProvider<IBrowsableSerialPort>))]
+    public class SerialPortManager : SerialPort , IBrowsableSerialPort
+    {
+
+    }
+
+
+    public class MyTypeDescriptionProvider<T> : TypeDescriptionProvider
+    {
+        public MyTypeDescriptionProvider() : base(TypeDescriptor.GetProvider(typeof(T))) { }
+
+        public override ICustomTypeDescriptor GetTypeDescriptor(Type objectType,
+            object instance)
+        {
+            return base.GetTypeDescriptor(typeof(T), instance);
+        }
+    }
+
+    public class AsyncSerialPortManager
     {
 
         /// <summary>

@@ -73,6 +73,7 @@
     <Compile Include="Controls\Time\TimeUserControl.Designer.cs">
       <DependentUpon>TimeUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBrowsableSerialPort.cs" />
     <Compile Include="Interfaces\ICommuniquant.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
