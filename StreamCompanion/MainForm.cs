@@ -187,6 +187,11 @@ namespace StreamCompanion
             string indata = spm.ReadExisting();
             Console.WriteLine(spm.PortName);
             Console.Write(indata);
+
+           foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
+            {
+                (control as DateTimeUserControl).SendMessage(spm.PortName,indata.Replace("\r\n",string.Empty));
+            }
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

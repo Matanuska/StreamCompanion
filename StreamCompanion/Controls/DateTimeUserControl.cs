@@ -366,7 +366,15 @@ namespace StreamCompanion.Controls
 
         public void SendMessage(string port, string message)
         {
-            throw new NotImplementedException();
+            if (message != string.Empty && message == txtRemoteControlSerialData.Text)
+            {
+                if (ckcCheckListBoxRemoteSerialPort.CheckedItems.Contains(port)) { 
+                    chkEnabled.Invoke(new MethodInvoker(delegate
+                    {
+                        chkEnabled.Checked = !chkEnabled.Checked;
+                    }));
+                 }
+            }
         }
     }
 }
