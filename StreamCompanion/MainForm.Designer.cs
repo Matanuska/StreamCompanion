@@ -46,9 +46,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TimersPanel = new System.Windows.Forms.Panel();
             this.grpComPorts = new System.Windows.Forms.GroupBox();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
@@ -177,6 +177,13 @@
             this.grpComPorts.Name = "grpComPorts";
             this.grpComPorts.TabStop = false;
             // 
+            // propertyGrid1
+            // 
+            resources.ApplyResources(this.propertyGrid1, "propertyGrid1");
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
+            this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
+            // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
@@ -190,14 +197,6 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.OwnerDraw = true;
             // 
-            // propertyGrid1
-            // 
-            resources.ApplyResources(this.propertyGrid1, "propertyGrid1");
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-            this.propertyGrid1.ToolbarVisible = false;
-            this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
-            // 
             // dateTimeUserControl1
             // 
             this.dateTimeUserControl1.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
@@ -205,6 +204,7 @@
             resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
             this.dateTimeUserControl1.Name = "dateTimeUserControl1";
             this.dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
+            this.dateTimeUserControl1.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
             // 
             // MainForm
             // 

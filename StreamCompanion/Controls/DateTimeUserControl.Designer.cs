@@ -488,6 +488,7 @@
             this.txtRemoteControlSerialData.Name = "txtRemoteControlSerialData";
             this.txtRemoteControlSerialData.Size = new System.Drawing.Size(95, 20);
             this.txtRemoteControlSerialData.TabIndex = 3;
+            this.txtRemoteControlSerialData.Text = "OnOff";
             // 
             // lblRemoteControlSerialData
             // 
@@ -500,7 +501,6 @@
             // 
             // ckcCheckListBoxRemoteSerialPort
             // 
-            this.ckcCheckListBoxRemoteSerialPort.CheckOnClick = true;
             this.ckcCheckListBoxRemoteSerialPort.FormattingEnabled = true;
             this.ckcCheckListBoxRemoteSerialPort.Location = new System.Drawing.Point(81, 18);
             this.ckcCheckListBoxRemoteSerialPort.Name = "ckcCheckListBoxRemoteSerialPort";

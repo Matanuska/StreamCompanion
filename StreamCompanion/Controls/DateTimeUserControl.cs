@@ -363,5 +363,10 @@ namespace StreamCompanion.Controls
         {
 
         }
+
+        public void SendMessage(string port, string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

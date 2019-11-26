@@ -26,8 +26,8 @@ namespace StreamCompanion
         string[] portnames;
         CryptoLicense license;
 
-        List<KeyValuePair<string, SerialPortManager>> DetectedSerialPorts = new List<KeyValuePair<string, SerialPortManager>>();
-        List<KeyValuePair<string, SerialPortManager>> ListenSerialPorts = new List<KeyValuePair<string, SerialPortManager>>();
+        List<KeyValuePair<string, EnhancedSerialPort>> DetectedSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
+        List<KeyValuePair<string, EnhancedSerialPort>> ListenSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
 
         public MainForm(CryptoLicense lic)
         {
@@ -117,9 +117,10 @@ namespace StreamCompanion
                         checkedListBox1.Items.Add(portnames[i].ToString());
                     }
 
-                    SerialPortManager _serialPort = new SerialPortManager();                    
+                    EnhancedSerialPort _serialPort = new EnhancedSerialPort(portnames[i].ToString());
+                   
 
-                    DetectedSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[i], _serialPort));
+                    DetectedSerialPorts.Add(new KeyValuePair<string, EnhancedSerialPort>(portnames[i], _serialPort));
 
                 }
 
@@ -138,25 +139,17 @@ namespace StreamCompanion
             if (e.NewValue == CheckState.Checked)
             {
 
-                 KeyValuePair<string, SerialPortManager> x = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
+                 KeyValuePair<string, EnhancedSerialPort> x = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
 
-                 SerialPortManager _port = x.Value;
+                EnhancedSerialPort _port = x.Value;
 
-                _port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-
-                
-                
-                EnhancedSerialPort _port2 = new EnhancedSerialPort();
-                _port2.PortName = "COM46";
-                _port2.DataReceived += _port2_DataReceived;                
+                _port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);              
                 
                 try
                 {
                     _port.Open();
 
-                    _port2.Open();
-
-                    ListenSerialPorts.Add(new KeyValuePair<string, SerialPortManager>(portnames[e.Index], _port));                    
+                    ListenSerialPorts.Add(new KeyValuePair<string, EnhancedSerialPort>(portnames[e.Index], _port));                    
 
                     foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
                     {
@@ -164,15 +157,16 @@ namespace StreamCompanion
                     }
                 }
                 catch (Exception ex) {
+                    e.NewValue = CheckState.Unchecked;
                     MessageBox.Show(ex.Message);                    
                 }
             }
             else
             {
 
-                KeyValuePair<string, SerialPortManager> _port = ListenSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
+                KeyValuePair<string, EnhancedSerialPort> _port = ListenSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]);
                 
-                (_port.Value as SerialPortManager).Close();
+                (_port.Value as EnhancedSerialPort).Close();
 
                 ListenSerialPorts.Remove(ListenSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[e.Index]));
 
@@ -187,26 +181,18 @@ namespace StreamCompanion
         }
 
 
-        private void _port2_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            EnhancedSerialPort spm = (EnhancedSerialPort)sender;
-            string indata = spm.DataRead;
-            Console.WriteLine("Data Received 2:");
-            Console.Write(indata);
-        }
-
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort spm = (SerialPort)sender;
             string indata = spm.ReadExisting();
-            Console.WriteLine("Data Received 1:");
+            Console.WriteLine(spm.PortName);
             Console.Write(indata);
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var portslist = (CheckedListBox)sender;
-            KeyValuePair<string, SerialPortManager> _port = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[portslist.SelectedIndex]);
+            KeyValuePair<string, EnhancedSerialPort> _port = DetectedSerialPorts.SingleOrDefault(kvp => kvp.Key == portnames[portslist.SelectedIndex]);
             if(_port.Value != null)
                 propertyGrid1.SelectedObject = (SerialPort)_port.Value;
 
@@ -226,6 +212,11 @@ namespace StreamCompanion
         }
 
         private void TimersPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dateTimeUserControl1_Load(object sender, EventArgs e)
         {
 
         }
