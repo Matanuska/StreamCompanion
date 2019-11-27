@@ -38,6 +38,11 @@ namespace StreamCompanion
 
         private void Init()
         {
+            TimersPanel.Dock = DockStyle.Fill;
+            comPanel.Dock = DockStyle.Fill;
+            settingsPanel.Dock = DockStyle.Fill;
+
+
             portnames = SerialPort.GetPortNames();
             loadComPorts();
             dateTimeUserControl1.InstanceNumber = 1;
@@ -67,8 +72,9 @@ namespace StreamCompanion
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-            settingsPanel.Visible = true;
+            comPanel.Visible = false;
             TimersPanel.Visible = false;
+            settingsPanel.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -190,7 +196,7 @@ namespace StreamCompanion
 
            foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
             {
-                (control as DateTimeUserControl).SendMessage(spm.PortName,indata.Replace("\r\n",string.Empty));
+                (control as DateTimeUserControl).MessageReceived(spm.PortName,indata.Replace("\r\n",string.Empty));
             }
         }
 
@@ -224,6 +230,20 @@ namespace StreamCompanion
         private void dateTimeUserControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            comPanel.Visible = true;
+            TimersPanel.Visible = false;
+            settingsPanel.Visible = false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            TimersPanel.Visible = true;
+            comPanel.Visible = false;
+            settingsPanel.Visible = false;
         }
     }
 }

@@ -49,7 +49,11 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.comPanel = new System.Windows.Forms.Panel();
             this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
@@ -59,6 +63,7 @@
             this.statusStrip1.SuspendLayout();
             this.TimersPanel.SuspendLayout();
             this.grpComPorts.SuspendLayout();
+            this.comPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCountdownZero
@@ -107,6 +112,8 @@
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
+            this.toolStripButton3,
+            this.toolStripButton2,
             this.toolStripButton1});
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
@@ -163,7 +170,6 @@
             // 
             // TimersPanel
             // 
-            this.TimersPanel.Controls.Add(this.grpComPorts);
             this.TimersPanel.Controls.Add(this.tabControl1);
             resources.ApplyResources(this.TimersPanel, "TimersPanel");
             this.TimersPanel.Name = "TimersPanel";
@@ -171,6 +177,7 @@
             // 
             // grpComPorts
             // 
+            this.grpComPorts.Controls.Add(this.richTextBox1);
             this.grpComPorts.Controls.Add(this.propertyGrid1);
             this.grpComPorts.Controls.Add(this.checkedListBox1);
             resources.ApplyResources(this.grpComPorts, "grpComPorts");
@@ -181,7 +188,6 @@
             // 
             resources.ApplyResources(this.propertyGrid1, "propertyGrid1");
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
             this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
             // 
             // checkedListBox1
@@ -197,6 +203,19 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.OwnerDraw = true;
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // comPanel
+            // 
+            this.comPanel.Controls.Add(this.grpComPorts);
+            resources.ApplyResources(this.comPanel, "comPanel");
+            this.comPanel.Name = "comPanel";
+            // 
             // dateTimeUserControl1
             // 
             this.dateTimeUserControl1.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
@@ -206,10 +225,26 @@
             this.dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
             this.dateTimeUserControl1.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.richTextBox1, "richTextBox1");
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comPanel);
             this.Controls.Add(this.TimersPanel);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.settingsPanel);
@@ -227,6 +262,7 @@
             this.statusStrip1.PerformLayout();
             this.TimersPanel.ResumeLayout(false);
             this.grpComPorts.ResumeLayout(false);
+            this.comPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +289,9 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Panel comPanel;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

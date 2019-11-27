@@ -364,7 +364,7 @@ namespace StreamCompanion.Controls
 
         }
 
-        public void SendMessage(string port, string message)
+        public void MessageReceived(string port, string message)
         {
             if (message != string.Empty && message == txtRemoteControlSerialData.Text)
             {

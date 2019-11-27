@@ -145,6 +145,11 @@ namespace StreamCompanion.Controls
         {
             throw new NotImplementedException();
         }
+
+        public void MessageReceived(string port, string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class TimeZoneChangedEventArgs : EventArgs

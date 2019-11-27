@@ -11,6 +11,6 @@ namespace StreamCompanion.Interfaces
         void AddPort(string port);
         void RemovePort(string port);
 
-        void SendMessage(string port, string message);
+        void MessageReceived(string port, string message);
     }
 }
