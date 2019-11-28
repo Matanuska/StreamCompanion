@@ -191,8 +191,12 @@ namespace StreamCompanion
         {
             SerialPort spm = (SerialPort)sender;
             string indata = spm.ReadExisting();
-            Console.WriteLine(spm.PortName);
-            Console.Write(indata);
+
+            rtxtComConsole.Invoke(new MethodInvoker(delegate
+            {
+                rtxtComConsole.Text = string.Concat(rtxtComConsole.Text, spm.PortName,"->",indata);
+            }));
+            
 
            foreach (UserControl control in flowLayoutPanel1.Controls.OfType<ICommuniquant>())
             {
