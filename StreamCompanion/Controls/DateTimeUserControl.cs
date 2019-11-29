@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace StreamCompanion.Controls
 {
-    public partial class DateTimeUserControl : UserControl, ICommuniquant
+    public partial class DateTimeUserControl : UserControl, ICommuniquant, IDuplicable
     {
 
         public event EventHandler AddControl;
@@ -425,6 +425,11 @@ namespace StreamCompanion.Controls
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Duplicate();
+        }
+
+        public void Duplicate()
         {
             EventHandler handler = AddControl;
             if (handler != null)
