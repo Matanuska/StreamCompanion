@@ -15,6 +15,11 @@ namespace StreamCompanion.Controls
 {
     public partial class DateTimeUserControl : UserControl, ICommuniquant
     {
+
+        public event EventHandler AddControl;
+
+
+
         public DateTimeUserControl()
         {
             InitializeComponent();
@@ -26,6 +31,9 @@ namespace StreamCompanion.Controls
 
         public void Init()
         {
+            this.IsFirst = true;
+            this.IsLast = true;
+
             panelCustomFormat.Location = panelPredefinedOutput.Location;                        
 
             var cultureList = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();
@@ -36,10 +44,6 @@ namespace StreamCompanion.Controls
 
             radioBtnDate.CheckedChanged += loadCboPredefinedFormat;
             radioBtnTime.CheckedChanged += loadCboPredefinedFormat;
-
-           // radioBtnDate.CheckedChanged += new System.EventHandler(this.defineOutput);
-           // radioBtnTime.CheckedChanged += new System.EventHandler(this.defineOutput);
-           // radioBtnDateAndTime.CheckedChanged += new System.EventHandler(this.defineOutput);
 
             radioBtnDate.Checked = true;
             radioBtnPrefedinedOutputFormat.Checked = true;
@@ -60,7 +64,10 @@ namespace StreamCompanion.Controls
             myTimer.TimeFormat = cboPredefinedFormats.Text;
             myTimer.TimeChanged += MyTimer_TimeChanged;
             chkEnabled.Checked = true;
-            
+
+            ShowSeparatorButtons();
+
+
         }
 
         public int InstanceNumber { get; set; }
@@ -100,6 +107,23 @@ namespace StreamCompanion.Controls
         {
 
         }
+
+
+        private Boolean isfirst;
+        public Boolean IsFirst
+        {
+            get
+            {
+                return isfirst;
+            }
+            set
+            {
+                isfirst = value;
+                ShowSeparatorButtons();
+            }
+        }
+
+        public Boolean IsLast { get; set; }
 
         private void cboCultureChanged(object sender, EventArgs e){
 
@@ -303,8 +327,6 @@ namespace StreamCompanion.Controls
 
         public void defineOutput(object sender, EventArgs e)
         {
-          //  if(txtOutputFile.Text == string.Empty)
-          //  {
                 
                 string filename = "";
                 if(((RadioButton)sender).Name == "radioBtnDate")
@@ -349,32 +371,68 @@ namespace StreamCompanion.Controls
 
         public void AddPort(string port)
         {
-            ckcCheckListBoxRemoteSerialPort.Items.Add(port);
+            chkCheckListBoxRemoteSerialPort.Items.Add(port);
             chkListOutputSerialPort.Items.Add(port);
         }
 
         public void RemovePort(string port)
         {
-            ckcCheckListBoxRemoteSerialPort.Items.Remove(port);
+            chkCheckListBoxRemoteSerialPort.Items.Remove(port);
             chkListOutputSerialPort.Items.Remove(port);
         }
 
         private void ckcCheckListBoxRemoteSerialPort_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(chkCheckListBoxRemoteSerialPort.CheckedItems.Count > 0)
+            {
+                txtRemoteControlSerialData.Enabled = false;
+            }
+            else
+            {
+                txtRemoteControlSerialData.Enabled = true;
+            }
         }
 
         public void MessageReceived(string port, string message)
         {
             if (message != string.Empty && message == txtRemoteControlSerialData.Text)
             {
-                if (ckcCheckListBoxRemoteSerialPort.CheckedItems.Contains(port)) { 
+                if (chkCheckListBoxRemoteSerialPort.CheckedItems.Contains(port)) { 
                     chkEnabled.Invoke(new MethodInvoker(delegate
                     {
                         chkEnabled.Checked = !chkEnabled.Checked;
                     }));
                  }
             }
+        }
+
+        public void ShowSeparatorButtons()
+        {
+            if(IsFirst && IsLast)
+            {
+                lblSeparator.Visible = false;
+                btnAdd.Visible = true;
+                btnRemove.Visible = false;
+            }
+            else
+            {
+                if( IsFirst == false)
+                {
+                    lblSeparator.Visible = true;
+                }
+               
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            EventHandler handler = AddControl;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+
+            btnAdd.Visible = false;
         }
     }
 }

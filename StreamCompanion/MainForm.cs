@@ -61,8 +61,24 @@ namespace StreamCompanion
             {
                 toolStripStatusLabel1.Text = "Stream Companion Ultimate";
             }
+
+            dateTimeUserControl1.AddControl += AddControl;
+
         }
 
+        private void AddControl(object sender, EventArgs e)
+        {
+            DateTimeUserControl control = new DateTimeUserControl();
+            flowLayoutPanel1.Controls.Add(control);
+            control.IsFirst = false;
+            control.AddControl += AddControl;
+
+        }
+
+        private void Control_AddControl(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

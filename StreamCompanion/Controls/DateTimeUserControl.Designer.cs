@@ -71,7 +71,7 @@
             this.lblRemoteControlMQTTSubscription = new System.Windows.Forms.Label();
             this.txtRemoteControlSerialData = new System.Windows.Forms.TextBox();
             this.lblRemoteControlSerialData = new System.Windows.Forms.Label();
-            this.ckcCheckListBoxRemoteSerialPort = new System.Windows.Forms.CheckedListBox();
+            this.chkCheckListBoxRemoteSerialPort = new System.Windows.Forms.CheckedListBox();
             this.lblRemoteControlSerialPort = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -440,7 +440,7 @@
             this.grpRemoteControle.Controls.Add(this.lblRemoteControlMQTTSubscription);
             this.grpRemoteControle.Controls.Add(this.txtRemoteControlSerialData);
             this.grpRemoteControle.Controls.Add(this.lblRemoteControlSerialData);
-            this.grpRemoteControle.Controls.Add(this.ckcCheckListBoxRemoteSerialPort);
+            this.grpRemoteControle.Controls.Add(this.chkCheckListBoxRemoteSerialPort);
             this.grpRemoteControle.Controls.Add(this.lblRemoteControlSerialPort);
             this.grpRemoteControle.Location = new System.Drawing.Point(341, 48);
             this.grpRemoteControle.Name = "grpRemoteControle";
@@ -498,16 +498,16 @@
             this.lblRemoteControlSerialData.TabIndex = 2;
             this.lblRemoteControlSerialData.Text = "Data";
             // 
-            // ckcCheckListBoxRemoteSerialPort
+            // chkCheckListBoxRemoteSerialPort
             // 
-            this.ckcCheckListBoxRemoteSerialPort.FormattingEnabled = true;
-            this.ckcCheckListBoxRemoteSerialPort.Location = new System.Drawing.Point(81, 18);
-            this.ckcCheckListBoxRemoteSerialPort.Name = "ckcCheckListBoxRemoteSerialPort";
-            this.ckcCheckListBoxRemoteSerialPort.ScrollAlwaysVisible = true;
-            this.ckcCheckListBoxRemoteSerialPort.Size = new System.Drawing.Size(181, 34);
-            this.ckcCheckListBoxRemoteSerialPort.Sorted = true;
-            this.ckcCheckListBoxRemoteSerialPort.TabIndex = 1;
-            this.ckcCheckListBoxRemoteSerialPort.SelectedIndexChanged += new System.EventHandler(this.ckcCheckListBoxRemoteSerialPort_SelectedIndexChanged);
+            this.chkCheckListBoxRemoteSerialPort.FormattingEnabled = true;
+            this.chkCheckListBoxRemoteSerialPort.Location = new System.Drawing.Point(81, 18);
+            this.chkCheckListBoxRemoteSerialPort.Name = "chkCheckListBoxRemoteSerialPort";
+            this.chkCheckListBoxRemoteSerialPort.ScrollAlwaysVisible = true;
+            this.chkCheckListBoxRemoteSerialPort.Size = new System.Drawing.Size(181, 34);
+            this.chkCheckListBoxRemoteSerialPort.Sorted = true;
+            this.chkCheckListBoxRemoteSerialPort.TabIndex = 1;
+            this.chkCheckListBoxRemoteSerialPort.SelectedIndexChanged += new System.EventHandler(this.ckcCheckListBoxRemoteSerialPort_SelectedIndexChanged);
             // 
             // lblRemoteControlSerialPort
             // 
@@ -536,6 +536,7 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // openFileDialog1
             // 
@@ -634,7 +635,7 @@
         private System.Windows.Forms.Label lblRemoteControlMQTTSubscription;
         private System.Windows.Forms.TextBox txtRemoteControlSerialData;
         private System.Windows.Forms.Label lblRemoteControlSerialData;
-        private System.Windows.Forms.CheckedListBox ckcCheckListBoxRemoteSerialPort;
+        private System.Windows.Forms.CheckedListBox chkCheckListBoxRemoteSerialPort;
         private System.Windows.Forms.Label lblRemoteControlSerialPort;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
