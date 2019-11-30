@@ -437,11 +437,18 @@ namespace StreamCompanion.Controls
 
             AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
             args.Action = AddRemoveUserControl.Add;
-            args.userControl = this;
+            args.TypeUserControl = this.GetType();
+            args.UserControl = this;
             args.ControlContainer = this.Parent;
             OnDuplicateControl(args);
 
             btnAdd.Visible = false;
+            if (!isfirst)
+            {
+                btnRemove.Location = btnAdd.Location;
+                btnRemove.Visible = true;
+            }
+            
         }
     }
 

@@ -70,11 +70,15 @@ namespace StreamCompanion
         {
             DateTimeUserControl control = new DateTimeUserControl();
 
-
-            UserControl u = (UserControl)(ICloneable)e.userControl;
-
+            
 
             e.ControlContainer.Controls.Add(control);
+
+
+            //  var z = Type.GetType(e.TypeUserControl);
+            //            ((UserControl)e.GetType()).Parent.Controls.Add(typecontrol);
+
+
             control.IsFirst = false;            
 
             control.DuplicateControl += DuplicateControl;

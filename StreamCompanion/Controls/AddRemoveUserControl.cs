@@ -16,7 +16,9 @@ namespace StreamCompanion.Controls
     public class AddRemoveUserControlEventArgs : EventArgs
     {
         public AddRemoveUserControl Action { get; set; }
-        public UserControl userControl { get; set; }
+        public Type TypeUserControl { get; set; }
+
+        public UserControl UserControl { get; set; }
 
         public Control ControlContainer { get; set; }
 
