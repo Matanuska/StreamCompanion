@@ -425,6 +425,13 @@ namespace StreamCompanion.Controls
         public void Duplicate(object sender, EventArgs e)
         {
             
+            
+
+            AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
+            args.Action = AddRemoveUserControl.Add;
+            args.userControl = this;
+            OnDuplicateControl(args);
+
             EventHandler handler = AddControl;
             if (handler != null)
             {
@@ -432,12 +439,6 @@ namespace StreamCompanion.Controls
             }
 
             btnAdd.Visible = false;
-            
-
-            AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
-            args.Action = AddRemoveUserControl.Add;
-            args.userControl = this;
-            OnDuplicateControl(args);
 
         }
 
