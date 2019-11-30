@@ -114,16 +114,9 @@ namespace StreamCompanion
             settingsPanel.Visible = false;
             TimersPanel.Visible = true;
         }
-       // Classes.SimpleTime st;
-        //List<Classes.SimpleTime> l = new List<Classes.SimpleTime>();
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-           // st = new Classes.SimpleTime();
-
-            //timeUserControl1.DataSource = st;
-
-            //  st.PropertyChanged += St_PropertyChanged;            
-            //  l.Add(st);
 
         }
 
