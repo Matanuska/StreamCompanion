@@ -85,9 +85,9 @@ namespace StreamCompanion
 
         private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
         {
-            DateTimeUserControl control = new DateTimeUserControl();
+            //DateTimeUserControl control = new DateTimeUserControl();
+            UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());
 
-            
 
             e.ControlContainer.Controls.Add(control);
 
@@ -99,15 +99,11 @@ namespace StreamCompanion
             var textBoxType = typeof(Control).Assembly.GetType("System.Windows.Forms.TextBox", true);
             var textBox = Activator.CreateInstance(textBoxType);
 
+          
 
-            var t = typeof(UserControl).Assembly.GetType(e.TypeUserControl.FullName, true);
-            //  e.ControlContainer.Controls.Add(textBox);
+            //control.IsFirst = false;            
 
-
-
-            control.IsFirst = false;            
-
-            control.DuplicateControl += DuplicateControl;
+           //control.DuplicateControl += DuplicateControl;
         }
 
 
