@@ -536,7 +536,7 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.Duplicate);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // openFileDialog1
             // 

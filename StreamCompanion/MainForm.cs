@@ -62,26 +62,24 @@ namespace StreamCompanion
                 toolStripStatusLabel1.Text = "Stream Companion Ultimate";
             }
 
-            dateTimeUserControl1.AddControl += AddControl;
+            dateTimeUserControl1.DuplicateControl += DuplicateControl;
 
         }
 
-        private void AddControl(object sender, EventArgs e)
+        private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
         {
             DateTimeUserControl control = new DateTimeUserControl();
-            flowLayoutPanel1.Controls.Add(control);
-            control.IsFirst = false;
-          //  control.AddControl += AddControl;
 
 
-            control.DuplicateControl += Control_DuplicateControl;
+            UserControl u = (UserControl)(ICloneable)e.userControl;
 
+
+            e.ControlContainer.Controls.Add(control);
+            control.IsFirst = false;            
+
+            control.DuplicateControl += DuplicateControl;
         }
 
-        private void Control_DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

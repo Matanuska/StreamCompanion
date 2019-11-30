@@ -18,5 +18,7 @@ namespace StreamCompanion.Controls
         public AddRemoveUserControl Action { get; set; }
         public UserControl userControl { get; set; }
 
+        public Control ControlContainer { get; set; }
+
     }
 }

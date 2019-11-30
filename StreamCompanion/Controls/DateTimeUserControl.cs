@@ -421,28 +421,6 @@ namespace StreamCompanion.Controls
             }
         }
 
-        public event EventHandler AddControl;
-        public void Duplicate(object sender, EventArgs e)
-        {
-            
-            
-
-            AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
-            args.Action = AddRemoveUserControl.Add;
-            args.userControl = this;
-            OnDuplicateControl(args);
-
-            EventHandler handler = AddControl;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
-
-            btnAdd.Visible = false;
-
-        }
-
-
         protected virtual void OnDuplicateControl(AddRemoveUserControlEventArgs e)
         {
             EventHandler<AddRemoveUserControlEventArgs> handler = DuplicateControl;
@@ -454,6 +432,17 @@ namespace StreamCompanion.Controls
 
         public event EventHandler<AddRemoveUserControlEventArgs> DuplicateControl;
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
+            args.Action = AddRemoveUserControl.Add;
+            args.userControl = this;
+            args.ControlContainer = this.Parent;
+            OnDuplicateControl(args);
+
+            btnAdd.Visible = false;
+        }
     }
 
 
