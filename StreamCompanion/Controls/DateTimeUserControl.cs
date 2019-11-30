@@ -15,10 +15,7 @@ namespace StreamCompanion.Controls
 {
     public partial class DateTimeUserControl : UserControl, ICommuniquant, IDuplicable
     {
-
-        public event EventHandler AddControl;
-
-
+        
 
         public DateTimeUserControl()
         {
@@ -424,13 +421,10 @@ namespace StreamCompanion.Controls
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        public event EventHandler AddControl;
+        public void Duplicate(object sender, EventArgs e)
         {
-            Duplicate();
-        }
-
-        public void Duplicate()
-        {
+            
             EventHandler handler = AddControl;
             if (handler != null)
             {
@@ -438,6 +432,28 @@ namespace StreamCompanion.Controls
             }
 
             btnAdd.Visible = false;
+            
+
+            AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
+            args.Action = AddRemoveUserControl.Add;
+            args.userControl = this;
+            OnDuplicateControl(args);
+
         }
+
+
+        protected virtual void OnDuplicateControl(AddRemoveUserControlEventArgs e)
+        {
+            EventHandler<AddRemoveUserControlEventArgs> handler = DuplicateControl;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        public event EventHandler<AddRemoveUserControlEventArgs> DuplicateControl;
+
     }
+
+
 }

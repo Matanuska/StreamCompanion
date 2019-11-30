@@ -64,17 +64,12 @@
     <Compile Include="Classes\SerialPortManager.cs" />
     <Compile Include="Classes\SimpleTime.cs" />
     <Compile Include="ComboboxItem.cs" />
+    <Compile Include="Controls\AddRemoveUserControl.cs" />
     <Compile Include="Controls\DateTimeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\DateTimeUserControl.Designer.cs">
       <DependentUpon>DateTimeUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Time\TimeUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Time\TimeUserControl.Designer.cs">
-      <DependentUpon>TimeUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBrowsableSerialPort.cs" />
     <Compile Include="Interfaces\ICommuniquant.cs" />
@@ -92,9 +87,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DateTimeUserControl.resx">
       <DependentUpon>DateTimeUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Time\TimeUserControl.resx">
-      <DependentUpon>TimeUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.fr.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

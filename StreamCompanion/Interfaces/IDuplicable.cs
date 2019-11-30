@@ -8,6 +8,6 @@ namespace StreamCompanion.Interfaces
 {
     interface IDuplicable
     {
-        void Duplicate();
+        void Duplicate(object sender,EventArgs e);
     }
 }

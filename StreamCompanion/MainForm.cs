@@ -71,11 +71,14 @@ namespace StreamCompanion
             DateTimeUserControl control = new DateTimeUserControl();
             flowLayoutPanel1.Controls.Add(control);
             control.IsFirst = false;
-            control.AddControl += AddControl;
+          //  control.AddControl += AddControl;
+
+
+            control.DuplicateControl += Control_DuplicateControl;
 
         }
 
-        private void Control_AddControl(object sender, EventArgs e)
+        private void Control_DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
         {
             throw new NotImplementedException();
         }
