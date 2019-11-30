@@ -68,13 +68,40 @@ namespace StreamCompanion.Controls
         }
 
         public int InstanceNumber { get; set; }
-
+        
         private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
         {
 
             lblOutputSample.Text = string.Concat("[", e.DateTime.ToString(), "]");
             saveDataToFile(e.DateTime.ToString());
+
+            SendComMessageEventArgs args = new SendComMessageEventArgs();
+            args.Message = string.Concat(txtOutputDataSerialPort.Text, lblOutputSample.Text);
+             OnReceivedMessage(args);
+            
         }
+
+
+        public event EventHandler<SendComMessageEventArgs> SendMessageToSerialPort;
+        private void OnReceivedMessage(SendComMessageEventArgs e)
+        {
+
+            foreach (var item in chkListOutputSerialPort.CheckedItems)
+            {
+                e.SerialPort = item.ToString();
+
+                EventHandler<SendComMessageEventArgs> handler = SendMessageToSerialPort;
+                if (handler != null)
+                {
+                    handler(this, e);
+                }
+
+            }
+        }
+
+
+
+
 
         private CultureInfo selectedCulture = CultureInfo.CurrentUICulture;
 
@@ -449,6 +476,18 @@ namespace StreamCompanion.Controls
                 btnRemove.Visible = true;
             }
             
+        }
+
+        private void chkListOutputSerialPort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (chkListOutputSerialPort.CheckedItems.Count > 0)
+            {
+                txtOutputDataSerialPort.Enabled = false;
+            }
+            else
+            {
+                txtOutputDataSerialPort.Enabled = true;
+            }
         }
     }
 

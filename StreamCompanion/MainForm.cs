@@ -64,6 +64,22 @@ namespace StreamCompanion
 
             dateTimeUserControl1.DuplicateControl += DuplicateControl;
 
+            dateTimeUserControl1.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
+
+        }
+
+        private void DateTimeUserControl1_SendMessageToSerialPort(object sender, SendComMessageEventArgs e)
+        {
+            Console.WriteLine(e.Message);
+
+            KeyValuePair<string, EnhancedSerialPort> _p = ListenSerialPorts.SingleOrDefault(kvp => kvp.Key == e.SerialPort);
+
+            EnhancedSerialPort _port = _p.Value;
+
+            _port.Write(e.Message);
+
+            Console.WriteLine(e.Message);
+
         }
 
         private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
