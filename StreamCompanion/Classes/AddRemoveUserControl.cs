@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StreamCompanion.Controls
+namespace StreamCompanion.Classes
 {
 
     public enum AddRemoveUserControl
