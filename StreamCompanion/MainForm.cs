@@ -96,6 +96,15 @@ namespace StreamCompanion
             //            ((UserControl)e.GetType()).Parent.Controls.Add(typecontrol);
 
 
+            var textBoxType = typeof(Control).Assembly.GetType("System.Windows.Forms.TextBox", true);
+            var textBox = Activator.CreateInstance(textBoxType);
+
+
+            var t = typeof(UserControl).Assembly.GetType(e.TypeUserControl.FullName, true);
+            //  e.ControlContainer.Controls.Add(textBox);
+
+
+
             control.IsFirst = false;            
 
             control.DuplicateControl += DuplicateControl;
