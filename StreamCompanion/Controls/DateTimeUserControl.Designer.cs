@@ -508,7 +508,7 @@
             this.chkCheckListBoxRemoteSerialPort.Size = new System.Drawing.Size(181, 34);
             this.chkCheckListBoxRemoteSerialPort.Sorted = true;
             this.chkCheckListBoxRemoteSerialPort.TabIndex = 1;
-            this.chkCheckListBoxRemoteSerialPort.SelectedIndexChanged += new System.EventHandler(this.ckcCheckListBoxRemoteSerialPort_SelectedIndexChanged);
+            this.chkCheckListBoxRemoteSerialPort.SelectedIndexChanged += new System.EventHandler(this.chkCheckListBoxRemoteSerialPort_SelectedIndexChanged);
             // 
             // lblRemoteControlSerialPort
             // 

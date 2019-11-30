@@ -77,6 +77,7 @@ namespace StreamCompanion
             EnhancedSerialPort _port = _p.Value;
 
             _port.Write(e.Message);
+            rtxtComConsole.Text = string.Concat(rtxtComConsole.Text, "->", e.SerialPort, " : " ,e.Message,"\r\n");
 
             Console.WriteLine(e.Message);
 

@@ -405,7 +405,7 @@ namespace StreamCompanion.Controls
             chkListOutputSerialPort.Items.Remove(port);
         }
 
-        private void ckcCheckListBoxRemoteSerialPort_SelectedIndexChanged(object sender, EventArgs e)
+        private void chkCheckListBoxRemoteSerialPort_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(chkCheckListBoxRemoteSerialPort.CheckedItems.Count > 0)
             {
