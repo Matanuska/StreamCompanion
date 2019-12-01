@@ -58,6 +58,7 @@
     <Compile Include="Classes\ClockTimer.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\DateTimeClass.cs" />
     <Compile Include="Classes\EnhancedSerialPort.cs">
       <SubType>Component</SubType>
     </Compile>

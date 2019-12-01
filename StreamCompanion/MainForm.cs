@@ -38,6 +38,10 @@ namespace StreamCompanion
 
         private void Init()
         {
+            DateTimeClass _dt = new DateTimeClass();
+            _dt.TimeZone = TimeZoneInfo.Local;
+            dateTimeUserControl1.DataSource = _dt;
+
             TimersPanel.Dock = DockStyle.Fill;
             comPanel.Dock = DockStyle.Fill;
             settingsPanel.Dock = DockStyle.Fill;
@@ -87,7 +91,12 @@ namespace StreamCompanion
 
             UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());
 
+            DateTimeClass _dt = new DateTimeClass();
+            _dt.TimeZone = TimeZoneInfo.Local;
+            ((IDuplicable)control).DataSource = _dt;
+
             e.ControlContainer.Controls.Add(control);
+            
 
             ((IDuplicable)control).IsFirst = false;            
 

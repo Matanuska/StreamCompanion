@@ -16,7 +16,27 @@ namespace StreamCompanion.Controls
     [System.ComponentModel.ComplexBindingProperties("DataSource")]
     public partial class DateTimeUserControl : UserControl, ICommuniquant, IDuplicable
     {
-        
+
+
+        private object _ds;
+
+        public object DataSource
+        {
+            get { return _ds; }
+            set {
+                _ds = value;               
+            }
+        }
+
+        private void BindControls()
+        {
+            if (_ds != null)
+            {             
+                cboTimezone.DataBindings.Add(new Binding("SelectedValue", _ds, "TimeZone.Id", true, DataSourceUpdateMode.OnPropertyChanged));
+            }
+
+        }
+
 
         public DateTimeUserControl()
         {
@@ -47,7 +67,7 @@ namespace StreamCompanion.Controls
             radioBtnPrefedinedOutputFormat.Checked = true;
 
             cboTimezone.DataSource = TimeZoneInfo.GetSystemTimeZones().ToList();
-            cboTimezone.SelectedValue = this.TimeZoneInfo.Id;
+//            cboTimezone.SelectedValue = this.TimeZoneInfo.Id;
 
             cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
             
@@ -64,8 +84,7 @@ namespace StreamCompanion.Controls
             chkEnabled.Checked = true;
 
             ShowSeparatorButtons();
-
-
+           // BindControls();
         }
 
         private string _value;
@@ -138,7 +157,7 @@ namespace StreamCompanion.Controls
 
         private void DateTimeUserControl_Load(object sender, EventArgs e)
         {
-
+            BindControls();
         }
 
         private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
@@ -322,8 +341,10 @@ namespace StreamCompanion.Controls
 
         private void cboTimezone_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.TimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(((TimeZoneInfo)((ComboBox)sender).SelectedItem).Id);
-            myTimer.TimeZone = this.TimeZoneInfo;
+            if (((ComboBox)sender).SelectedItem != null){
+                this.TimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(((TimeZoneInfo)((ComboBox)sender).SelectedItem).Id);
+                myTimer.TimeZone = this.TimeZoneInfo;
+            }
         }
 
         private void cboPredefinedFormats_SelectedIndexChanged(object sender, EventArgs e)

@@ -13,6 +13,8 @@ namespace StreamCompanion.Interfaces
         // void Duplicate(object sender,EventArgs e);
         public Boolean IsFirst { get; set; }
 
+        public object DataSource { get; set; }
+
         event EventHandler<AddRemoveUserControlEventArgs> DuplicateControl;
     }
 }
