@@ -13,6 +13,7 @@ using System.Globalization;
 
 namespace StreamCompanion.Controls
 {
+    [System.ComponentModel.ComplexBindingProperties("DataSource")]
     public partial class DateTimeUserControl : UserControl, ICommuniquant, IDuplicable
     {
         
@@ -290,8 +291,6 @@ namespace StreamCompanion.Controls
             {
                 cboPredefinedFormats.SelectedItem = pattern;
             }
-
-
 
         }
 
