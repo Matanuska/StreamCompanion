@@ -405,6 +405,7 @@
             this.chkListOutputSerialPort.Size = new System.Drawing.Size(234, 34);
             this.chkListOutputSerialPort.Sorted = true;
             this.chkListOutputSerialPort.TabIndex = 4;
+            this.chkListOutputSerialPort.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkListOutputSerialPort_ItemCheck);
             this.chkListOutputSerialPort.SelectedIndexChanged += new System.EventHandler(this.chkListOutputSerialPort_SelectedIndexChanged);
             // 
             // lblOutputSerialPort

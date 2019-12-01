@@ -67,41 +67,54 @@ namespace StreamCompanion.Controls
 
         }
 
+        private string _value;
+
+        public string Value
+        {
+            get { return _value; }
+            set { _value = value; timerchange(); }
+        }
+
+
+        private void timerchange()
+        {
+            lblOutputSample.Text = string.Concat("[", this.Value, "]");
+            saveDataToFile(this.Value);
+            sendToSerials();
+        }
+
+        private void sendToSerials()
+        {
+            SendComMessageEventArgs args = new SendComMessageEventArgs();
+            args.Message = string.Concat(txtOutputDataSerialPort.Text, lblOutputSample.Text);
+            foreach (var item in chkListOutputSerialPort.CheckedItems)
+            {
+                args.SerialPort = item.ToString();
+                OnReceivedMessage(args);
+            }
+            
+        }
+
         public int InstanceNumber { get; set; }
         
         private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
         {
-
-            lblOutputSample.Text = string.Concat("[", e.DateTime.ToString(), "]");
-            saveDataToFile(e.DateTime.ToString());
-
-            SendComMessageEventArgs args = new SendComMessageEventArgs();
-            args.Message = string.Concat(txtOutputDataSerialPort.Text, lblOutputSample.Text);
-             OnReceivedMessage(args);
-            
+            if (e.DateTime.ToString() != this.Value)
+            {
+                this.Value = e.DateTime.ToString();                
+            }            
         }
 
 
         public event EventHandler<SendComMessageEventArgs> SendMessageToSerialPort;
         private void OnReceivedMessage(SendComMessageEventArgs e)
         {
-
-            foreach (var item in chkListOutputSerialPort.CheckedItems)
+            EventHandler<SendComMessageEventArgs> handler = SendMessageToSerialPort;
+            if (handler != null)
             {
-                e.SerialPort = item.ToString();
-
-                EventHandler<SendComMessageEventArgs> handler = SendMessageToSerialPort;
-                if (handler != null)
-                {
-                    handler(this, e);
-                }
-
+                handler(this, e);
             }
         }
-
-
-
-
 
         private CultureInfo selectedCulture = CultureInfo.CurrentUICulture;
 
@@ -488,6 +501,24 @@ namespace StreamCompanion.Controls
             {
                 txtOutputDataSerialPort.Enabled = true;
             }
+        }
+
+        private void chkListOutputSerialPort_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            SendComMessageEventArgs args = new SendComMessageEventArgs();
+            args.SerialPort = ((CheckedListBox)sender).Text;
+
+            if (e.NewValue == CheckState.Checked)
+            {
+                args.Message = string.Concat(txtOutputDataSerialPort.Text, lblOutputSample.Text);
+            }
+            else
+            {
+                args.Message = "[]";
+            }
+
+            OnReceivedMessage(args);
+
         }
     }
 
