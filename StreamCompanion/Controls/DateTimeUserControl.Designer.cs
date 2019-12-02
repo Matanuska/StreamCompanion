@@ -206,6 +206,7 @@
             this.radioBtnCustomOutputFormat.Size = new System.Drawing.Size(60, 17);
             this.radioBtnCustomOutputFormat.TabIndex = 2;
             this.radioBtnCustomOutputFormat.TabStop = true;
+            this.radioBtnCustomOutputFormat.Tag = "2";
             this.radioBtnCustomOutputFormat.Text = "Custom";
             this.radioBtnCustomOutputFormat.UseVisualStyleBackColor = true;
             this.radioBtnCustomOutputFormat.CheckedChanged += new System.EventHandler(this.radioBtnCustomOutputFormat_CheckedChanged);
@@ -218,6 +219,7 @@
             this.radioBtnPrefedinedOutputFormat.Size = new System.Drawing.Size(76, 17);
             this.radioBtnPrefedinedOutputFormat.TabIndex = 1;
             this.radioBtnPrefedinedOutputFormat.TabStop = true;
+            this.radioBtnPrefedinedOutputFormat.Tag = "1";
             this.radioBtnPrefedinedOutputFormat.Text = "Predefined";
             this.radioBtnPrefedinedOutputFormat.UseVisualStyleBackColor = true;
             this.radioBtnPrefedinedOutputFormat.CheckedChanged += new System.EventHandler(this.radioBtnPrefedinedOutputFormat_CheckedChanged);
@@ -275,6 +277,7 @@
             this.radioBtnDateAndTime.Size = new System.Drawing.Size(74, 17);
             this.radioBtnDateAndTime.TabIndex = 2;
             this.radioBtnDateAndTime.TabStop = true;
+            this.radioBtnDateAndTime.Tag = "3";
             this.radioBtnDateAndTime.Text = "Date Time";
             this.radioBtnDateAndTime.UseVisualStyleBackColor = true;
             // 
@@ -286,6 +289,7 @@
             this.radioBtnTime.Size = new System.Drawing.Size(48, 17);
             this.radioBtnTime.TabIndex = 1;
             this.radioBtnTime.TabStop = true;
+            this.radioBtnTime.Tag = "2";
             this.radioBtnTime.Text = "Time";
             this.radioBtnTime.UseVisualStyleBackColor = true;
             this.radioBtnTime.CheckedChanged += new System.EventHandler(this.radioBtnTime_CheckedChanged);
@@ -298,6 +302,7 @@
             this.radioBtnDate.Size = new System.Drawing.Size(48, 17);
             this.radioBtnDate.TabIndex = 0;
             this.radioBtnDate.TabStop = true;
+            this.radioBtnDate.Tag = "1";
             this.radioBtnDate.Text = "Date";
             this.radioBtnDate.UseVisualStyleBackColor = true;
             // 

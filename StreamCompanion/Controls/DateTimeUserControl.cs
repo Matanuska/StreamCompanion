@@ -13,6 +13,13 @@ using System.Globalization;
 
 namespace StreamCompanion.Controls
 {
+
+    public enum DisplayType
+    {
+        Date = 1,
+        Time = 2,
+        DateTime = 3
+    }
     [System.ComponentModel.ComplexBindingProperties("DataSource")]
     public partial class DateTimeUserControl : UserControl, ICommuniquant, IDuplicable
     {
@@ -32,7 +39,9 @@ namespace StreamCompanion.Controls
         {
             if (_ds != null)
             {             
-                cboTimezone.DataBindings.Add(new Binding("SelectedValue", _ds, "TimeZone.Id", true, DataSourceUpdateMode.OnPropertyChanged));
+                cboTimezone.DataBindings.Add(new Binding("SelectedValue", _ds, "TimeZone.Id", true, DataSourceUpdateMode.OnPropertyChanged));                
+                
+
             }
 
         }
@@ -95,6 +104,7 @@ namespace StreamCompanion.Controls
             set { _value = value; timerchange(); }
         }
 
+        public int DisplayType { get; set; }
 
         private void timerchange()
         {
@@ -203,6 +213,8 @@ namespace StreamCompanion.Controls
             var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
                                 .FirstOrDefault(r => r.Checked);
 
+
+            this.DisplayType = int.Parse(((RadioButton)checkedButton).Tag.ToString());
 
             List<string> lstdate = new List<string>();
             var f = this.CultureInfo.DateTimeFormat;

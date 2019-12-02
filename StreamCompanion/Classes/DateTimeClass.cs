@@ -16,5 +16,7 @@ namespace StreamCompanion.Classes
             set { _timezone = value; }
         }
 
+        public int DisplayType { get; set; }
+
     }
 }
