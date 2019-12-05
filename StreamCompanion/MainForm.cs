@@ -33,14 +33,21 @@ namespace StreamCompanion
         {
             license = lic;
             InitializeComponent();
-            CreateFirtsControls();
+            CreateFirstsControls();
             Init();
         }
 
-        private void CreateFirtsControls()
+        private void CreateFirstsControls()
+        {
+
+            createOneDateTimeUserControl();
+
+        }
+
+        private void createOneDateTimeUserControl()
         {
             DateTimeUserControl dateTimeUserControl;
-             dateTimeUserControl = new DateTimeUserControl();
+            dateTimeUserControl = new DateTimeUserControl();
             // 
             // dateTimeUserControl1
             // 
@@ -57,7 +64,6 @@ namespace StreamCompanion
 
             dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
         }
-
         
 
         private void Init()
@@ -110,6 +116,7 @@ namespace StreamCompanion
         {
 
             UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());
+
 
             DateTimeClass _dt = new DateTimeClass();
             _dt.TimeZone = TimeZoneInfo.Local;
