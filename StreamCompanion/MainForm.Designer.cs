@@ -34,7 +34,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1tabDateAndTime = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
+           // this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             this.tabChrono = new System.Windows.Forms.TabPage();
             this.tabCountdownToDate = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -92,17 +92,17 @@
             // flowLayoutPanel1
             // 
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.dateTimeUserControl1);
+        //    this.flowLayoutPanel1.Controls.Add(this.dateTimeUserControl1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // dateTimeUserControl1
             // 
-            this.dateTimeUserControl1.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
-            this.dateTimeUserControl1.InstanceNumber = 0;
-            resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
-            this.dateTimeUserControl1.Name = "dateTimeUserControl1";
-            this.dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
-            this.dateTimeUserControl1.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
+            //this.dateTimeUserControl1.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
+            //this.dateTimeUserControl1.InstanceNumber = 0;
+            //resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
+            //this.dateTimeUserControl1.Name = "dateTimeUserControl1";
+            //this.dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
+            //this.dateTimeUserControl1.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
             // 
             // tabChrono
             // 
@@ -282,7 +282,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabPage tabCountdownToDate;
-        private Controls.DateTimeUserControl dateTimeUserControl1;
+       // private Controls.DateTimeUserControl dateTimeUserControl1;
         private System.Windows.Forms.Panel TimersPanel;
         private System.Windows.Forms.GroupBox grpComPorts;
         private System.Windows.Forms.CheckedListBox checkedListBox1;

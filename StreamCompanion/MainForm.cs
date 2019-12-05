@@ -33,14 +33,36 @@ namespace StreamCompanion
         {
             license = lic;
             InitializeComponent();
+            CreateFirtsControls();
             Init();
         }
 
-        private void Init()
+        private void CreateFirtsControls()
         {
+            DateTimeUserControl dateTimeUserControl;
+             dateTimeUserControl = new DateTimeUserControl();
+            // 
+            // dateTimeUserControl1
+            // 
+            //dateTimeUserControl.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
+            // resources.ApplyResources(dateTimeUserControl1, "dateTimeUserControl1");
+            dateTimeUserControl.Name = string.Concat("dateTimeUserControl", dateTimeUserControl.InstanceNumber.ToString());
+            //dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
+            //dateTimeUserControl.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
+            this.flowLayoutPanel1.Controls.Add(dateTimeUserControl);
             DateTimeClass _dt = new DateTimeClass();
             _dt.TimeZone = TimeZoneInfo.Local;
-            dateTimeUserControl1.DataSource = _dt;
+            dateTimeUserControl.DataSource = _dt;
+            dateTimeUserControl.DuplicateControl += DuplicateControl;
+
+            dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
+        }
+
+        
+
+        private void Init()
+        {
+
 
             TimersPanel.Dock = DockStyle.Fill;
             comPanel.Dock = DockStyle.Fill;
@@ -49,7 +71,7 @@ namespace StreamCompanion
 
             portnames = SerialPort.GetPortNames();
             loadComPorts();
-            dateTimeUserControl1.InstanceNumber = 1;
+            
             // standard
             if(license.Features == LicenseFeatures.Feature1)
             {
@@ -66,9 +88,7 @@ namespace StreamCompanion
                 toolStripStatusLabel1.Text = "Stream Companion Ultimate";
             }
 
-            dateTimeUserControl1.DuplicateControl += DuplicateControl;
 
-            dateTimeUserControl1.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
 
         }
 
@@ -260,11 +280,6 @@ namespace StreamCompanion
         }
 
         private void TimersPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dateTimeUserControl1_Load(object sender, EventArgs e)
         {
 
         }

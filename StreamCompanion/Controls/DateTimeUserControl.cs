@@ -14,6 +14,7 @@ using System.Globalization;
 namespace StreamCompanion.Controls
 {
 
+
     public enum DisplayType
     {
         Date = 1,
@@ -25,13 +26,17 @@ namespace StreamCompanion.Controls
     {
 
 
+        public static int instance_num = 0;
+
         private object _ds;
+
 
         public object DataSource
         {
             get { return _ds; }
             set {
-                _ds = value;               
+                _ds = value;
+                BindControls();
             }
         }
 
@@ -49,6 +54,7 @@ namespace StreamCompanion.Controls
 
         public DateTimeUserControl()
         {
+            instance_num += 1;
             InitializeComponent();
             Init();
         }
@@ -93,7 +99,7 @@ namespace StreamCompanion.Controls
             chkEnabled.Checked = true;
 
             ShowSeparatorButtons();
-           // BindControls();
+           
         }
 
         private string _value;
@@ -125,7 +131,17 @@ namespace StreamCompanion.Controls
             
         }
 
-        public int InstanceNumber { get; set; }
+        public int InstanceNumber
+        {
+            get
+            {
+                return instance_num;
+            }
+            set
+            {
+                instance_num = value;
+            }
+        }
         
         private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
         {
@@ -167,7 +183,7 @@ namespace StreamCompanion.Controls
 
         private void DateTimeUserControl_Load(object sender, EventArgs e)
         {
-            BindControls();
+            
         }
 
         private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
