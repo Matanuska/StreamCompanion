@@ -16,6 +16,8 @@ using System.Management;
 using LogicNP.CryptoLicensing;
 using System.Resources;
 using System.Reflection;
+using System.Runtime.Serialization;
+
 
 
 namespace StreamCompanion
@@ -27,17 +29,12 @@ namespace StreamCompanion
         CryptoLicense license;
 
         List<KeyValuePair<string, EnhancedSerialPort>> DetectedSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
-        List<KeyValuePair<string, EnhancedSerialPort>> ListenSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
-
-        List<DateTimeUserControl> all_datetimeusercontrol_list = new List<DateTimeUserControl>();
-
-
-        
-        
+        List<KeyValuePair<string, EnhancedSerialPort>> ListenSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();        
 
 
         public MainForm(CryptoLicense lic)
         {
+            
             license = lic;
             InitializeComponent();
             CreateFirstsControls();
@@ -51,6 +48,7 @@ namespace StreamCompanion
 
         }
 
+        List<DateTimeUserControl> listDateTimeUserControl = new List<DateTimeUserControl>();
         private void createOneDateTimeUserControl()
         {
             DateTimeUserControl dateTimeUserControl;
@@ -71,9 +69,55 @@ namespace StreamCompanion
 
             dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
 
-            all_datetimeusercontrol_list.Add(dateTimeUserControl);
+
+            dateTimeUserControl.IsFirst = true;
+
+            if (listDateTimeUserControl.Count == 0)
+            {
+                dateTimeUserControl.IsFirst = true;
+                dateTimeUserControl.IsLast = true;
+            }
+            else
+            {
+                dateTimeUserControl.IsFirst = false ;
+                for (var i = 1;i < listDateTimeUserControl.Count; i++)
+                {
+                    ((DateTimeUserControl)listDateTimeUserControl[1]).IsFirst = false;
+                    ((DateTimeUserControl)listDateTimeUserControl[1]).IsLast = false;
+                }
+            }
+
+            dateTimeUserControl.IsLast = true;
+            listDateTimeUserControl.Add(dateTimeUserControl);
+
+
+            }
+
+        private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
+        {
+            switch (e.UserControl.GetType().Name)
+            {
+                case "DateTimeUserControl":
+                    createOneDateTimeUserControl();
+
+                    break;
+            }
+           
+            //UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());
+
+
+            //DateTimeClass _dt = new DateTimeClass();
+            //_dt.TimeZone = TimeZoneInfo.Local;
+            //((IDuplicable)control).DataSource = _dt;
+
+            //e.ControlContainer.Controls.Add(control);
+
+
+            //((IDuplicable)control).IsFirst = false;
+
+            //((IDuplicable)control).DuplicateControl += DuplicateControl;
+
         }
-        
 
         private void Init()
         {
@@ -121,24 +165,7 @@ namespace StreamCompanion
 
         }
 
-        private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
-        {
 
-            UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());
-
-
-            DateTimeClass _dt = new DateTimeClass();
-            _dt.TimeZone = TimeZoneInfo.Local;
-            ((IDuplicable)control).DataSource = _dt;
-
-            e.ControlContainer.Controls.Add(control);
-            
-
-            ((IDuplicable)control).IsFirst = false;            
-
-            ((IDuplicable)control).DuplicateControl += DuplicateControl;
-            
-        }
 
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

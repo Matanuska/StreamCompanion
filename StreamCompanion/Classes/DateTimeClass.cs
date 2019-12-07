@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace StreamCompanion.Classes
 {
-    public class DateTimeClass
+    public class DateTimeClass : ISerializable
     {
         private TimeZoneInfo _timezone;
 
@@ -18,5 +19,9 @@ namespace StreamCompanion.Classes
 
         public int DisplayType { get; set; }
 
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
