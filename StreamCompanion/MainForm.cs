@@ -29,6 +29,13 @@ namespace StreamCompanion
         List<KeyValuePair<string, EnhancedSerialPort>> DetectedSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
         List<KeyValuePair<string, EnhancedSerialPort>> ListenSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
 
+        List<DateTimeUserControl> all_datetimeusercontrol_list = new List<DateTimeUserControl>();
+
+
+        
+        
+
+
         public MainForm(CryptoLicense lic)
         {
             license = lic;
@@ -63,6 +70,8 @@ namespace StreamCompanion
             dateTimeUserControl.DuplicateControl += DuplicateControl;
 
             dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
+
+            all_datetimeusercontrol_list.Add(dateTimeUserControl);
         }
         
 
@@ -128,6 +137,7 @@ namespace StreamCompanion
             ((IDuplicable)control).IsFirst = false;            
 
             ((IDuplicable)control).DuplicateControl += DuplicateControl;
+            
         }
 
 
