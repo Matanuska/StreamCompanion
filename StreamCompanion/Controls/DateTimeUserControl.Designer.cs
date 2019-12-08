@@ -527,22 +527,25 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnRemove.Location = new System.Drawing.Point(681, 324);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(28, 23);
             this.btnRemove.TabIndex = 7;
             this.btnRemove.Text = "-";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Visible = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAdd.Location = new System.Drawing.Point(718, 324);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(28, 23);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // openFileDialog1

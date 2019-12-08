@@ -95,12 +95,32 @@ namespace StreamCompanion
 
         private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
         {
-            switch (e.UserControl.GetType().Name)
-            {
-                case "DateTimeUserControl":
-                    createOneDateTimeUserControl();
 
-                    break;
+            if (e.Action == AddRemoveUserControl.Add)
+            {
+                switch (e.UserControl.GetType().Name)
+                {
+                    case "DateTimeUserControl":
+                        createOneDateTimeUserControl();
+
+                        break;
+                }
+            }
+            else
+            {
+                switch (e.UserControl.GetType().Name)
+                {
+                    case "DateTimeUserControl":
+                       int index =  listDateTimeUserControl.FindIndex(a => a == e.UserControl);
+                        if (index > -1)
+                        {
+                            listDateTimeUserControl.RemoveAt(index);
+                            e.ControlContainer.Controls.Remove((UserControl)sender);
+                        }
+
+                        break;
+                }
+
             }
            
             //UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());

@@ -539,6 +539,17 @@ namespace StreamCompanion.Controls
             
         }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            AddRemoveUserControlEventArgs args = new AddRemoveUserControlEventArgs();
+            args.Action = AddRemoveUserControl.Remove;
+            args.TypeUserControl = this.GetType();
+            args.UserControl = this;
+            args.ControlContainer = this.Parent;
+            OnDuplicateControl(args);
+
+        }
+
         private void chkListOutputSerialPort_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (chkListOutputSerialPort.CheckedItems.Count > 0)
@@ -568,6 +579,7 @@ namespace StreamCompanion.Controls
             OnReceivedMessage(args);
 
         }
+
     }
 
 
