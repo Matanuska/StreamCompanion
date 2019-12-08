@@ -69,34 +69,33 @@ namespace StreamCompanion
 
             dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
 
-
-            dateTimeUserControl.IsFirst = true;
-
-            if (listDateTimeUserControl.Count == 0)
-            {
-                dateTimeUserControl.IsFirst = true;
-                dateTimeUserControl.IsLast = true;
-            }
-            else
-            {
-                dateTimeUserControl.IsFirst = false ;
-                for (var i = 1;i < listDateTimeUserControl.Count - 1; i++)
-                {
-                    ((DateTimeUserControl)listDateTimeUserControl[i]).IsFirst = false;
-                    ((DateTimeUserControl)listDateTimeUserControl[i]).IsLast = false;
-                }
-                if (listDateTimeUserControl.Count > 1)
-                {
-                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsFirst = false;
-                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsLast = true;
-                }
-            }
-
-            dateTimeUserControl.IsLast = true;
             listDateTimeUserControl.Add(dateTimeUserControl);
 
+            for(int i = 0; i< listDateTimeUserControl.Count; i++)
+            {
+                
+                if (i == 0)
+                {
+                    ((IDuplicable)listDateTimeUserControl[i]).IsFirst = true;
+                }
+                else
+                {
+                    ((IDuplicable)listDateTimeUserControl[i]).IsFirst = false;
+                }
+                
+                if (i == listDateTimeUserControl.Count - 1)
+                {
+                    ((IDuplicable)listDateTimeUserControl[i]).IsLast = true;
+                }
+                else
+                {
+                    ((IDuplicable)listDateTimeUserControl[i]).IsLast = false;
+                }
 
             }
+
+
+        }
 
         private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
         {
@@ -125,17 +124,27 @@ namespace StreamCompanion
                         break;
                 }
                 e.ControlContainer.Controls.Remove((UserControl)sender);
-                for(int i = 1; i < listDateTimeUserControl.Count - 1; i++)
+                for (int i = 0; i < listDateTimeUserControl.Count; i++)
                 {
-                    ((IDuplicable)listDateTimeUserControl[i]).IsFirst = false;
-                    ((IDuplicable)listDateTimeUserControl[i]).IsLast = false;
-                }
-                ((IDuplicable)listDateTimeUserControl[0]).IsFirst = true;
-                ((IDuplicable)listDateTimeUserControl[0]).IsLast = false;
-                if (listDateTimeUserControl.Count > 1)
-                {
-                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsFirst = false;
-                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsLast = true;
+
+                    if (i == 0)
+                    {
+                        ((IDuplicable)listDateTimeUserControl[i]).IsFirst = true;
+                    }
+                    else
+                    {
+                        ((IDuplicable)listDateTimeUserControl[i]).IsFirst = false;
+                    }
+
+                    if (i == listDateTimeUserControl.Count - 1)
+                    {
+                        ((IDuplicable)listDateTimeUserControl[i]).IsLast = true;
+                    }
+                    else
+                    {
+                        ((IDuplicable)listDateTimeUserControl[i]).IsLast = false;
+                    }
+
                 }
 
 
@@ -187,7 +196,7 @@ namespace StreamCompanion
             }
 
 
-
+            
         }
 
         private void DateTimeUserControl1_SendMessageToSerialPort(object sender, SendComMessageEventArgs e)
@@ -198,7 +207,12 @@ namespace StreamCompanion
 
             EnhancedSerialPort _port = _p.Value;
 
-            _port.Write(e.Message);
+            _port.NewLine = "\n";
+
+            _port.WriteLine(e.Message);
+
+            
+            
             rtxtComConsole.Text = string.Concat(rtxtComConsole.Text, "->", e.SerialPort, " : " ,e.Message,"\r\n");
             
 

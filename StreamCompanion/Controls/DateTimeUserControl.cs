@@ -205,8 +205,15 @@ namespace StreamCompanion.Controls
                 ShowSeparatorButtons();
             }
         }
+        
+        private Boolean islast;
 
-        public Boolean IsLast { get; set; }
+        public Boolean IsLast
+        {
+            get { return islast; }
+            set { islast = value; ShowSeparatorButtons();  }
+        }
+
 
         private void cboCultureChanged(object sender, EventArgs e){
 
@@ -551,7 +558,7 @@ namespace StreamCompanion.Controls
             btnAdd.Visible = false;
             if (!isfirst)
             {
-                btnRemove.Location = btnAdd.Location;
+                //btnRemove.Location = btnAdd.Location;
                 btnRemove.Visible = true;
             }
             

@@ -34,7 +34,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1tabDateAndTime = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-           // this.dateTimeUserControl1 = new StreamCompanion.Controls.DateTimeUserControl();
             this.tabChrono = new System.Windows.Forms.TabPage();
             this.tabCountdownToDate = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -57,7 +56,6 @@
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -92,17 +90,7 @@
             // flowLayoutPanel1
             // 
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-        //    this.flowLayoutPanel1.Controls.Add(this.dateTimeUserControl1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // dateTimeUserControl1
-            // 
-            //this.dateTimeUserControl1.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
-            //this.dateTimeUserControl1.InstanceNumber = 0;
-            //resources.ApplyResources(this.dateTimeUserControl1, "dateTimeUserControl1");
-            //this.dateTimeUserControl1.Name = "dateTimeUserControl1";
-            //this.dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
-            //this.dateTimeUserControl1.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
             // 
             // tabChrono
             // 
@@ -254,7 +242,6 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1tabDateAndTime.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);

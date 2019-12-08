@@ -379,6 +379,7 @@
             // 
             // lblOutputSample
             // 
+            this.lblOutputSample.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOutputSample.Location = new System.Drawing.Point(474, 62);
             this.lblOutputSample.Name = "lblOutputSample";
             this.lblOutputSample.Size = new System.Drawing.Size(264, 13);

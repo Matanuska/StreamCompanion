@@ -32,5 +32,18 @@ namespace StreamCompanion.Classes
                 base.PortName = value;
             }
         }
+
+
+        [System.ComponentModel.Browsable(true)]
+        public new string NewLine { 
+            get
+            {
+                return base.NewLine;
+            }
+            set
+            {
+                base.NewLine = value;
+            }
+        }
     }
 }

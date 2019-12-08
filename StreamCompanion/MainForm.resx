@@ -153,46 +153,6 @@
   <data name="flowLayoutPanel1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="dateTimeUserControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="dateTimeUserControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>760, 355</value>
-  </data>
-  <data name="dateTimeUserControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="dateTimeUserControl1.TimeZoneInfo" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAEAQAAABNTeXN0ZW0uVGltZVpvbmVJbmZvBwAAAAJJZAtEaXNwbGF5TmFt
-        ZQxTdGFuZGFyZE5hbWUMRGF5bGlnaHROYW1lDUJhc2VVdGNPZmZzZXQPQWRqdXN0bWVudFJ1bGVzGlN1
-        cHBvcnRzRGF5bGlnaHRTYXZpbmdUaW1lAQEBAQADAAwkU3lzdGVtLlRpbWVab25lSW5mbytBZGp1c3Rt
-        ZW50UnVsZVtdAQYCAAAAFVJvbWFuY2UgU3RhbmRhcmQgVGltZQYDAAAAMChVVEMrMDE6MDApIEJydXhl
-        bGxlcywgQ29wZW5oYWd1ZSwgTWFkcmlkLCBQYXJpcwYEAAAADVBhcmlzLCBNYWRyaWQGBQAAAB9QYXJp
-        cywgTWFkcmlkIChoZXVyZSBk4oCZw6l0w6kpAGjEYQgAAAAJBgAAAAEHBgAAAAABAAAAAQAAAAMiU3lz
-        dGVtLlRpbWVab25lSW5mbytBZGp1c3RtZW50UnVsZQkHAAAABAcAAAAiU3lzdGVtLlRpbWVab25lSW5m
-        bytBZGp1c3RtZW50UnVsZQYAAAAJRGF0ZVN0YXJ0B0RhdGVFbmQNRGF5bGlnaHREZWx0YRdEYXlsaWdo
-        dFRyYW5zaXRpb25TdGFydBVEYXlsaWdodFRyYW5zaXRpb25FbmQSQmFzZVV0Y09mZnNldERlbHRhAAAA
-        AwMADQ0MIlN5c3RlbS5UaW1lWm9uZUluZm8rVHJhbnNpdGlvblRpbWUiU3lzdGVtLlRpbWVab25lSW5m
-        bytUcmFuc2l0aW9uVGltZQwAAAAAAAAAAACAzcmsJ8orAGjEYQgAAAAE+P///yJTeXN0ZW0uVGltZVpv
-        bmVJbmZvK1RyYW5zaXRpb25UaW1lBgAAAAlUaW1lT2ZEYXkFTW9udGgEV2VlawNEYXkJRGF5T2ZXZWVr
-        D0lzRml4ZWREYXRlUnVsZQAAAAADAA0CAgIQU3lzdGVtLkRheU9mV2VlawEA0IjDEAAAAAMFAQT3////
-        EFN5c3RlbS5EYXlPZldlZWsBAAAAB3ZhbHVlX18ACAAAAAAAAfb////4////ADhNJRkAAAAKBQEB9f//
-        //f///8AAAAAAAAAAAAAAAAACw==
-</value>
-  </data>
-  <data name="&gt;&gt;dateTimeUserControl1.Name" xml:space="preserve">
-    <value>dateTimeUserControl1</value>
-  </data>
-  <data name="&gt;&gt;dateTimeUserControl1.Type" xml:space="preserve">
-    <value>StreamCompanion.Controls.DateTimeUserControl, StreamCompanion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;dateTimeUserControl1.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;dateTimeUserControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
   </data>
@@ -200,7 +160,7 @@
     <value>7, 7</value>
   </data>
   <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>815, 485</value>
+    <value>815, 376</value>
   </data>
   <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -227,7 +187,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1tabDateAndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>825, 498</value>
+    <value>825, 384</value>
   </data>
   <data name="tabPage1tabDateAndTime.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -299,7 +259,7 @@
     <value>3, 3</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>833, 524</value>
+    <value>833, 410</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -319,11 +279,29 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 22</value>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>836, 25</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="toolStripDropDownButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -353,6 +331,12 @@
     <value>
 </value>
   </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -372,7 +356,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripButton3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 22</value>
+    <value>47, 22</value>
   </data>
   <data name="toolStripButton3.Text" xml:space="preserve">
     <value>Timers</value>
@@ -425,45 +409,6 @@
   <data name="toolStripButton1.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>836, 25</value>
-  </data>
-  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="toolStrip1.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 3</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Save settings</value>
-  </data>
   <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
   </data>
@@ -500,6 +445,33 @@
   <data name="&gt;&gt;settingsPanel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 3</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Save settings</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>settingsPanel</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>134, 19</value>
   </metadata>
@@ -510,7 +482,7 @@
     <value>toolStripStatusLabel1</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 565</value>
+    <value>0, 452</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>836, 22</value>
@@ -537,7 +509,7 @@
     <value>0, 28</value>
   </data>
   <data name="TimersPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>836, 527</value>
+    <value>836, 421</value>
   </data>
   <data name="TimersPanel.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -553,6 +525,66 @@
   </data>
   <data name="&gt;&gt;TimersPanel.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;rtxtComConsole.Name" xml:space="preserve">
+    <value>rtxtComConsole</value>
+  </data>
+  <data name="&gt;&gt;rtxtComConsole.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtxtComConsole.Parent" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;rtxtComConsole.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.Name" xml:space="preserve">
+    <value>propertyGrid1</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.Parent" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Name" xml:space="preserve">
+    <value>checkedListBox1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Parent" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="grpComPorts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 3</value>
+  </data>
+  <data name="grpComPorts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 384</value>
+  </data>
+  <data name="grpComPorts.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grpComPorts.Text" xml:space="preserve">
+    <value>Serials ports monitoring</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.Name" xml:space="preserve">
+    <value>grpComPorts</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.Parent" xml:space="preserve">
+    <value>comPanel</value>
+  </data>
+  <data name="&gt;&gt;grpComPorts.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="rtxtComConsole.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 240</value>
@@ -623,30 +655,6 @@
   <data name="&gt;&gt;checkedListBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="grpComPorts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 3</value>
-  </data>
-  <data name="grpComPorts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 384</value>
-  </data>
-  <data name="grpComPorts.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="grpComPorts.Text" xml:space="preserve">
-    <value>Serials ports monitoring</value>
-  </data>
-  <data name="&gt;&gt;grpComPorts.Name" xml:space="preserve">
-    <value>grpComPorts</value>
-  </data>
-  <data name="&gt;&gt;grpComPorts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grpComPorts.Parent" xml:space="preserve">
-    <value>comPanel</value>
-  </data>
-  <data name="&gt;&gt;grpComPorts.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>250, 19</value>
   </metadata>
@@ -654,7 +662,7 @@
     <value>449, 28</value>
   </data>
   <data name="comPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 487</value>
+    <value>387, 413</value>
   </data>
   <data name="comPanel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -681,7 +689,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>836, 587</value>
+    <value>836, 474</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
