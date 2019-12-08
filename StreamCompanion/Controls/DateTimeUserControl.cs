@@ -493,7 +493,7 @@ namespace StreamCompanion.Controls
 
         public void ShowSeparatorButtons()
         {
-            if(IsFirst && IsLast)
+            if(IsFirst && IsLast) // true/true
             {
                 lblSeparator.Visible = false;
                 btnAdd.Visible = true;
@@ -504,6 +504,24 @@ namespace StreamCompanion.Controls
                 if( IsFirst == false)
                 {
                     lblSeparator.Visible = true;
+                }
+                
+                if(IsFirst && !IsLast) // true/false
+                {
+
+                }
+                else
+                {
+                    if( !IsFirst && IsLast) // false/true
+                    {
+                        btnAdd.Visible = true;
+                        btnRemove.Visible = true;
+                    }
+                    else // false/false
+                    {
+                        btnAdd.Visible = false;
+                        btnRemove.Visible = true;
+                    }
                 }
                
             }

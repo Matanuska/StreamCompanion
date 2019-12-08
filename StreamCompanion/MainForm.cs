@@ -80,10 +80,15 @@ namespace StreamCompanion
             else
             {
                 dateTimeUserControl.IsFirst = false ;
-                for (var i = 1;i < listDateTimeUserControl.Count; i++)
+                for (var i = 1;i < listDateTimeUserControl.Count - 1; i++)
                 {
-                    ((DateTimeUserControl)listDateTimeUserControl[1]).IsFirst = false;
-                    ((DateTimeUserControl)listDateTimeUserControl[1]).IsLast = false;
+                    ((DateTimeUserControl)listDateTimeUserControl[i]).IsFirst = false;
+                    ((DateTimeUserControl)listDateTimeUserControl[i]).IsLast = false;
+                }
+                if (listDateTimeUserControl.Count > 1)
+                {
+                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsFirst = false;
+                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsLast = true;
                 }
             }
 
@@ -114,12 +119,26 @@ namespace StreamCompanion
                        int index =  listDateTimeUserControl.FindIndex(a => a == e.UserControl);
                         if (index > -1)
                         {
-                            listDateTimeUserControl.RemoveAt(index);
-                            e.ControlContainer.Controls.Remove((UserControl)sender);
+                            listDateTimeUserControl.RemoveAt(index);                            
                         }
 
                         break;
                 }
+                e.ControlContainer.Controls.Remove((UserControl)sender);
+                for(int i = 1; i < listDateTimeUserControl.Count - 1; i++)
+                {
+                    ((IDuplicable)listDateTimeUserControl[i]).IsFirst = false;
+                    ((IDuplicable)listDateTimeUserControl[i]).IsLast = false;
+                }
+                ((IDuplicable)listDateTimeUserControl[0]).IsFirst = true;
+                ((IDuplicable)listDateTimeUserControl[0]).IsLast = false;
+                if (listDateTimeUserControl.Count > 1)
+                {
+                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsFirst = false;
+                    ((IDuplicable)listDateTimeUserControl[listDateTimeUserControl.Count - 1]).IsLast = true;
+                }
+
+
 
             }
            
