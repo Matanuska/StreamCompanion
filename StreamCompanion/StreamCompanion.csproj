@@ -124,5 +124,11 @@
     <Content Include="LogicNP\LogicNP.CryptoLicensing.xml" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StreamCompanion.Controls\StreamCompanion.Controls.csproj">
+      <Project>{53ee7db6-8a99-48ec-86ff-6c196d5d0c19}</Project>
+      <Name>StreamCompanion.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
