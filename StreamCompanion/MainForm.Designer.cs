@@ -49,9 +49,9 @@
             this.TimersPanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grpComPorts = new System.Windows.Forms.GroupBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.rtxtComConsole = new System.Windows.Forms.RichTextBox();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.comPanel = new System.Windows.Forms.Panel();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
@@ -200,20 +200,6 @@
             this.grpComPorts.Name = "grpComPorts";
             this.grpComPorts.TabStop = false;
             // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // propertyGrid1
-            // 
-            resources.ApplyResources(this.propertyGrid1, "propertyGrid1");
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
-            // 
             // rtxtComConsole
             // 
             this.rtxtComConsole.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -221,6 +207,20 @@
             resources.ApplyResources(this.rtxtComConsole, "rtxtComConsole");
             this.rtxtComConsole.Name = "rtxtComConsole";
             this.rtxtComConsole.ReadOnly = true;
+            // 
+            // propertyGrid1
+            // 
+            resources.ApplyResources(this.propertyGrid1, "propertyGrid1");
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // comPanel
             // 

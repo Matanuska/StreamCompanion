@@ -43,11 +43,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddRemoveUserControl.cs" />
+    <Compile Include="ClockTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DateTimeClass.cs" />
+    <Compile Include="EnhancedSerialPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="IBrowsableSerialPort.cs" />
     <Compile Include="ICommuniquant.cs" />
     <Compile Include="IDuplicable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialPortManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SimpleTime.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClockTimer.resx">
+      <DependentUpon>ClockTimer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

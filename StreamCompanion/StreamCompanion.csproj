@@ -56,14 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ClockTimer.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\EnhancedSerialPort.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\SerialPortManager.cs" />
-    <Compile Include="Classes\SimpleTime.cs" />
     <Compile Include="ComboboxItem.cs" />
     <Compile Include="Controls\DateTimeUserControl.cs">
       <SubType>UserControl</SubType>
@@ -79,9 +71,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Classes\ClockTimer.resx">
-      <DependentUpon>ClockTimer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\DateTimeUserControl.resx">
       <DependentUpon>DateTimeUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +118,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Classes\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

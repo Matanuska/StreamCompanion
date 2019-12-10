@@ -9,7 +9,7 @@ using System.Threading;
 
 using StreamCompanion.Objects;
 
-namespace StreamCompanion.Classes
+namespace StreamCompanion.Objects
 {
 
 

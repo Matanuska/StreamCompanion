@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StreamCompanion.Classes
+namespace StreamCompanion.Objects
 {
     public class SimpleTime : INotifyPropertyChanged
     {

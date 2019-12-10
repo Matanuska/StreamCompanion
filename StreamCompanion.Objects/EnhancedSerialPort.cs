@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 using System.ComponentModel;
 
-namespace StreamCompanion.Classes
+namespace StreamCompanion.Objects
 {
-    class EnhancedSerialPort : SerialPort
+    public class EnhancedSerialPort : SerialPort
     {
         public EnhancedSerialPort() : base()
         {

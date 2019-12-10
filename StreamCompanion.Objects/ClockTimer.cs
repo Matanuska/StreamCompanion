@@ -2,9 +2,9 @@
 using System.Windows.Forms;
 using System.Globalization;
 
-namespace StreamCompanion.Classes
+namespace StreamCompanion.Objects
 {
-    class ClockTimer : Timer
+    public class ClockTimer : Timer
     {
         DateTime timeUtc = DateTime.UtcNow;
         private Timer timer1;

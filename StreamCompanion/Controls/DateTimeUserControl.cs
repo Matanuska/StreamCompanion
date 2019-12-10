@@ -1,5 +1,4 @@
-﻿using StreamCompanion.Classes;
-using StreamCompanion.Objects;
+﻿using StreamCompanion.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +59,7 @@ namespace StreamCompanion.Controls
         }
 
 
-        Classes.ClockTimer myTimer = new ClockTimer();
+        ClockTimer myTimer = new ClockTimer();
 
         public void Init()
         {
@@ -143,7 +142,7 @@ namespace StreamCompanion.Controls
             }
         }
         
-        private void MyTimer_TimeChanged(object sender, Classes.ThresholdReachedEventArgs e)
+        private void MyTimer_TimeChanged(object sender, ThresholdReachedEventArgs e)
         {
             if (e.DateTime.ToString() != this.Value)
             {
