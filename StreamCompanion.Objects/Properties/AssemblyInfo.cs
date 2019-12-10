@@ -3,13 +3,13 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Les informations générales relatives à un assembly dépendent de
-// l'ensemble d'attributs suivant. Pour modifier les informations
-// associées à un assembly, changez les valeurs de ces attributs.
-[assembly: AssemblyTitle("Controls")]
+// l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
+// associées à un assembly.
+[assembly: AssemblyTitle("StreamCompanion.Objects")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Controls")]
+[assembly: AssemblyProduct("StreamCompanion.Objects")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,9 +20,9 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("c9342c1a-da47-4dee-8159-5c09567437e3")]
+[assembly: Guid("40e30c7f-632d-4078-8779-305588d7215b")]
 
-// Les informations de version pour un assembly se composent des quatre valeurs suivantes :
+// Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
 //      Version principale
 //      Version secondaire

@@ -5,8 +5,9 @@ using System.Text;
 using System.IO.Ports;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using StreamCompanion.Interfaces;
 using System.Threading;
+
+using StreamCompanion.Objects;
 
 namespace StreamCompanion.Classes
 {

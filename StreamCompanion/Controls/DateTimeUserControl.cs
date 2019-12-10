@@ -1,5 +1,5 @@
 ﻿using StreamCompanion.Classes;
-using StreamCompanion.Interfaces;
+using StreamCompanion.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

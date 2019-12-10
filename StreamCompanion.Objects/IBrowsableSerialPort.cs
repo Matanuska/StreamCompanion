@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO.Ports;
 
-namespace StreamCompanion.Interfaces
+
+namespace StreamCompanion.Objects
 {
-    interface IBrowsableSerialPort
+    public interface IBrowsableSerialPort
     {
         int BaudRate { get; set; }
         int DataBits { get; set; }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StreamCompanion.Interfaces
+namespace StreamCompanion.Objects
 {
-    interface ICommuniquant
+    public interface ICommuniquant
     {
         void AddPort(string port);
         void RemovePort(string port);

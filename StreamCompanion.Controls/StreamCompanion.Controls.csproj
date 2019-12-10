@@ -63,5 +63,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StreamCompanion.Objects\StreamCompanion.Objects.csproj">
+      <Project>{40e30c7f-632d-4078-8779-305588d7215b}</Project>
+      <Name>StreamCompanion.Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

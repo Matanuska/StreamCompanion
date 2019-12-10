@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace StreamCompanion.Classes
+namespace StreamCompanion.Objects
 {
     public class DateTimeClass : ISerializable
     {
