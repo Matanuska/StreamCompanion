@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.IO;
 
 namespace StreamCompanion.Controls
 {
@@ -49,6 +50,21 @@ namespace StreamCompanion.Controls
             }
 
         }
+
+        public int Num_Output { get; set; }
+
+        public string OutputFile { get; set; }
+
+        private string outputPath;
+
+        public string OutputPath
+        {
+            get { return outputPath; }
+            set { outputPath = value;
+                saveFileDialog1.InitialDirectory = value;
+            }
+        }
+
 
 
         public DateTimeUserControl()
@@ -96,6 +112,8 @@ namespace StreamCompanion.Controls
             myTimer.TimeFormat = cboPredefinedFormats.Text;
             myTimer.TimeChanged += MyTimer_TimeChanged;
             chkEnabled.Checked = true;
+
+           
 
             ShowSeparatorButtons();
            
@@ -261,6 +279,7 @@ namespace StreamCompanion.Controls
                 {
                     lstdate.Add(f.YearMonthPattern);
                 }
+                
             }
             else
             {
@@ -275,6 +294,7 @@ namespace StreamCompanion.Controls
                     {
                         lstdate.Add(f.ShortTimePattern);
                     }
+                    
                 }
                 else
                 {
@@ -344,7 +364,7 @@ namespace StreamCompanion.Controls
             {
                 cboPredefinedFormats.SelectedItem = pattern;
             }
-
+            
         }
 
 
@@ -422,15 +442,15 @@ namespace StreamCompanion.Controls
                 string filename = "";
                 if(((RadioButton)sender).Name == "radioBtnDate")
                 {
-                    filename = string.Concat("date", this.InstanceNumber.ToString(), ".txt");
+                    filename = string.Concat("date", this.Num_Output.ToString(), ".txt");
                 }
                 if (((RadioButton)sender).Name == "radioBtnTime")
                 {
-                    filename = string.Concat("time", this.InstanceNumber.ToString(), ".txt");
+                    filename = string.Concat("time", this.Num_Output.ToString(), ".txt");
                 }
                 if (((RadioButton)sender).Name == "radioBtnDateAndTime")
                 {
-                    filename = string.Concat("datetime", this.InstanceNumber.ToString(), ".txt");
+                    filename = string.Concat("datetime", this.Num_Output.ToString(), ".txt");
                 }
                 txtOutputFile.Text = string.Concat(Application.StartupPath,"\\", filename);
             }
@@ -442,6 +462,7 @@ namespace StreamCompanion.Controls
             if (saveFileDialog1.FileName != "")
             {
                 txtOutputFile.Text = saveFileDialog1.FileName;
+                this.OutputPath = Path.GetDirectoryName(saveFileDialog1.FileName); 
             }
 
         }

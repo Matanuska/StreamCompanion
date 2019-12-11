@@ -17,6 +17,10 @@ namespace StreamCompanion.Objects
 
          object DataSource { get; set; }
 
+        int Num_Output { get; set; }
+
+        string OutputPath { get; set; }
+
         event EventHandler<AddRemoveUserControlEventArgs> DuplicateControl;
     }
 }

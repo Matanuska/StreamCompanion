@@ -68,6 +68,26 @@ namespace StreamCompanion
 
             dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
 
+            int numoutput = 1;
+            Boolean trouve = true;
+            while (trouve) {
+                trouve = false;
+                for (int i = 0; i < listDateTimeUserControl.Count; i++)
+                {
+                    if (((IDuplicable)listDateTimeUserControl[i]).Num_Output == numoutput)
+                    {
+                        trouve = true;
+                        numoutput += 1;
+                        break;
+                    }
+                }
+            }
+
+            dateTimeUserControl.Num_Output = numoutput;
+
+            dateTimeUserControl.OutputPath = Application.StartupPath;
+
+
             listDateTimeUserControl.Add(dateTimeUserControl);
 
             for(int i = 0; i< listDateTimeUserControl.Count; i++)
