@@ -82,6 +82,7 @@ namespace StreamCompanion.Controls
             this.IsFirst = true;
             this.IsLast = true;
 
+            saveFileDialog1.FileOk += SaveFileDialog1_FileOk;
             panelCustomFormat.Location = panelPredefinedOutput.Location;                        
 
             var cultureList = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();
@@ -113,10 +114,19 @@ namespace StreamCompanion.Controls
             myTimer.TimeChanged += MyTimer_TimeChanged;
             chkEnabled.Checked = true;
 
-           
+
 
             ShowSeparatorButtons();
            
+        }
+
+        private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            if (saveFileDialog1.FileName != "")
+            {
+                txtOutputFile.Text = saveFileDialog1.FileName;
+                this.OutputPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+            }
         }
 
         private string _value;
@@ -200,9 +210,18 @@ namespace StreamCompanion.Controls
 
         private void DateTimeUserControl_Load(object sender, EventArgs e)
         {
-            
+            setOutputFile();
         }
 
+        private void setOutputFile()
+        {
+            if (string.IsNullOrEmpty(this.OutputFile))
+            {
+                var checkedButton = panelRadioButonFormat.Controls.OfType<RadioButton>()
+                .FirstOrDefault(r => r.Checked);
+                defineOutput(checkedButton, null);
+            }
+        }
         private void cboCulture_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -364,7 +383,7 @@ namespace StreamCompanion.Controls
             {
                 cboPredefinedFormats.SelectedItem = pattern;
             }
-            
+            setOutputFile();
         }
 
 
@@ -452,18 +471,14 @@ namespace StreamCompanion.Controls
                 {
                     filename = string.Concat("datetime", this.Num_Output.ToString(), ".txt");
                 }
-                txtOutputFile.Text = string.Concat(Application.StartupPath,"\\", filename);
+                txtOutputFile.Text = string.Concat(this.OutputPath,"\\", filename);
             }
 
         private void btnOpenFileDialog_Click(object sender, EventArgs e)
         {
             
             saveFileDialog1.ShowDialog();
-            if (saveFileDialog1.FileName != "")
-            {
-                txtOutputFile.Text = saveFileDialog1.FileName;
-                this.OutputPath = Path.GetDirectoryName(saveFileDialog1.FileName); 
-            }
+
 
         }
 

@@ -53,15 +53,15 @@ namespace StreamCompanion
             
 
             CryptoLicense license = new CryptoLicense("FgSAgPTVvzKYoNUBCgABARApMzaTcUoNV4kDZrbPcjE70G4oGUX1U4ljWINIUtu+SbsZ0kSI64rdjuLp1vWX5eI=", validationKey);
-           if (license.Status != LicenseStatus.Valid)
-           {
-               MessageBox.Show("License validation failed");
-           }
-           else
-           {
+          // if (license.Status != LicenseStatus.Valid)
+          // {
+          //     MessageBox.Show("License validation failed");
+          // }
+          // else
+          // {
                 // Continue normal execution...
                 Application.Run(new MainForm(license));                
-            }
+           // }
            
 
             
