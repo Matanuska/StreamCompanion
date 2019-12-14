@@ -226,7 +226,7 @@ namespace StreamCompanion
 
             EnhancedSerialPort _port = _p.Value;
 
-            _port.NewLine = "\n";
+            //_port.NewLine = "\n";
 
             _port.WriteLine(e.Message);
 
