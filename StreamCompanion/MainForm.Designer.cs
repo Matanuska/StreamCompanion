@@ -53,6 +53,8 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.comPanel = new System.Windows.Forms.Panel();
+            this.tabScheduler = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
@@ -62,6 +64,7 @@
             this.TimersPanel.SuspendLayout();
             this.grpComPorts.SuspendLayout();
             this.comPanel.SuspendLayout();
+            this.tabScheduler.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCountdownZero
@@ -76,6 +79,7 @@
             this.tabControl1.Controls.Add(this.tabChrono);
             this.tabControl1.Controls.Add(tabCountdownZero);
             this.tabControl1.Controls.Add(this.tabCountdownToDate);
+            this.tabControl1.Controls.Add(this.tabScheduler);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -228,6 +232,18 @@
             resources.ApplyResources(this.comPanel, "comPanel");
             this.comPanel.Name = "comPanel";
             // 
+            // tabScheduler
+            // 
+            this.tabScheduler.Controls.Add(this.label1);
+            resources.ApplyResources(this.tabScheduler, "tabScheduler");
+            this.tabScheduler.Name = "tabScheduler";
+            this.tabScheduler.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -250,6 +266,8 @@
             this.TimersPanel.ResumeLayout(false);
             this.grpComPorts.ResumeLayout(false);
             this.comPanel.ResumeLayout(false);
+            this.tabScheduler.ResumeLayout(false);
+            this.tabScheduler.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +298,7 @@
         private System.Windows.Forms.RichTextBox rtxtComConsole;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.TabPage tabScheduler;
+        private System.Windows.Forms.Label label1;
     }
 }
