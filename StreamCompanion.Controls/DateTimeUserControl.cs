@@ -633,7 +633,7 @@ namespace StreamCompanion.Controls
             }
             else
             {
-                args.Message = "[]";
+                args.Message = "";
             }
 
             OnReceivedMessage(args);
