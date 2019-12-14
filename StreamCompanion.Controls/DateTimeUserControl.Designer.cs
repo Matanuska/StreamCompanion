@@ -75,7 +75,6 @@
             this.lblRemoteControlSerialPort = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -549,11 +548,6 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Text file|*.txt";
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -653,7 +647,6 @@
         private System.Windows.Forms.Panel panelPredefinedOutput;
         private System.Windows.Forms.ComboBox cboPredefinedFormats;
         private System.Windows.Forms.Label lblPredefinedDateFormat;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.CheckBox chkOutputFile;

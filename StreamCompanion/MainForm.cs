@@ -228,10 +228,11 @@ namespace StreamCompanion
 
             //_port.NewLine = "\n";
 
-            _port.WriteLine(e.Message);
+            //_port.WriteLine(e.Message.ToString());
+            _port.WriteLine("abc");
 
-            
-            
+
+
             rtxtComConsole.Text = string.Concat(rtxtComConsole.Text, "->", e.SerialPort, " : " ,e.Message,"\r\n");
             
 
