@@ -198,23 +198,21 @@ namespace StreamCompanion
             portnames = SerialPort.GetPortNames();
             loadComPorts();
             
-            // standard
-            if(license.Features == LicenseFeatures.Feature1)
-            {
-                toolStripStatusLabel1.Text = string.Concat("Standard version expire on"," ", license.DateExpires.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern));
-                toolStripStatusLabel1.ToolTipText = string.Concat(rm.GetString("licenceexpirationdate", CultureInfo.CurrentCulture), " : ", license.DateExpires.ToString());
-            }
-            if (license.Features == LicenseFeatures.Feature2)
-            {
-                toolStripStatusLabel1.Text = string.Concat("Pro version");
-                toolStripStatusLabel1.ToolTipText = string.Concat(rm.GetString("licenceexpirationdate", CultureInfo.CurrentCulture), " : ", license.DateExpires.ToString());
-            }
-            if (license.Features == LicenseFeatures.Feature3)
-            {
-                toolStripStatusLabel1.Text = "Stream Companion Ultimate";
-            }
-
-
+            //// standard
+            //if(license.Features == LicenseFeatures.Feature1)
+            //{
+            //    toolStripStatusLabel1.Text = string.Concat("Standard version expire on"," ", license.DateExpires.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern));
+            //    toolStripStatusLabel1.ToolTipText = string.Concat(rm.GetString("licenceexpirationdate", CultureInfo.CurrentCulture), " : ", license.DateExpires.ToString());
+            //}
+            //if (license.Features == LicenseFeatures.Feature2)
+            //{
+            //    toolStripStatusLabel1.Text = string.Concat("Pro version");
+            //    toolStripStatusLabel1.ToolTipText = string.Concat(rm.GetString("licenceexpirationdate", CultureInfo.CurrentCulture), " : ", license.DateExpires.ToString());
+            //}
+            //if (license.Features == LicenseFeatures.Feature3)
+            //{
+            //    toolStripStatusLabel1.Text = "Stream Companion Ultimate";
+            //}
             
         }
 
@@ -225,21 +223,12 @@ namespace StreamCompanion
             KeyValuePair<string, EnhancedSerialPort> _p = ListenSerialPorts.SingleOrDefault(kvp => kvp.Key == e.SerialPort);
 
             EnhancedSerialPort _port = _p.Value;
-
-            //_port.NewLine = "\n";
-
-            //_port.WriteLine(e.Message.ToString());
-            _port.WriteLine("abc");
-
-
-
+            
+            _port.WriteLine(e.Message.ToString());
+            
             rtxtComConsole.Text = string.Concat(rtxtComConsole.Text, "->", e.SerialPort, " : " ,e.Message,"\r\n");
             
-
         }
-
-
-
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
