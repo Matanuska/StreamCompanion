@@ -98,7 +98,6 @@ namespace StreamCompanion.Controls
             radioBtnPrefedinedOutputFormat.Checked = true;
 
             cboTimezone.DataSource = TimeZoneInfo.GetSystemTimeZones().ToList();
-//            cboTimezone.SelectedValue = this.TimeZoneInfo.Id;
 
             cboTimezone.SelectedIndexChanged += new System.EventHandler(this.cboTimezone_SelectedIndexChanged);
             
@@ -114,10 +113,8 @@ namespace StreamCompanion.Controls
             myTimer.TimeChanged += MyTimer_TimeChanged;
             chkEnabled.Checked = true;
 
-
-
             ShowSeparatorButtons();
-           
+
         }
 
         private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)

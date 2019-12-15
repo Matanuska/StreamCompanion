@@ -50,24 +50,17 @@ namespace StreamCompanion
         List<DateTimeUserControl> listDateTimeUserControl = new List<DateTimeUserControl>();
         private void createOneDateTimeUserControl()
         {
+
             DateTimeUserControl dateTimeUserControl;
             dateTimeUserControl = new DateTimeUserControl();
-            // 
-            // dateTimeUserControl1
-            // 
+            listDateTimeUserControl.Add(dateTimeUserControl);
+            
 
-            dateTimeUserControl.Name = string.Concat("dateTimeUserControl", dateTimeUserControl.InstanceNumber.ToString());
-            this.flowLayoutPanel1.Controls.Add(dateTimeUserControl);
-            DateTimeClass _dt = new DateTimeClass();
-            _dt.TimeZone = TimeZoneInfo.Local;
-            dateTimeUserControl.DataSource = _dt;
-            dateTimeUserControl.DuplicateControl += DuplicateControl;
-
-            dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
-
+            dateTimeUserControl.OutputPath = Application.StartupPath;
             int numoutput = 1;
             Boolean trouve = true;
-            while (trouve) {
+            while (trouve)
+            {
                 trouve = false;
                 for (int i = 0; i < listDateTimeUserControl.Count; i++)
                 {
@@ -82,16 +75,16 @@ namespace StreamCompanion
 
             dateTimeUserControl.Num_Output = numoutput;
 
-            dateTimeUserControl.OutputPath = Application.StartupPath;
+            dateTimeUserControl.Name = string.Concat("dateTimeUserControl", dateTimeUserControl.InstanceNumber.ToString());
+            this.flowLayoutPanel1.Controls.Add(dateTimeUserControl);
+            DateTimeClass _dt = new DateTimeClass();
+            _dt.TimeZone = TimeZoneInfo.Local;
+            dateTimeUserControl.DataSource = _dt;
+            dateTimeUserControl.DuplicateControl += DuplicateControl;
 
+            dateTimeUserControl.SendMessageToSerialPort += DateTimeUserControl1_SendMessageToSerialPort;
 
-            foreach(KeyValuePair<string, EnhancedSerialPort> _port in ListenSerialPorts)
-            {
-                ((ICommuniquant)dateTimeUserControl).AddPort(_port.Key.ToString());
-            }
-
-
-            listDateTimeUserControl.Add(dateTimeUserControl);
+            setSelectedComPort(dateTimeUserControl);
 
             for(int i = 0; i< listDateTimeUserControl.Count; i++)
             {
@@ -117,6 +110,14 @@ namespace StreamCompanion
             }
 
 
+        }
+
+        private void setSelectedComPort(UserControl usercontrol)
+        {
+            foreach (KeyValuePair<string, EnhancedSerialPort> _port in ListenSerialPorts)
+            {
+                ((ICommuniquant)usercontrol).AddPort(_port.Key.ToString());
+            }
         }
 
         private void DuplicateControl(object sender, AddRemoveUserControlEventArgs e)
