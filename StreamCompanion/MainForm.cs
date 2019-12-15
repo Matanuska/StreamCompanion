@@ -85,6 +85,12 @@ namespace StreamCompanion
             dateTimeUserControl.OutputPath = Application.StartupPath;
 
 
+            foreach(KeyValuePair<string, EnhancedSerialPort> _port in ListenSerialPorts)
+            {
+                ((ICommuniquant)dateTimeUserControl).AddPort(_port.Key.ToString());
+            }
+
+
             listDateTimeUserControl.Add(dateTimeUserControl);
 
             for(int i = 0; i< listDateTimeUserControl.Count; i++)
