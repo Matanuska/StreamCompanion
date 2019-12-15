@@ -452,6 +452,14 @@ namespace StreamCompanion.Controls
             if(myTimer.Enabled == false)
             {
                 saveDataToFile(string.Empty);
+
+                SendComMessageEventArgs args = new SendComMessageEventArgs();
+                args.Message = "";
+                foreach (var item in chkListOutputSerialPort.CheckedItems)
+                {
+                    args.SerialPort = item.ToString();
+                    OnReceivedMessage(args);
+                }
             }
         }
 
