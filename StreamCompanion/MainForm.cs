@@ -55,11 +55,8 @@ namespace StreamCompanion
             // 
             // dateTimeUserControl1
             // 
-            //dateTimeUserControl.CultureInfo = new System.Globalization.CultureInfo("fr-FR");
-            // resources.ApplyResources(dateTimeUserControl1, "dateTimeUserControl1");
+
             dateTimeUserControl.Name = string.Concat("dateTimeUserControl", dateTimeUserControl.InstanceNumber.ToString());
-            //dateTimeUserControl1.TimeZoneInfo = ((System.TimeZoneInfo)(resources.GetObject("dateTimeUserControl1.TimeZoneInfo")));
-            //dateTimeUserControl.Load += new System.EventHandler(this.dateTimeUserControl1_Load);
             this.flowLayoutPanel1.Controls.Add(dateTimeUserControl);
             DateTimeClass _dt = new DateTimeClass();
             _dt.TimeZone = TimeZoneInfo.Local;
@@ -169,20 +166,7 @@ namespace StreamCompanion
 
 
             }
-           
-            //UserControl control = (UserControl)Activator.CreateInstance(e.UserControl.GetType());
 
-
-            //DateTimeClass _dt = new DateTimeClass();
-            //_dt.TimeZone = TimeZoneInfo.Local;
-            //((IDuplicable)control).DataSource = _dt;
-
-            //e.ControlContainer.Controls.Add(control);
-
-
-            //((IDuplicable)control).IsFirst = false;
-
-            //((IDuplicable)control).DuplicateControl += DuplicateControl;
 
         }
 
@@ -307,7 +291,6 @@ namespace StreamCompanion
                 
 
             }
-
 
         }
 
