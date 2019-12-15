@@ -36,8 +36,9 @@ namespace StreamCompanion
             
             license = lic;
             InitializeComponent();
-            CreateFirstsControls();
+            
             Init();
+            CreateFirstsControls();
         }
 
         private void CreateFirstsControls()
