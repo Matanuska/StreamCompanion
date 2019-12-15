@@ -36,6 +36,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabChrono = new System.Windows.Forms.TabPage();
             this.tabCountdownToDate = new System.Windows.Forms.TabPage();
+            this.tabScheduler = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,18 +55,19 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.comPanel = new System.Windows.Forms.Panel();
-            this.tabScheduler = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.grpMqtt = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
+            this.tabScheduler.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.TimersPanel.SuspendLayout();
             this.grpComPorts.SuspendLayout();
             this.comPanel.SuspendLayout();
-            this.tabScheduler.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCountdownZero
@@ -107,6 +110,18 @@
             resources.ApplyResources(this.tabCountdownToDate, "tabCountdownToDate");
             this.tabCountdownToDate.Name = "tabCountdownToDate";
             this.tabCountdownToDate.UseVisualStyleBackColor = true;
+            // 
+            // tabScheduler
+            // 
+            this.tabScheduler.Controls.Add(this.label1);
+            resources.ApplyResources(this.tabScheduler, "tabScheduler");
+            this.tabScheduler.Name = "tabScheduler";
+            this.tabScheduler.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // toolStrip1
             // 
@@ -197,6 +212,8 @@
             // 
             // grpComPorts
             // 
+            this.grpComPorts.Controls.Add(this.label2);
+            this.grpComPorts.Controls.Add(this.comboBox1);
             this.grpComPorts.Controls.Add(this.rtxtComConsole);
             this.grpComPorts.Controls.Add(this.propertyGrid1);
             this.grpComPorts.Controls.Add(this.checkedListBox1);
@@ -214,6 +231,7 @@
             // 
             // propertyGrid1
             // 
+            this.propertyGrid1.BackColor = System.Drawing.SystemColors.ControlLight;
             resources.ApplyResources(this.propertyGrid1, "propertyGrid1");
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
@@ -228,21 +246,27 @@
             // 
             // comPanel
             // 
+            this.comPanel.Controls.Add(this.grpMqtt);
             this.comPanel.Controls.Add(this.grpComPorts);
             resources.ApplyResources(this.comPanel, "comPanel");
             this.comPanel.Name = "comPanel";
             // 
-            // tabScheduler
+            // grpMqtt
             // 
-            this.tabScheduler.Controls.Add(this.label1);
-            resources.ApplyResources(this.tabScheduler, "tabScheduler");
-            this.tabScheduler.Name = "tabScheduler";
-            this.tabScheduler.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.grpMqtt, "grpMqtt");
+            this.grpMqtt.Name = "grpMqtt";
+            this.grpMqtt.TabStop = false;
             // 
-            // label1
+            // comboBox1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this.comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
             // MainForm
             // 
@@ -258,6 +282,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1tabDateAndTime.ResumeLayout(false);
+            this.tabScheduler.ResumeLayout(false);
+            this.tabScheduler.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
@@ -265,9 +291,8 @@
             this.statusStrip1.PerformLayout();
             this.TimersPanel.ResumeLayout(false);
             this.grpComPorts.ResumeLayout(false);
+            this.grpComPorts.PerformLayout();
             this.comPanel.ResumeLayout(false);
-            this.tabScheduler.ResumeLayout(false);
-            this.tabScheduler.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +325,8 @@
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.TabPage tabScheduler;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox grpMqtt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

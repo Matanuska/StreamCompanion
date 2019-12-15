@@ -226,8 +226,24 @@ namespace StreamCompanion
             
             _port.WriteLine(e.Message.ToString());
             
-            rtxtComConsole.Text = string.Concat(rtxtComConsole.Text, "->", e.SerialPort, " : " ,e.Message,"\r\n");
+            String[] lines = rtxtComConsole.Text.Split('\n');
+
+            string txt = string.Concat("->", e.SerialPort, " : ", e.Message, Environment.NewLine);
+
+
+            if(rtxtComConsole.Lines.Length > 10)
+            {
+                List<string> l = rtxtComConsole.Lines.ToList();
+                l.RemoveAt(0);
+                rtxtComConsole.Lines = l.ToArray();
+                rtxtComConsole.Refresh();
+            }
             
+            rtxtComConsole.AppendText(txt);
+            
+            rtxtComConsole.SelectionStart = rtxtComConsole.Text.Length;
+            rtxtComConsole.ScrollToCaret();
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
