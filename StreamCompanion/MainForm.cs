@@ -193,8 +193,7 @@ namespace StreamCompanion
             TimersPanel.Dock = DockStyle.Fill;
             comPanel.Dock = DockStyle.Fill;
             settingsPanel.Dock = DockStyle.Fill;
-
-
+            
             portnames = SerialPort.GetPortNames();
             loadComPorts();
             
@@ -218,7 +217,7 @@ namespace StreamCompanion
 
         private void DateTimeUserControl1_SendMessageToSerialPort(object sender, SendComMessageEventArgs e)
         {
-            Console.WriteLine(e.Message);
+            
 
             KeyValuePair<string, EnhancedSerialPort> _p = ListenSerialPorts.SingleOrDefault(kvp => kvp.Key == e.SerialPort);
 
