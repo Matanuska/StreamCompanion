@@ -8,6 +8,10 @@ using System.Threading;
 using System.Reflection;
 using System.Resources;
 using System.Globalization;
+using Microsoft.Owin.Hosting;
+using System.Diagnostics;
+using StreamCompanion.Objects;
+
 
 namespace StreamCompanion
 {
@@ -53,13 +57,23 @@ namespace StreamCompanion
             
 
             CryptoLicense license = new CryptoLicense("FgSAgPTVvzKYoNUBCgABARApMzaTcUoNV4kDZrbPcjE70G4oGUX1U4ljWINIUtu+SbsZ0kSI64rdjuLp1vWX5eI=", validationKey);
-          // if (license.Status != LicenseStatus.Valid)
-          // {
-          //     MessageBox.Show("License validation failed");
-          // }
-          // else
-          // {
-                // Continue normal execution...
+            // if (license.Status != LicenseStatus.Valid)
+            // {
+            //     MessageBox.Show("License validation failed");
+            // }
+            // else
+            // {
+            // Continue normal execution...
+
+
+            //https://docs.microsoft.com/fr-fr/aspnet/aspnet/overview/owin-and-katana/katana-samples
+            string baseUrl = "http://localhost:12345/";
+            using (WebApp.Start<Startup>(new StartOptions(baseUrl) { ServerFactory = "Microsoft.Owin.Host.HttpListener" }))
+            {
+                Process.Start(baseUrl);
+
+            }
+
                 Application.Run(new MainForm(license));                
            // }
            
