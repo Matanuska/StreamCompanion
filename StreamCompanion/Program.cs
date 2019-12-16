@@ -70,7 +70,7 @@ namespace StreamCompanion
             string baseUrl = "http://localhost:12345/";
             using (WebApp.Start<Startup>(new StartOptions(baseUrl) { ServerFactory = "Microsoft.Owin.Host.HttpListener" }))
             {
-                Process.Start(baseUrl);
+                //Process.Start(baseUrl);
 
             }
 
