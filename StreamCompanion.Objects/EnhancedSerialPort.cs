@@ -33,21 +33,7 @@ namespace StreamCompanion.Objects
             }
         }
 
-
-        //[System.ComponentModel.Browsable(true)]
-        //public new string NewLine { 
-        //    get
-        //    {
-        //        return base.NewLine;
-        //    }
-        //    set
-        //    {
-        //        base.NewLine = value;
-        //    }
-        //}
-
         [Browsable(true)]
-//        [Description("klmklmklmklm")]
         [TypeConverter(typeof(NewLineConverter))]
         public new string NewLine
         {
