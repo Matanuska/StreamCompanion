@@ -67,12 +67,14 @@ namespace StreamCompanion
 
 
             //https://docs.microsoft.com/fr-fr/aspnet/aspnet/overview/owin-and-katana/katana-samples
+            /*
             string baseUrl = "http://localhost:12345/";
             using (WebApp.Start<Startup>(new StartOptions(baseUrl) { ServerFactory = "Microsoft.Owin.Host.HttpListener" }))
             {
-                //Process.Start(baseUrl);
+                Process.Start(baseUrl);
 
             }
+            */
 
                 Application.Run(new MainForm(license));                
            // }

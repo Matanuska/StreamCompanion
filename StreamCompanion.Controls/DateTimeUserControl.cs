@@ -117,14 +117,6 @@ namespace StreamCompanion.Controls
 
         }
 
-        private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-            if (saveFileDialog1.FileName != "")
-            {
-                txtOutputFile.Text = saveFileDialog1.FileName;
-                this.OutputPath = Path.GetDirectoryName(saveFileDialog1.FileName);
-            }
-        }
 
         private string _value;
 
@@ -136,8 +128,10 @@ namespace StreamCompanion.Controls
 
         public int DisplayType { get; set; }
 
+        private string timervalue = null;
         private void timerchange()
         {
+            timervalue = this.Value;
             lblOutputSample.Text = string.Concat("[", this.Value, "]");
             saveDataToFile(this.Value);
             sendToSerials();
@@ -460,31 +454,59 @@ namespace StreamCompanion.Controls
             }
         }
 
+        private string userDefinedOutputFilename = null;
         public void defineOutput(object sender, EventArgs e)
         {
                 
                 string filename = "";
                 if(((RadioButton)sender).Name == "radioBtnDate")
                 {
-                    filename = string.Concat("date", this.Num_Output.ToString(), ".txt");
+                    filename =  (string.IsNullOrEmpty(userDefinedOutputFilename))?string.Concat("date", this.Num_Output.ToString(), ".txt"): userDefinedOutputFilename;
                 }
                 if (((RadioButton)sender).Name == "radioBtnTime")
-                {
-                    filename = string.Concat("time", this.Num_Output.ToString(), ".txt");
+                {                    
+                    filename = (string.IsNullOrEmpty(userDefinedOutputFilename)) ? string.Concat("time", this.Num_Output.ToString(), ".txt") : userDefinedOutputFilename;
                 }
                 if (((RadioButton)sender).Name == "radioBtnDateAndTime")
-                {
-                    filename = string.Concat("datetime", this.Num_Output.ToString(), ".txt");
-                }
+                {                    
+                    filename = (string.IsNullOrEmpty(userDefinedOutputFilename)) ? string.Concat("datetime", this.Num_Output.ToString(), ".txt") : userDefinedOutputFilename;
+            }
                 txtOutputFile.Text = string.Concat(this.OutputPath,"\\", filename);
+                saveFileDialog1.FileName = filename;
             }
 
         private void btnOpenFileDialog_Click(object sender, EventArgs e)
-        {
-            
+        {            
             saveFileDialog1.ShowDialog();
+        }
 
+        private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            if (saveFileDialog1.FileName != "")
+            {
+                txtOutputFile.Text = saveFileDialog1.FileName;
 
+                if (!string.IsNullOrEmpty(Path.GetDirectoryName(saveFileDialog1.FileName)))
+                {
+                    this.OutputPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+                }
+
+                if (
+                    Path.GetFileName(saveFileDialog1.FileName) != string.Concat("date", this.Num_Output.ToString(), ".txt")
+                    &&
+                    Path.GetFileName(saveFileDialog1.FileName) != string.Concat("time", this.Num_Output.ToString(), ".txt")
+                    &&
+                    Path.GetFileName(saveFileDialog1.FileName) != string.Concat("datetime", this.Num_Output.ToString(), ".txt")
+                    )
+                {
+                    userDefinedOutputFilename = Path.GetFileName(saveFileDialog1.FileName);
+                    
+                }
+                else
+                {
+                    userDefinedOutputFilename = null;
+                }
+            }
         }
 
         private string previousdata = string.Empty;
@@ -647,6 +669,51 @@ namespace StreamCompanion.Controls
 
         private void timer1_Tick(object sender, EventArgs e)
         {            
+        }
+
+        private void txtOutputFile_TextChanged(object sender, EventArgs e)
+        {            
+            this.OutputPath = Path.GetDirectoryName(txtOutputFile.Text);
+
+            if (
+                Path.GetFileName(txtOutputFile.Text) != string.Concat("date", this.Num_Output.ToString(), ".txt")
+                &&
+                Path.GetFileName(txtOutputFile.Text) != string.Concat("time", this.Num_Output.ToString(), ".txt")
+                &&
+                Path.GetFileName(txtOutputFile.Text) != string.Concat("datetime", this.Num_Output.ToString(), ".txt")
+                )
+            {
+                userDefinedOutputFilename = Path.GetFileName(txtOutputFile.Text);
+                saveFileDialog1.FileName = Path.GetFileName(txtOutputFile.Text);
+            }
+            else
+            {
+                userDefinedOutputFilename = null;
+            }
+        }
+
+        private void chkOutputFile_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Path.GetExtension(txtOutputFile.Text) != ".txt")
+            {
+                txtOutputFile.Text = string.Concat(txtOutputFile.Text, ".txt");
+            }
+            if(chkOutputFile.CheckState == CheckState.Checked)
+            {
+                previousdata = null;
+                saveDataToFile(timervalue);
+                sendToSerials();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = Path.GetDirectoryName(txtOutputFile.Text),
+                UseShellExecute = true,
+                Verb = "open"
+            });
         }
     }
 

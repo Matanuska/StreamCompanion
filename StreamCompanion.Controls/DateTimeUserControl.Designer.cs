@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DateTimeUserControl));
             this.lblTimeZone = new System.Windows.Forms.Label();
             this.cboTimezone = new System.Windows.Forms.ComboBox();
             this.chkEnabled = new System.Windows.Forms.CheckBox();
@@ -77,6 +78,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutput.SuspendLayout();
             this.panelPredefinedOutputCulture.SuspendLayout();
@@ -314,6 +317,7 @@
             // 
             // grpOutput
             // 
+            this.grpOutput.Controls.Add(this.button1);
             this.grpOutput.Controls.Add(this.chkOutputFile);
             this.grpOutput.Controls.Add(this.txtMQTTTopic);
             this.grpOutput.Controls.Add(this.lblMQTTTopic);
@@ -342,6 +346,7 @@
             this.chkOutputFile.TabIndex = 14;
             this.chkOutputFile.Text = "File";
             this.chkOutputFile.UseVisualStyleBackColor = true;
+            this.chkOutputFile.CheckedChanged += new System.EventHandler(this.chkOutputFile_CheckedChanged);
             // 
             // txtMQTTTopic
             // 
@@ -423,7 +428,7 @@
             // 
             // btnOpenFileDialog
             // 
-            this.btnOpenFileDialog.Location = new System.Drawing.Point(711, 19);
+            this.btnOpenFileDialog.Location = new System.Drawing.Point(674, 19);
             this.btnOpenFileDialog.Name = "btnOpenFileDialog";
             this.btnOpenFileDialog.Size = new System.Drawing.Size(27, 23);
             this.btnOpenFileDialog.TabIndex = 2;
@@ -435,8 +440,9 @@
             // 
             this.txtOutputFile.Location = new System.Drawing.Point(64, 20);
             this.txtOutputFile.Name = "txtOutputFile";
-            this.txtOutputFile.Size = new System.Drawing.Size(641, 20);
+            this.txtOutputFile.Size = new System.Drawing.Size(604, 20);
             this.txtOutputFile.TabIndex = 1;
+            this.txtOutputFile.TextChanged += new System.EventHandler(this.txtOutputFile_TextChanged);
             // 
             // grpRemoteControle
             // 
@@ -552,6 +558,23 @@
             this.saveFileDialog1.FileName = "SCfile.txt";
             this.saveFileDialog1.Filter = "Text file|*.txt";
             // 
+            // button1
+            // 
+            this.button1.ImageIndex = 0;
+            this.button1.ImageList = this.imageList1;
+            this.button1.Location = new System.Drawing.Point(707, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 15;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Microsoft Outlook.png");
+            // 
             // DateTimeUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,5 +661,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.CheckBox chkOutputFile;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
