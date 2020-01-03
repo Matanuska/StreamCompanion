@@ -16,8 +16,13 @@ using LogicNP.CryptoLicensing;
 using System.Resources;
 using System.Reflection;
 using System.Runtime.Serialization;
-
-
+using MQTTnet;
+using MQTTnet.Client;
+using MQTTnet.Client.Options;
+using MQTTnet.Server;
+using MQTTnet.Client.Receiving;
+using MQTTnet.Exceptions;
+using System.Threading;
 
 namespace StreamCompanion
 {
@@ -28,8 +33,7 @@ namespace StreamCompanion
         CryptoLicense license;
 
         List<KeyValuePair<string, EnhancedSerialPort>> DetectedSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
-        List<KeyValuePair<string, EnhancedSerialPort>> ListenSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();        
-
+        List<KeyValuePair<string, EnhancedSerialPort>> ListenSerialPorts = new List<KeyValuePair<string, EnhancedSerialPort>>();
 
         public MainForm(CryptoLicense lic)
         {
@@ -408,6 +412,34 @@ namespace StreamCompanion
             TimersPanel.Visible = true;
             comPanel.Visible = false;
             settingsPanel.Visible = false;
+        }
+
+        private async void SendMQTT()
+        {
+
+            // https://github.com/chkr1011/MQTTnet/wiki/Client
+            var factory = new MqttFactory();
+            var mqttClient = factory.CreateMqttClient();
+
+            var options = new MqttClientOptionsBuilder()
+                .WithTcpServer("127.0.0.1", 1883) // Port is optional
+                .Build();
+
+            try
+            {
+
+                await mqttClient.ConnectAsync(options, CancellationToken.None);
+
+                Task.Run(() => mqttClient.PublishAsync("hello/world"));
+             }catch(MqttCommunicationException)
+            {
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SendMQTT();
         }
     }
 }

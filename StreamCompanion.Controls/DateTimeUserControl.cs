@@ -512,15 +512,23 @@ namespace StreamCompanion.Controls
         private string previousdata = string.Empty;
         private void saveDataToFile(string datatosave)
         {
-
-            if (previousdata != datatosave)
+            try
             {
-                if (chkOutputFile.Checked == true && txtOutputFile.Text != string.Empty)
+                if (previousdata != datatosave)
                 {
-                    System.IO.File.WriteAllText(txtOutputFile.Text, datatosave);
+                    if (chkOutputFile.Checked == true && txtOutputFile.Text != string.Empty)
+                    {
+                        System.IO.File.WriteAllText(txtOutputFile.Text, datatosave);
+                    }
+                    previousdata = datatosave;
                 }
-                previousdata = datatosave;
             }
+            catch (System.IO.DirectoryNotFoundException)
+            {
+                txtOutputFile.OnError = true;
+            }
+
+
         }
 
         public void AddPort(string port)

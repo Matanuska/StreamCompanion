@@ -51,13 +51,14 @@
             this.TimersPanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grpComPorts = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rtxtComConsole = new System.Windows.Forms.RichTextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.comPanel = new System.Windows.Forms.Panel();
             this.grpMqtt = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
@@ -68,6 +69,7 @@
             this.TimersPanel.SuspendLayout();
             this.grpComPorts.SuspendLayout();
             this.comPanel.SuspendLayout();
+            this.grpMqtt.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCountdownZero
@@ -221,6 +223,17 @@
             this.grpComPorts.Name = "grpComPorts";
             this.grpComPorts.TabStop = false;
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            // 
             // rtxtComConsole
             // 
             this.rtxtComConsole.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -253,20 +266,17 @@
             // 
             // grpMqtt
             // 
+            this.grpMqtt.Controls.Add(this.button2);
             resources.ApplyResources(this.grpMqtt, "grpMqtt");
             this.grpMqtt.Name = "grpMqtt";
             this.grpMqtt.TabStop = false;
             // 
-            // comboBox1
+            // button2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
@@ -293,6 +303,7 @@
             this.grpComPorts.ResumeLayout(false);
             this.grpComPorts.PerformLayout();
             this.comPanel.ResumeLayout(false);
+            this.grpMqtt.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +339,6 @@
         private System.Windows.Forms.GroupBox grpMqtt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

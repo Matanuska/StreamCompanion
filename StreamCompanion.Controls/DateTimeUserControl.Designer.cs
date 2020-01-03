@@ -64,7 +64,7 @@
             this.chkListOutputSerialPort = new System.Windows.Forms.CheckedListBox();
             this.lblOutputSerialPort = new System.Windows.Forms.Label();
             this.btnOpenFileDialog = new System.Windows.Forms.Button();
-            this.txtOutputFile = new System.Windows.Forms.TextBox();
+            this.txtOutputFile = new StreamCompanion.Controls.EnhancedTextBox();
             this.grpRemoteControle = new System.Windows.Forms.GroupBox();
             this.txtRemoteControlMQTTTopic = new System.Windows.Forms.TextBox();
             this.lblRemoteControlMQTTTopic = new System.Windows.Forms.Label();
@@ -636,7 +636,7 @@
         private System.Windows.Forms.CheckedListBox chkListOutputSerialPort;
         private System.Windows.Forms.Label lblOutputSerialPort;
         private System.Windows.Forms.Button btnOpenFileDialog;
-        private System.Windows.Forms.TextBox txtOutputFile;
+        private StreamCompanion.Controls.EnhancedTextBox txtOutputFile;
         private System.Windows.Forms.TextBox txtMQTTTopic;
         private System.Windows.Forms.Label lblMQTTTopic;
         private System.Windows.Forms.TextBox txtOutputMQTTSubscription;
