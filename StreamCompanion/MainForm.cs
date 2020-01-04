@@ -444,6 +444,8 @@ namespace StreamCompanion
         {
 
             runMqttBroker(chkMqttBroker.CheckState);
+            btnTestLocalMqttBroker.Enabled = chkMqttBroker.Checked ? true : false;
+
         }
 
         private async void runMqttBroker(CheckState checkState)
