@@ -58,9 +58,9 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.comPanel = new System.Windows.Forms.Panel();
             this.grpMqtt = new System.Windows.Forms.GroupBox();
-            this.btnTestLocalMqttBroker = new System.Windows.Forms.Button();
-            this.chkMqttBroker = new System.Windows.Forms.CheckBox();
             this.rtxtMqttConsole = new System.Windows.Forms.RichTextBox();
+            this.chkMqttBroker = new System.Windows.Forms.CheckBox();
+            this.btnTestLocalMqttBroker = new System.Windows.Forms.Button();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
@@ -275,12 +275,11 @@
             this.grpMqtt.Name = "grpMqtt";
             this.grpMqtt.TabStop = false;
             // 
-            // btnTestLocalMqttBroker
+            // rtxtMqttConsole
             // 
-            resources.ApplyResources(this.btnTestLocalMqttBroker, "btnTestLocalMqttBroker");
-            this.btnTestLocalMqttBroker.Name = "btnTestLocalMqttBroker";
-            this.btnTestLocalMqttBroker.UseVisualStyleBackColor = true;
-            this.btnTestLocalMqttBroker.Click += new System.EventHandler(this.btnTestLocalMqttBroker_Click);
+            resources.ApplyResources(this.rtxtMqttConsole, "rtxtMqttConsole");
+            this.rtxtMqttConsole.Name = "rtxtMqttConsole";
+            this.rtxtMqttConsole.ReadOnly = true;
             // 
             // chkMqttBroker
             // 
@@ -289,10 +288,12 @@
             this.chkMqttBroker.UseVisualStyleBackColor = true;
             this.chkMqttBroker.CheckedChanged += new System.EventHandler(this.chkMqttBroker_CheckedChanged);
             // 
-            // rtxtMqttConsole
+            // btnTestLocalMqttBroker
             // 
-            resources.ApplyResources(this.rtxtMqttConsole, "rtxtMqttConsole");
-            this.rtxtMqttConsole.Name = "rtxtMqttConsole";
+            resources.ApplyResources(this.btnTestLocalMqttBroker, "btnTestLocalMqttBroker");
+            this.btnTestLocalMqttBroker.Name = "btnTestLocalMqttBroker";
+            this.btnTestLocalMqttBroker.UseVisualStyleBackColor = true;
+            this.btnTestLocalMqttBroker.Click += new System.EventHandler(this.btnTestLocalMqttBroker_Click);
             // 
             // MainForm
             // 

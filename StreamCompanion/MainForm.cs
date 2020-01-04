@@ -488,6 +488,7 @@ namespace StreamCompanion
                             rtxtMqttConsole.AppendText(string.Format("Topic : {0}", context.ApplicationMessage.Topic));
                             rtxtMqttConsole.AppendText(Environment.NewLine);
                             rtxtMqttConsole.AppendText(string.Format("Payload : {0}", Encoding.UTF8.GetString(context.ApplicationMessage.Payload, 0, context.ApplicationMessage.Payload.Length)));
+                            rtxtMqttConsole.AppendText(Environment.NewLine);
                         }));
                     }
                 });

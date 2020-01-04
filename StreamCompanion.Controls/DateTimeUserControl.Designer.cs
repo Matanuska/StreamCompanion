@@ -53,6 +53,8 @@
             this.radioBtnDate = new System.Windows.Forms.RadioButton();
             this.lblSeparator = new System.Windows.Forms.Label();
             this.grpOutput = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.chkOutputFile = new System.Windows.Forms.CheckBox();
             this.txtMQTTTopic = new System.Windows.Forms.TextBox();
             this.lblMQTTTopic = new System.Windows.Forms.Label();
@@ -64,7 +66,6 @@
             this.chkListOutputSerialPort = new System.Windows.Forms.CheckedListBox();
             this.lblOutputSerialPort = new System.Windows.Forms.Label();
             this.btnOpenFileDialog = new System.Windows.Forms.Button();
-            this.txtOutputFile = new StreamCompanion.Controls.EnhancedTextBox();
             this.grpRemoteControle = new System.Windows.Forms.GroupBox();
             this.txtRemoteControlMQTTTopic = new System.Windows.Forms.TextBox();
             this.lblRemoteControlMQTTTopic = new System.Windows.Forms.Label();
@@ -78,8 +79,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txtOutputFile = new StreamCompanion.Controls.EnhancedTextBox();
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutput.SuspendLayout();
             this.panelPredefinedOutputCulture.SuspendLayout();
@@ -337,6 +337,23 @@
             this.grpOutput.TabStop = false;
             this.grpOutput.Text = "Outputs";
             // 
+            // button1
+            // 
+            this.button1.ImageIndex = 0;
+            this.button1.ImageList = this.imageList1;
+            this.button1.Location = new System.Drawing.Point(707, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 15;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Microsoft Outlook.png");
+            // 
             // chkOutputFile
             // 
             this.chkOutputFile.AutoSize = true;
@@ -350,7 +367,7 @@
             // 
             // txtMQTTTopic
             // 
-            this.txtMQTTTopic.Location = new System.Drawing.Point(420, 99);
+            this.txtMQTTTopic.Location = new System.Drawing.Point(381, 99);
             this.txtMQTTTopic.Name = "txtMQTTTopic";
             this.txtMQTTTopic.Size = new System.Drawing.Size(100, 20);
             this.txtMQTTTopic.TabIndex = 13;
@@ -360,9 +377,9 @@
             this.lblMQTTTopic.AutoSize = true;
             this.lblMQTTTopic.Location = new System.Drawing.Point(330, 103);
             this.lblMQTTTopic.Name = "lblMQTTTopic";
-            this.lblMQTTTopic.Size = new System.Drawing.Size(68, 13);
+            this.lblMQTTTopic.Size = new System.Drawing.Size(45, 13);
             this.lblMQTTTopic.TabIndex = 12;
-            this.lblMQTTTopic.Text = "MQTT Topic";
+            this.lblMQTTTopic.Text = "Payload";
             // 
             // txtOutputMQTTSubscription
             // 
@@ -376,21 +393,21 @@
             this.lblOutputMqttSubscription.AutoSize = true;
             this.lblOutputMqttSubscription.Location = new System.Drawing.Point(13, 103);
             this.lblOutputMqttSubscription.Name = "lblOutputMqttSubscription";
-            this.lblOutputMqttSubscription.Size = new System.Drawing.Size(99, 13);
+            this.lblOutputMqttSubscription.Size = new System.Drawing.Size(68, 13);
             this.lblOutputMqttSubscription.TabIndex = 10;
-            this.lblOutputMqttSubscription.Text = "MQTT Subscription";
+            this.lblOutputMqttSubscription.Text = "MQTT Topic";
             // 
             // lblOutputSample
             // 
             this.lblOutputSample.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutputSample.Location = new System.Drawing.Point(474, 62);
+            this.lblOutputSample.Location = new System.Drawing.Point(490, 62);
             this.lblOutputSample.Name = "lblOutputSample";
-            this.lblOutputSample.Size = new System.Drawing.Size(264, 13);
+            this.lblOutputSample.Size = new System.Drawing.Size(230, 13);
             this.lblOutputSample.TabIndex = 8;
             // 
             // txtOutputDataSerialPort
             // 
-            this.txtOutputDataSerialPort.Location = new System.Drawing.Point(356, 58);
+            this.txtOutputDataSerialPort.Location = new System.Drawing.Point(381, 59);
             this.txtOutputDataSerialPort.Name = "txtOutputDataSerialPort";
             this.txtOutputDataSerialPort.Size = new System.Drawing.Size(100, 20);
             this.txtOutputDataSerialPort.TabIndex = 6;
@@ -398,7 +415,7 @@
             // lblOutputDataSerialPort
             // 
             this.lblOutputDataSerialPort.AutoSize = true;
-            this.lblOutputDataSerialPort.Location = new System.Drawing.Point(319, 62);
+            this.lblOutputDataSerialPort.Location = new System.Drawing.Point(330, 62);
             this.lblOutputDataSerialPort.Name = "lblOutputDataSerialPort";
             this.lblOutputDataSerialPort.Size = new System.Drawing.Size(30, 13);
             this.lblOutputDataSerialPort.TabIndex = 5;
@@ -436,14 +453,6 @@
             this.btnOpenFileDialog.UseVisualStyleBackColor = true;
             this.btnOpenFileDialog.Click += new System.EventHandler(this.btnOpenFileDialog_Click);
             // 
-            // txtOutputFile
-            // 
-            this.txtOutputFile.Location = new System.Drawing.Point(64, 20);
-            this.txtOutputFile.Name = "txtOutputFile";
-            this.txtOutputFile.Size = new System.Drawing.Size(604, 20);
-            this.txtOutputFile.TabIndex = 1;
-            this.txtOutputFile.TextChanged += new System.EventHandler(this.txtOutputFile_TextChanged);
-            // 
             // grpRemoteControle
             // 
             this.grpRemoteControle.Controls.Add(this.txtRemoteControlMQTTTopic);
@@ -473,9 +482,9 @@
             this.lblRemoteControlMQTTTopic.AutoSize = true;
             this.lblRemoteControlMQTTTopic.Location = new System.Drawing.Point(268, 71);
             this.lblRemoteControlMQTTTopic.Name = "lblRemoteControlMQTTTopic";
-            this.lblRemoteControlMQTTTopic.Size = new System.Drawing.Size(34, 13);
+            this.lblRemoteControlMQTTTopic.Size = new System.Drawing.Size(45, 13);
             this.lblRemoteControlMQTTTopic.TabIndex = 6;
-            this.lblRemoteControlMQTTTopic.Text = "Topic";
+            this.lblRemoteControlMQTTTopic.Text = "Payload";
             // 
             // txtRemoteControlMQTTSubscription
             // 
@@ -489,9 +498,9 @@
             this.lblRemoteControlMQTTSubscription.AutoSize = true;
             this.lblRemoteControlMQTTSubscription.Location = new System.Drawing.Point(15, 71);
             this.lblRemoteControlMQTTSubscription.Name = "lblRemoteControlMQTTSubscription";
-            this.lblRemoteControlMQTTSubscription.Size = new System.Drawing.Size(97, 13);
+            this.lblRemoteControlMQTTSubscription.Size = new System.Drawing.Size(68, 13);
             this.lblRemoteControlMQTTSubscription.TabIndex = 4;
-            this.lblRemoteControlMQTTSubscription.Text = "MQTT subscription";
+            this.lblRemoteControlMQTTSubscription.Text = "MQTT Topic";
             // 
             // txtRemoteControlSerialData
             // 
@@ -558,22 +567,14 @@
             this.saveFileDialog1.FileName = "SCfile.txt";
             this.saveFileDialog1.Filter = "Text file|*.txt";
             // 
-            // button1
+            // txtOutputFile
             // 
-            this.button1.ImageIndex = 0;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(707, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 30);
-            this.button1.TabIndex = 15;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Microsoft Outlook.png");
+            this.txtOutputFile.Location = new System.Drawing.Point(64, 20);
+            this.txtOutputFile.Name = "txtOutputFile";
+            this.txtOutputFile.OnError = false;
+            this.txtOutputFile.Size = new System.Drawing.Size(604, 20);
+            this.txtOutputFile.TabIndex = 1;
+            this.txtOutputFile.TextChanged += new System.EventHandler(this.txtOutputFile_TextChanged);
             // 
             // DateTimeUserControl
             // 
