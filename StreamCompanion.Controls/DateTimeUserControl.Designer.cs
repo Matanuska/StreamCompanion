@@ -480,7 +480,7 @@
             // lblRemoteControlMQTTTopic
             // 
             this.lblRemoteControlMQTTTopic.AutoSize = true;
-            this.lblRemoteControlMQTTTopic.Location = new System.Drawing.Point(268, 71);
+            this.lblRemoteControlMQTTTopic.Location = new System.Drawing.Point(260, 71);
             this.lblRemoteControlMQTTTopic.Name = "lblRemoteControlMQTTTopic";
             this.lblRemoteControlMQTTTopic.Size = new System.Drawing.Size(45, 13);
             this.lblRemoteControlMQTTTopic.TabIndex = 6;
