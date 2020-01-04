@@ -550,7 +550,7 @@ namespace StreamCompanion
             }
             catch (MqttCommunicationException)
             {
-                MessageBox.Show("kk");
+                MessageBox.Show("Failled");
             }
         }
     }
