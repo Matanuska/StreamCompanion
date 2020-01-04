@@ -58,7 +58,9 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.comPanel = new System.Windows.Forms.Panel();
             this.grpMqtt = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTestLocalMqttBroker = new System.Windows.Forms.Button();
+            this.chkMqttBroker = new System.Windows.Forms.CheckBox();
+            this.rtxtMqttConsole = new System.Windows.Forms.RichTextBox();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
@@ -266,17 +268,31 @@
             // 
             // grpMqtt
             // 
-            this.grpMqtt.Controls.Add(this.button2);
+            this.grpMqtt.Controls.Add(this.rtxtMqttConsole);
+            this.grpMqtt.Controls.Add(this.chkMqttBroker);
+            this.grpMqtt.Controls.Add(this.btnTestLocalMqttBroker);
             resources.ApplyResources(this.grpMqtt, "grpMqtt");
             this.grpMqtt.Name = "grpMqtt";
             this.grpMqtt.TabStop = false;
             // 
-            // button2
+            // btnTestLocalMqttBroker
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            resources.ApplyResources(this.btnTestLocalMqttBroker, "btnTestLocalMqttBroker");
+            this.btnTestLocalMqttBroker.Name = "btnTestLocalMqttBroker";
+            this.btnTestLocalMqttBroker.UseVisualStyleBackColor = true;
+            this.btnTestLocalMqttBroker.Click += new System.EventHandler(this.btnTestLocalMqttBroker_Click);
+            // 
+            // chkMqttBroker
+            // 
+            resources.ApplyResources(this.chkMqttBroker, "chkMqttBroker");
+            this.chkMqttBroker.Name = "chkMqttBroker";
+            this.chkMqttBroker.UseVisualStyleBackColor = true;
+            this.chkMqttBroker.CheckedChanged += new System.EventHandler(this.chkMqttBroker_CheckedChanged);
+            // 
+            // rtxtMqttConsole
+            // 
+            resources.ApplyResources(this.rtxtMqttConsole, "rtxtMqttConsole");
+            this.rtxtMqttConsole.Name = "rtxtMqttConsole";
             // 
             // MainForm
             // 
@@ -304,6 +320,7 @@
             this.grpComPorts.PerformLayout();
             this.comPanel.ResumeLayout(false);
             this.grpMqtt.ResumeLayout(false);
+            this.grpMqtt.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +356,8 @@
         private System.Windows.Forms.GroupBox grpMqtt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTestLocalMqttBroker;
+        private System.Windows.Forms.CheckBox chkMqttBroker;
+        private System.Windows.Forms.RichTextBox rtxtMqttConsole;
     }
 }

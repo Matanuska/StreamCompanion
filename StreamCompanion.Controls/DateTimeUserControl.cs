@@ -716,12 +716,19 @@ namespace StreamCompanion.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            try
             {
-                FileName = Path.GetDirectoryName(txtOutputFile.Text),
-                UseShellExecute = true,
-                Verb = "open"
-            });
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = Path.GetDirectoryName(txtOutputFile.Text),
+                    UseShellExecute = true,
+                    Verb = "open"
+                });
+            }
+            catch (Win32Exception)
+            {
+
+            }
         }
     }
 

@@ -23,6 +23,8 @@ using MQTTnet.Server;
 using MQTTnet.Client.Receiving;
 using MQTTnet.Exceptions;
 using System.Threading;
+using System.Configuration;
+using MQTTnet.Protocol;
 
 namespace StreamCompanion
 {
@@ -40,9 +42,33 @@ namespace StreamCompanion
             
             license = lic;
             InitializeComponent();
-            
+
+            initsettings();
+
+            InitMQTTBroker();
             Init();
             CreateFirstsControls();
+        }
+
+        private void initsettings()
+        {
+            System.Configuration.SettingsProperty property = new System.Configuration.SettingsProperty("CustomSetting");
+            property.DefaultValue = "Default";
+            property.IsReadOnly = false;
+            property.PropertyType = typeof(string);
+            property.Provider = Properties.Settings.Default.Providers["LocalFileSettingsProvider"];
+            property.Attributes.Add(typeof(System.Configuration.UserScopedSettingAttribute), new System.Configuration.UserScopedSettingAttribute());
+            Properties.Settings.Default.Properties.Add(property);
+
+            // Load settings now.
+
+            Properties.Settings.Default.Reload();
+        }
+
+        MqttServer mqttServer;
+        private void InitMQTTBroker()
+        {
+            mqttServer = (MqttServer)(new MqttFactory().CreateMqttServer());            
         }
 
         private void CreateFirstsControls()
@@ -414,32 +440,119 @@ namespace StreamCompanion
             settingsPanel.Visible = false;
         }
 
-        private async void SendMQTT()
+        private void chkMqttBroker_CheckedChanged(object sender, EventArgs e)
         {
 
-            // https://github.com/chkr1011/MQTTnet/wiki/Client
+            runMqttBroker(chkMqttBroker.CheckState);
+        }
+
+        private async void runMqttBroker(CheckState checkState)
+        {
+            if (checkState==CheckState.Checked)
+            {
+
+                var optionsBuilder = new MqttServerOptionsBuilder()
+                .WithConnectionBacklog(100)
+                .WithDefaultEndpointPort(Properties.Settings.Default.MqttBrokerPort)
+                .WithConnectionValidator(
+                    c =>
+                    {
+                        if (c.Username != Properties.Settings.Default.MqttBrokerUserName)
+                        {
+                            c.ReturnCode = MqttConnectReturnCode.ConnectionRefusedBadUsernameOrPassword;
+                            return;
+                        }
+                        if (c.Password != Properties.Settings.Default.MqttBrokerSecretPassword)
+                        {
+                            c.ReturnCode = MqttConnectReturnCode.ConnectionRefusedBadUsernameOrPassword;
+                            return;
+                        }
+                        c.ReturnCode = MqttConnectReturnCode.ConnectionAccepted;
+
+                    }
+                    )
+                .WithApplicationMessageInterceptor(context =>
+                {
+                    if (context.ApplicationMessage.Topic == "my/custom/topic")
+                    {
+                        context.ApplicationMessage.Payload = Encoding.UTF8.GetBytes("The server injected payload.");
+                    }
+                    else
+                    {                        
+                        rtxtMqttConsole.Invoke(new MethodInvoker(delegate
+                        {
+                            rtxtMqttConsole.AppendText(string.Format("Message from : {0}", context.ClientId));
+                            rtxtMqttConsole.AppendText(Environment.NewLine);
+                            rtxtMqttConsole.AppendText(string.Format("Topic : {0}", context.ApplicationMessage.Topic));
+                            rtxtMqttConsole.AppendText(Environment.NewLine);
+                            rtxtMqttConsole.AppendText(string.Format("Payload : {0}", Encoding.UTF8.GetString(context.ApplicationMessage.Payload, 0, context.ApplicationMessage.Payload.Length)));
+                        }));
+                    }
+                });
+
+                    await mqttServer.StartAsync(optionsBuilder.Build());
+            }
+            else
+            {
+                await mqttServer.StopAsync();                
+            }
+        }
+
+        private void btnTestLocalMqttBroker_Click(object sender, EventArgs e)
+        {
+            SendMQTT(MqttServerType.Local);
+        }
+
+        enum MqttServerType
+        {
+            Local = 0,
+            Remote = 1
+        }
+
+        private async void SendMQTT(MqttServerType servertype)
+        {
+
+            // https://github.com/chkr1011/MQTTnet/wiki/
             var factory = new MqttFactory();
             var mqttClient = factory.CreateMqttClient();
 
-            var options = new MqttClientOptionsBuilder()
-                .WithTcpServer("127.0.0.1", 1883) // Port is optional
-                .Build();
+            MqttClientOptions options;
+            if (servertype == MqttServerType.Local)
+            {
+                options =(MqttClientOptions)(new MqttClientOptionsBuilder()
+                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.MqttBrokerPort) // Port is optional
+                    .WithClientId("ClientTest1")
+                    .WithCredentials(Properties.Settings.Default.MqttBrokerUserName, Properties.Settings.Default.MqttBrokerSecretPassword)
+
+                    .Build());
+            }
+            else
+            {
+                options = (MqttClientOptions)(new MqttClientOptionsBuilder()
+                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.MqttBrokerPort) // Port is optional
+                    .Build());
+
+            }
 
             try
             {
 
                 await mqttClient.ConnectAsync(options, CancellationToken.None);
 
-                Task.Run(() => mqttClient.PublishAsync("hello/world"));
-             }catch(MqttCommunicationException)
-            {
+                var message = new MqttApplicationMessageBuilder()
+                    .WithTopic("Test Topic")
+                    .WithPayload("Hello World")
+                    .WithExactlyOnceQoS()
+                    .WithRetainFlag()
+                    .Build();
 
+                Task.Run(() => mqttClient.PublishAsync(message));
+            }
+            catch (MqttCommunicationException)
+            {
+                MessageBox.Show("kk");
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SendMQTT();
-        }
     }
+
 }
