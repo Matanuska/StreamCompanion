@@ -45,6 +45,25 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.settingsPanel = new System.Windows.Forms.Panel();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SettingstxtExternalMqttBrokerUserPassword = new System.Windows.Forms.TextBox();
+            this.SettingstxtExternalMqttBrokerUserName = new System.Windows.Forms.TextBox();
+            this.SettingstxtExternalMqttBrokerPort = new System.Windows.Forms.TextBox();
+            this.SettingstxtExternalMqttBrokerName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SettingstxtEmbeddedBrokerUserPassword = new System.Windows.Forms.TextBox();
+            this.SettingstxtEmbeddedBrokerUserName = new System.Windows.Forms.TextBox();
+            this.SettingstxtEmbeddedBrokerPort = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveSettings = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -61,44 +80,21 @@
             this.rtxtMqttConsole = new System.Windows.Forms.RichTextBox();
             this.chkMqttBroker = new System.Windows.Forms.CheckBox();
             this.btnTestLocalMqttBroker = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SettingstxtEmbeddedBrokerPort = new System.Windows.Forms.TextBox();
-            this.SettingstxtEmbeddedBrokerUserName = new System.Windows.Forms.TextBox();
-            this.SettingstxtEmbeddedBrokerUserPassword = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.SettingstxtExternalMqttBrokerName = new System.Windows.Forms.TextBox();
-            this.SettingstxtExternalMqttBrokerPort = new System.Windows.Forms.TextBox();
-            this.SettingstxtExternalMqttBrokerUserName = new System.Windows.Forms.TextBox();
-            this.SettingstxtExternalMqttBrokerUserPassword = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.advancedTextBox1 = new StreamCompanion.Controls.AdvancedTextBox();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
             this.tabScheduler.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.TimersPanel.SuspendLayout();
             this.grpComPorts.SuspendLayout();
             this.comPanel.SuspendLayout();
             this.grpMqtt.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCountdownZero
@@ -210,6 +206,133 @@
             this.settingsPanel.Controls.Add(this.btnSaveSettings);
             resources.ApplyResources(this.settingsPanel, "settingsPanel");
             this.settingsPanel.Name = "settingsPanel";
+            // 
+            // tabControl2
+            // 
+            resources.ApplyResources(this.tabControl2, "tabControl2");
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerUserPassword);
+            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerUserName);
+            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerPort);
+            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerName);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // SettingstxtExternalMqttBrokerUserPassword
+            // 
+            resources.ApplyResources(this.SettingstxtExternalMqttBrokerUserPassword, "SettingstxtExternalMqttBrokerUserPassword");
+            this.SettingstxtExternalMqttBrokerUserPassword.Name = "SettingstxtExternalMqttBrokerUserPassword";
+            this.SettingstxtExternalMqttBrokerUserPassword.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerUserPassword_TextChanged);
+            // 
+            // SettingstxtExternalMqttBrokerUserName
+            // 
+            resources.ApplyResources(this.SettingstxtExternalMqttBrokerUserName, "SettingstxtExternalMqttBrokerUserName");
+            this.SettingstxtExternalMqttBrokerUserName.Name = "SettingstxtExternalMqttBrokerUserName";
+            this.SettingstxtExternalMqttBrokerUserName.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerUserName_TextChanged);
+            // 
+            // SettingstxtExternalMqttBrokerPort
+            // 
+            resources.ApplyResources(this.SettingstxtExternalMqttBrokerPort, "SettingstxtExternalMqttBrokerPort");
+            this.SettingstxtExternalMqttBrokerPort.Name = "SettingstxtExternalMqttBrokerPort";
+            this.SettingstxtExternalMqttBrokerPort.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerPort_TextChanged);
+            this.SettingstxtExternalMqttBrokerPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SettingstxtExternalMqttBrokerPort_KeyPress);
+            // 
+            // SettingstxtExternalMqttBrokerName
+            // 
+            resources.ApplyResources(this.SettingstxtExternalMqttBrokerName, "SettingstxtExternalMqttBrokerName");
+            this.SettingstxtExternalMqttBrokerName.Name = "SettingstxtExternalMqttBrokerName";
+            this.SettingstxtExternalMqttBrokerName.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerName_TextChanged);
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.SettingstxtEmbeddedBrokerUserPassword);
+            this.groupBox1.Controls.Add(this.SettingstxtEmbeddedBrokerUserName);
+            this.groupBox1.Controls.Add(this.SettingstxtEmbeddedBrokerPort);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // SettingstxtEmbeddedBrokerUserPassword
+            // 
+            resources.ApplyResources(this.SettingstxtEmbeddedBrokerUserPassword, "SettingstxtEmbeddedBrokerUserPassword");
+            this.SettingstxtEmbeddedBrokerUserPassword.Name = "SettingstxtEmbeddedBrokerUserPassword";
+            this.SettingstxtEmbeddedBrokerUserPassword.TextChanged += new System.EventHandler(this.SettingstxtEmbeddedBrokerUserPassword_TextChanged);
+            // 
+            // SettingstxtEmbeddedBrokerUserName
+            // 
+            resources.ApplyResources(this.SettingstxtEmbeddedBrokerUserName, "SettingstxtEmbeddedBrokerUserName");
+            this.SettingstxtEmbeddedBrokerUserName.Name = "SettingstxtEmbeddedBrokerUserName";
+            this.SettingstxtEmbeddedBrokerUserName.TextChanged += new System.EventHandler(this.SettingstxtEmbeddedBrokerUserName_TextChanged);
+            // 
+            // SettingstxtEmbeddedBrokerPort
+            // 
+            resources.ApplyResources(this.SettingstxtEmbeddedBrokerPort, "SettingstxtEmbeddedBrokerPort");
+            this.SettingstxtEmbeddedBrokerPort.Name = "SettingstxtEmbeddedBrokerPort";
+            this.SettingstxtEmbeddedBrokerPort.TextChanged += new System.EventHandler(this.SettingstxtEmbeddedBrokerPort_TextChanged);
+            this.SettingstxtEmbeddedBrokerPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SettingstxtEmbeddedBrokerPort_KeyPress);
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // tabPage2
+            // 
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnSaveSettings
             // 
@@ -323,155 +446,6 @@
             this.btnTestLocalMqttBroker.UseVisualStyleBackColor = true;
             this.btnTestLocalMqttBroker.Click += new System.EventHandler(this.btnTestLocalMqttBroker_Click);
             // 
-            // tabControl2
-            // 
-            resources.ApplyResources(this.tabControl2, "tabControl2");
-            this.tabControl2.Controls.Add(this.tabPage1);
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.advancedTextBox1);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.button2);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.SettingstxtEmbeddedBrokerUserPassword);
-            this.groupBox1.Controls.Add(this.SettingstxtEmbeddedBrokerUserName);
-            this.groupBox1.Controls.Add(this.SettingstxtEmbeddedBrokerPort);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // SettingstxtEmbeddedBrokerPort
-            // 
-            resources.ApplyResources(this.SettingstxtEmbeddedBrokerPort, "SettingstxtEmbeddedBrokerPort");
-            this.SettingstxtEmbeddedBrokerPort.Name = "SettingstxtEmbeddedBrokerPort";
-            this.SettingstxtEmbeddedBrokerPort.TextChanged += new System.EventHandler(this.SettingstxtEmbeddedBrokerPort_TextChanged);
-            this.SettingstxtEmbeddedBrokerPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SettingstxtEmbeddedBrokerPort_KeyPress);
-            // 
-            // SettingstxtEmbeddedBrokerUserName
-            // 
-            resources.ApplyResources(this.SettingstxtEmbeddedBrokerUserName, "SettingstxtEmbeddedBrokerUserName");
-            this.SettingstxtEmbeddedBrokerUserName.Name = "SettingstxtEmbeddedBrokerUserName";
-            this.SettingstxtEmbeddedBrokerUserName.TextChanged += new System.EventHandler(this.SettingstxtEmbeddedBrokerUserName_TextChanged);
-            // 
-            // SettingstxtEmbeddedBrokerUserPassword
-            // 
-            resources.ApplyResources(this.SettingstxtEmbeddedBrokerUserPassword, "SettingstxtEmbeddedBrokerUserPassword");
-            this.SettingstxtEmbeddedBrokerUserPassword.Name = "SettingstxtEmbeddedBrokerUserPassword";
-            this.SettingstxtEmbeddedBrokerUserPassword.TextChanged += new System.EventHandler(this.SettingstxtEmbeddedBrokerUserPassword_TextChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerUserPassword);
-            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerUserName);
-            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerPort);
-            this.groupBox2.Controls.Add(this.SettingstxtExternalMqttBrokerName);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
-            // SettingstxtExternalMqttBrokerName
-            // 
-            resources.ApplyResources(this.SettingstxtExternalMqttBrokerName, "SettingstxtExternalMqttBrokerName");
-            this.SettingstxtExternalMqttBrokerName.Name = "SettingstxtExternalMqttBrokerName";
-            this.SettingstxtExternalMqttBrokerName.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerName_TextChanged);
-            // 
-            // SettingstxtExternalMqttBrokerPort
-            // 
-            resources.ApplyResources(this.SettingstxtExternalMqttBrokerPort, "SettingstxtExternalMqttBrokerPort");
-            this.SettingstxtExternalMqttBrokerPort.Name = "SettingstxtExternalMqttBrokerPort";
-            this.SettingstxtExternalMqttBrokerPort.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerPort_TextChanged);
-            this.SettingstxtExternalMqttBrokerPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SettingstxtExternalMqttBrokerPort_KeyPress);
-            // 
-            // SettingstxtExternalMqttBrokerUserName
-            // 
-            resources.ApplyResources(this.SettingstxtExternalMqttBrokerUserName, "SettingstxtExternalMqttBrokerUserName");
-            this.SettingstxtExternalMqttBrokerUserName.Name = "SettingstxtExternalMqttBrokerUserName";
-            this.SettingstxtExternalMqttBrokerUserName.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerUserName_TextChanged);
-            // 
-            // SettingstxtExternalMqttBrokerUserPassword
-            // 
-            resources.ApplyResources(this.SettingstxtExternalMqttBrokerUserPassword, "SettingstxtExternalMqttBrokerUserPassword");
-            this.SettingstxtExternalMqttBrokerUserPassword.Name = "SettingstxtExternalMqttBrokerUserPassword";
-            this.SettingstxtExternalMqttBrokerUserPassword.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerUserPassword_TextChanged);
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // advancedTextBox1
-            // 
-            resources.ApplyResources(this.advancedTextBox1, "advancedTextBox1");
-            this.advancedTextBox1.Name = "advancedTextBox1";
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -491,6 +465,12 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.TimersPanel.ResumeLayout(false);
@@ -499,13 +479,6 @@
             this.comPanel.ResumeLayout(false);
             this.grpMqtt.ResumeLayout(false);
             this.grpMqtt.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,8 +536,5 @@
         private System.Windows.Forms.TextBox SettingstxtExternalMqttBrokerUserName;
         private System.Windows.Forms.TextBox SettingstxtExternalMqttBrokerPort;
         private System.Windows.Forms.TextBox SettingstxtExternalMqttBrokerName;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private Controls.AdvancedTextBox advancedTextBox1;
     }
 }

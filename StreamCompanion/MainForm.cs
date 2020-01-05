@@ -517,17 +517,17 @@ namespace StreamCompanion
             {
                 options =(MqttClientOptions)(new MqttClientOptionsBuilder()
                     .WithTcpServer("127.0.0.1", Properties.Settings.Default.EmbeddedMqttBrokerPort) // Port is optional
-                    .WithClientId("ClientTest1")
+                    .WithClientId(System.AppDomain.CurrentDomain.FriendlyName)
                     .WithCredentials(Properties.Settings.Default.EmbeddeMqttBrokerUserName, Properties.Settings.Default.EmbeddedMqttBrokerSecretPassword)
-
                     .Build());
             }
             else
             {
                 options = (MqttClientOptions)(new MqttClientOptionsBuilder()
-                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.EmbeddedMqttBrokerPort) // Port is optional
+                    .WithTcpServer(Properties.Settings.Default.ExternalMqttBrokerName, Properties.Settings.Default.EmbeddedMqttBrokerPort) // Port is optional
+                    .WithClientId(System.AppDomain.CurrentDomain.FriendlyName)
+                    .WithCredentials(Properties.Settings.Default.ExternalMqttBrokerUserName, Properties.Settings.Default.ExternalMqttBrokerSecretPassword)
                     .Build());
-
             }
 
             try
@@ -605,7 +605,7 @@ namespace StreamCompanion
         private void button2_Click(object sender, EventArgs e)
         {
            
-            advancedTextBox1.SetBorderColor(Color.Red);
+         
         }
 
         private void btnSaveSettings_Click(object sender, EventArgs e)
@@ -615,7 +615,7 @@ namespace StreamCompanion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            advancedTextBox1.SetBorderColor(Color.Transparent);
+         
         }
 
 
