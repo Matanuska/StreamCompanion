@@ -108,6 +108,10 @@ namespace StreamCompanion.Controls
 
             this.cboPredefinedFormats.SelectedIndexChanged += new System.EventHandler(this.cboPredefinedFormats_SelectedIndexChanged);
 
+
+            txtOutputFile.textBox.TextChanged += txtOutputFile_TextChanged;
+
+
             myTimer.CultureInfo = this.CultureInfo;
             myTimer.TimeFormat = cboPredefinedFormats.Text;
             myTimer.TimeChanged += MyTimer_TimeChanged;
@@ -681,7 +685,17 @@ namespace StreamCompanion.Controls
         }
 
         private void txtOutputFile_TextChanged(object sender, EventArgs e)
-        {            
+        {
+
+            if (!Directory.Exists(Path.GetDirectoryName(txtOutputFile.Text)))
+            {
+                txtOutputFile.SetBorderColor(Color.Red);
+            }
+            else
+            {
+                txtOutputFile.SetBorderColor(Color.Transparent);
+            }
+
             this.OutputPath = Path.GetDirectoryName(txtOutputFile.Text);
 
             if (

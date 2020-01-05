@@ -33,6 +33,7 @@ namespace StreamCompanion.Controls
             this.Paint += new PaintEventHandler(AdvancedTextBox_Paint);
 
             this.Resize += new EventHandler(AdvancedTextBox_Resize);
+            
 
             textBox.Multiline = false;            
 
@@ -79,6 +80,11 @@ namespace StreamCompanion.Controls
                 currentBorderColor = Color.Transparent;
             }
             this.Refresh();
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
