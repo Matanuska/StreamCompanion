@@ -23,30 +23,87 @@ namespace StreamCompanion.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1883")]
-        public int MqttBrokerPort {
+        public int EmbeddedMqttBrokerPort {
             get {
-                return ((int)(this["MqttBrokerPort"]));
+                return ((int)(this["EmbeddedMqttBrokerPort"]));
+            }
+            set {
+                this["EmbeddedMqttBrokerPort"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("mySecretUser")]
-        public string MqttBrokerUserName {
+        public string EmbeddeMqttBrokerUserName {
             get {
-                return ((string)(this["MqttBrokerUserName"]));
+                return ((string)(this["EmbeddeMqttBrokerUserName"]));
+            }
+            set {
+                this["EmbeddeMqttBrokerUserName"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("mySecretPassword")]
-        public string MqttBrokerSecretPassword {
+        public string EmbeddedMqttBrokerSecretPassword {
             get {
-                return ((string)(this["MqttBrokerSecretPassword"]));
+                return ((string)(this["EmbeddedMqttBrokerSecretPassword"]));
+            }
+            set {
+                this["EmbeddedMqttBrokerSecretPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExternalMqttBrokerName {
+            get {
+                return ((string)(this["ExternalMqttBrokerName"]));
+            }
+            set {
+                this["ExternalMqttBrokerName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1883")]
+        public int ExternalMqttBrokerPort {
+            get {
+                return ((int)(this["ExternalMqttBrokerPort"]));
+            }
+            set {
+                this["ExternalMqttBrokerPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExternalMqttBrokerUserName {
+            get {
+                return ((string)(this["ExternalMqttBrokerUserName"]));
+            }
+            set {
+                this["ExternalMqttBrokerUserName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExternalMqttBrokerSecretPassword {
+            get {
+                return ((string)(this["ExternalMqttBrokerSecretPassword"]));
+            }
+            set {
+                this["ExternalMqttBrokerSecretPassword"] = value;
             }
         }
     }

@@ -42,27 +42,10 @@ namespace StreamCompanion
             
             license = lic;
             InitializeComponent();
-
-            initsettings();
-
+         
             InitMQTTBroker();
             Init();
             CreateFirstsControls();
-        }
-
-        private void initsettings()
-        {
-            System.Configuration.SettingsProperty property = new System.Configuration.SettingsProperty("CustomSetting");
-            property.DefaultValue = "Default";
-            property.IsReadOnly = false;
-            property.PropertyType = typeof(string);
-            property.Provider = Properties.Settings.Default.Providers["LocalFileSettingsProvider"];
-            property.Attributes.Add(typeof(System.Configuration.UserScopedSettingAttribute), new System.Configuration.UserScopedSettingAttribute());
-            Properties.Settings.Default.Properties.Add(property);
-
-            // Load settings now.
-
-            Properties.Settings.Default.Reload();
         }
 
         MqttServer mqttServer;
@@ -211,6 +194,7 @@ namespace StreamCompanion
         private void Init()
         {
 
+            this.Height = 510;
 
             TimersPanel.Dock = DockStyle.Fill;
             comPanel.Dock = DockStyle.Fill;
@@ -275,15 +259,28 @@ namespace StreamCompanion
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
+            LoadSettings();
             comPanel.Visible = false;
             TimersPanel.Visible = false;
             settingsPanel.Visible = true;
         }
 
+        private void LoadSettings()
+        {
+            SettingstxtEmbeddedBrokerPort.Text = Properties.Settings.Default.EmbeddedMqttBrokerPort.ToString();
+            SettingstxtEmbeddedBrokerUserName.Text = Properties.Settings.Default.EmbeddeMqttBrokerUserName.ToString();
+            SettingstxtEmbeddedBrokerUserPassword.Text = Properties.Settings.Default.EmbeddedMqttBrokerSecretPassword.ToString();
+
+            SettingstxtExternalMqttBrokerName.Text = Properties.Settings.Default.ExternalMqttBrokerName.ToString();
+            SettingstxtExternalMqttBrokerPort.Text = Properties.Settings.Default.ExternalMqttBrokerPort.ToString();
+            SettingstxtExternalMqttBrokerUserName.Text = Properties.Settings.Default.ExternalMqttBrokerUserName.ToString();
+            SettingstxtExternalMqttBrokerUserPassword.Text = Properties.Settings.Default.ExternalMqttBrokerSecretPassword.ToString();
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            settingsPanel.Visible = false;
-            TimersPanel.Visible = true;
+            Properties.Settings.Default.Save();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -455,16 +452,16 @@ namespace StreamCompanion
 
                 var optionsBuilder = new MqttServerOptionsBuilder()
                 .WithConnectionBacklog(100)
-                .WithDefaultEndpointPort(Properties.Settings.Default.MqttBrokerPort)
+                .WithDefaultEndpointPort(Properties.Settings.Default.EmbeddedMqttBrokerPort)
                 .WithConnectionValidator(
                     c =>
                     {
-                        if (c.Username != Properties.Settings.Default.MqttBrokerUserName)
+                        if (c.Username != Properties.Settings.Default.EmbeddeMqttBrokerUserName)
                         {
                             c.ReturnCode = MqttConnectReturnCode.ConnectionRefusedBadUsernameOrPassword;
                             return;
                         }
-                        if (c.Password != Properties.Settings.Default.MqttBrokerSecretPassword)
+                        if (c.Password != Properties.Settings.Default.EmbeddedMqttBrokerSecretPassword)
                         {
                             c.ReturnCode = MqttConnectReturnCode.ConnectionRefusedBadUsernameOrPassword;
                             return;
@@ -523,16 +520,16 @@ namespace StreamCompanion
             if (servertype == MqttServerType.Local)
             {
                 options =(MqttClientOptions)(new MqttClientOptionsBuilder()
-                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.MqttBrokerPort) // Port is optional
+                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.EmbeddedMqttBrokerPort) // Port is optional
                     .WithClientId("ClientTest1")
-                    .WithCredentials(Properties.Settings.Default.MqttBrokerUserName, Properties.Settings.Default.MqttBrokerSecretPassword)
+                    .WithCredentials(Properties.Settings.Default.EmbeddeMqttBrokerUserName, Properties.Settings.Default.EmbeddedMqttBrokerSecretPassword)
 
                     .Build());
             }
             else
             {
                 options = (MqttClientOptions)(new MqttClientOptionsBuilder()
-                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.MqttBrokerPort) // Port is optional
+                    .WithTcpServer("127.0.0.1", Properties.Settings.Default.EmbeddedMqttBrokerPort) // Port is optional
                     .Build());
 
             }
@@ -554,6 +551,58 @@ namespace StreamCompanion
             catch (MqttCommunicationException)
             {
                 MessageBox.Show("Failled");
+            }
+        }
+
+
+        private void SettingstxtEmbeddedBrokerPort_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.EmbeddedMqttBrokerPort = int.Parse(SettingstxtEmbeddedBrokerPort.Text);
+        }
+
+        private void SettingstxtEmbeddedBrokerPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void SettingstxtEmbeddedBrokerUserName_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.EmbeddeMqttBrokerUserName = SettingstxtEmbeddedBrokerUserName.Text.Trim();
+        }
+
+        private void SettingstxtEmbeddedBrokerUserPassword_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.EmbeddedMqttBrokerSecretPassword = SettingstxtEmbeddedBrokerUserPassword.Text.Trim();
+        }
+
+        private void SettingstxtExternalMqttBrokerName_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ExternalMqttBrokerName = SettingstxtExternalMqttBrokerName.Text.Trim();
+        }
+
+        private void SettingstxtExternalMqttBrokerPort_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ExternalMqttBrokerPort = int.Parse(SettingstxtExternalMqttBrokerPort.Text);
+        }
+
+        private void SettingstxtExternalMqttBrokerUserName_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ExternalMqttBrokerUserName = SettingstxtExternalMqttBrokerUserName.Text.Trim();
+        }
+
+        private void SettingstxtExternalMqttBrokerUserPassword_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ExternalMqttBrokerSecretPassword = SettingstxtExternalMqttBrokerUserPassword.Text.Trim();
+        }
+
+        private void SettingstxtExternalMqttBrokerPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

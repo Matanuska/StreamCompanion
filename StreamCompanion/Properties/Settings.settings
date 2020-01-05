@@ -2,14 +2,26 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StreamCompanion.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="MqttBrokerPort" Type="System.Int32" Scope="Application">
+    <Setting Name="EmbeddedMqttBrokerPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1883</Value>
     </Setting>
-    <Setting Name="MqttBrokerUserName" Type="System.String" Scope="Application">
+    <Setting Name="EmbeddeMqttBrokerUserName" Type="System.String" Scope="User">
       <Value Profile="(Default)">mySecretUser</Value>
     </Setting>
-    <Setting Name="MqttBrokerSecretPassword" Type="System.String" Scope="Application">
+    <Setting Name="EmbeddedMqttBrokerSecretPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">mySecretPassword</Value>
+    </Setting>
+    <Setting Name="ExternalMqttBrokerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExternalMqttBrokerPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1883</Value>
+    </Setting>
+    <Setting Name="ExternalMqttBrokerUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExternalMqttBrokerSecretPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
