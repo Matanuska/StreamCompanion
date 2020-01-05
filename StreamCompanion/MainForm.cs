@@ -604,7 +604,8 @@ namespace StreamCompanion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            advancedTextBox1.Highligth(Color.Red);               
+           
+            advancedTextBox1.SetBorderColor(Color.Red);
         }
 
         private void btnSaveSettings_Click(object sender, EventArgs e)
@@ -614,8 +615,10 @@ namespace StreamCompanion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            advancedTextBox1.Highligth(Color.Transparent);
+            advancedTextBox1.SetBorderColor(Color.Transparent);
         }
+
+
     }
 
 }

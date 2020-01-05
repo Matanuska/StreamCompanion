@@ -25,17 +25,14 @@ namespace StreamCompanion.Controls
             set { textBox.Text = value; }
 
         }
-
-        TextBox textBox = new TextBox();
-
+      
         public AdvancedTextBox()
         {
+            
             InitializeComponent();
             this.Paint += new PaintEventHandler(AdvancedTextBox_Paint);
 
             this.Resize += new EventHandler(AdvancedTextBox_Resize);
-
-//            textBox.KeyPress += new KeyPressEventHandler(textBox_KeyPress);   
 
             textBox.Multiline = false;            
 
@@ -71,7 +68,7 @@ namespace StreamCompanion.Controls
             ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, currentBorderColor, ButtonBorderStyle.Solid);
         }
 
-        public void Highligth(Color? color)
+        public void SetBorderColor(Color? color)
         {
             if (color != null)
             {

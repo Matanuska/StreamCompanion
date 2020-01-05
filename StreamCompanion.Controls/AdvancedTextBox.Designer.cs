@@ -28,19 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // textBox
+            // 
+            this.textBox.Location = new System.Drawing.Point(3, 3);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(100, 20);
+            this.textBox.TabIndex = 0;
             // 
             // AdvancedTextBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox);
             this.Name = "AdvancedTextBox";
             this.Size = new System.Drawing.Size(102, 23);
             this.Load += new System.EventHandler(this.AdvancedTextBox_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        public System.Windows.Forms.TextBox textBox;
     }
 }

@@ -522,10 +522,11 @@ namespace StreamCompanion.Controls
                     }
                     previousdata = datatosave;
                 }
+                txtOutputFile.SetBorderColor(Color.Transparent);
             }
             catch (System.IO.DirectoryNotFoundException)
             {
-                txtOutputFile.Highligth(Color.Red);
+                txtOutputFile.SetBorderColor(Color.Red);
             }
 
 
