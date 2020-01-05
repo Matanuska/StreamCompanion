@@ -79,7 +79,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtOutputFile = new StreamCompanion.Controls.EnhancedTextBox();
+            this.txtOutputFile = new StreamCompanion.Controls.AdvancedTextBox();
             this.grpFormat.SuspendLayout();
             this.panelPredefinedOutput.SuspendLayout();
             this.panelPredefinedOutputCulture.SuspendLayout();
@@ -569,10 +569,9 @@
             // 
             // txtOutputFile
             // 
-            this.txtOutputFile.Location = new System.Drawing.Point(64, 20);
+            this.txtOutputFile.Location = new System.Drawing.Point(64, 15);
             this.txtOutputFile.Name = "txtOutputFile";
-            this.txtOutputFile.OnError = false;
-            this.txtOutputFile.Size = new System.Drawing.Size(604, 20);
+            this.txtOutputFile.Size = new System.Drawing.Size(604, 28);
             this.txtOutputFile.TabIndex = 1;
             this.txtOutputFile.TextChanged += new System.EventHandler(this.txtOutputFile_TextChanged);
             // 
@@ -637,7 +636,7 @@
         private System.Windows.Forms.CheckedListBox chkListOutputSerialPort;
         private System.Windows.Forms.Label lblOutputSerialPort;
         private System.Windows.Forms.Button btnOpenFileDialog;
-        private StreamCompanion.Controls.EnhancedTextBox txtOutputFile;
+        private StreamCompanion.Controls.AdvancedTextBox txtOutputFile;
         private System.Windows.Forms.TextBox txtMQTTTopic;
         private System.Windows.Forms.Label lblMQTTTopic;
         private System.Windows.Forms.TextBox txtOutputMQTTSubscription;

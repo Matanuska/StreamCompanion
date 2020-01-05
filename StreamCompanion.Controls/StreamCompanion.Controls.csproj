@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdvancedTextBox.Designer.cs">
+      <DependentUpon>AdvancedTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChronoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdvancedTextBox.resx">
+      <DependentUpon>AdvancedTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DateTimeUserControl.resx">
       <DependentUpon>DateTimeUserControl.cs</DependentUpon>
     </EmbeddedResource>

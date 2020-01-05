@@ -45,7 +45,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.settingsPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveSettings = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TimersPanel = new System.Windows.Forms.Panel();
@@ -80,6 +80,9 @@
             this.SettingstxtExternalMqttBrokerPort = new System.Windows.Forms.TextBox();
             this.SettingstxtExternalMqttBrokerUserName = new System.Windows.Forms.TextBox();
             this.SettingstxtExternalMqttBrokerUserPassword = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.advancedTextBox1 = new StreamCompanion.Controls.AdvancedTextBox();
             tabCountdownZero = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1tabDateAndTime.SuspendLayout();
@@ -93,6 +96,7 @@
             this.grpMqtt.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -203,16 +207,16 @@
             // settingsPanel
             // 
             this.settingsPanel.Controls.Add(this.tabControl2);
-            this.settingsPanel.Controls.Add(this.button1);
+            this.settingsPanel.Controls.Add(this.btnSaveSettings);
             resources.ApplyResources(this.settingsPanel, "settingsPanel");
             this.settingsPanel.Name = "settingsPanel";
             // 
-            // button1
+            // btnSaveSettings
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            resources.ApplyResources(this.btnSaveSettings, "btnSaveSettings");
+            this.btnSaveSettings.Name = "btnSaveSettings";
+            this.btnSaveSettings.UseVisualStyleBackColor = true;
+            this.btnSaveSettings.Click += new System.EventHandler(this.btnSaveSettings_Click);
             // 
             // statusStrip1
             // 
@@ -337,6 +341,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.advancedTextBox1);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.button2);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -446,6 +453,25 @@
             this.SettingstxtExternalMqttBrokerUserPassword.Name = "SettingstxtExternalMqttBrokerUserPassword";
             this.SettingstxtExternalMqttBrokerUserPassword.TextChanged += new System.EventHandler(this.SettingstxtExternalMqttBrokerUserPassword_TextChanged);
             // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // advancedTextBox1
+            // 
+            resources.ApplyResources(this.advancedTextBox1, "advancedTextBox1");
+            this.advancedTextBox1.Name = "advancedTextBox1";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -475,6 +501,7 @@
             this.grpMqtt.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -494,7 +521,7 @@
         private System.Windows.Forms.TabPage tabChrono;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Panel settingsPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveSettings;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabPage tabCountdownToDate;
@@ -536,5 +563,8 @@
         private System.Windows.Forms.TextBox SettingstxtExternalMqttBrokerUserName;
         private System.Windows.Forms.TextBox SettingstxtExternalMqttBrokerPort;
         private System.Windows.Forms.TextBox SettingstxtExternalMqttBrokerName;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private Controls.AdvancedTextBox advancedTextBox1;
     }
 }

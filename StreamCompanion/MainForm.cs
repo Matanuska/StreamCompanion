@@ -278,10 +278,6 @@ namespace StreamCompanion
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Save();
-        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -604,6 +600,21 @@ namespace StreamCompanion
             {
                 e.Handled = true;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            advancedTextBox1.Highligth(Color.Red);               
+        }
+
+        private void btnSaveSettings_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            advancedTextBox1.Highligth(Color.Transparent);
         }
     }
 

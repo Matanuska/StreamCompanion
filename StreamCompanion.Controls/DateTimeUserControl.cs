@@ -525,7 +525,7 @@ namespace StreamCompanion.Controls
             }
             catch (System.IO.DirectoryNotFoundException)
             {
-                txtOutputFile.OnError = true;
+                txtOutputFile.Highligth(Color.Red);
             }
 
 
@@ -729,6 +729,10 @@ namespace StreamCompanion.Controls
             {
 
             }
+        }
+
+        private void txtOutputFile_KeyPress(object sender, KeyPressEventArgs e)
+        {            
         }
     }
 
